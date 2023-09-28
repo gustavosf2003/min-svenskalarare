@@ -2,67 +2,55 @@ import { ChatWindow } from "@/components/ChatWindow";
 
 export default function Home() {
   const InfoCard = (
-    <div className="p-4 md:p-8 rounded bg-[#25252d] w-full max-h-[85%] overflow-hidden">
-      <h1 className="text-3xl md:text-4xl mb-4">
-        ▲ Next.js + LangChain.js 🦜🔗
-      </h1>
+    <div className="p-4 md:p-8 rounded bg-[#25252d] w-full max-h-[85%]  lg:overflow-hidden overflow-y-auto">
+      <a href="https://github.com/gustavosf2003">
+        <h1 className="mb-4 text-3xl text-white md:text-4xl">
+          Min Svenska Lärare 🇸🇪 🔗
+        </h1>
+      </a>
       <ul>
         <li className="text-l">
-          🤝
+          👨‍🏫
           <span className="ml-2">
-            This template showcases a simple chatbot using{" "}
-            <a href="https://js.langchain.com/" target="_blank">
-              LangChain.js
-            </a>{" "}
-            and the Vercel{" "}
-            <a href="https://sdk.vercel.ai/docs" target="_blank">
-              AI SDK
-            </a>{" "}
-            in a{" "}
-            <a href="https://nextjs.org/" target="_blank">
-              Next.js
-            </a>{" "}
-            project.
-          </span>
-        </li>
-        <li className="hidden text-l md:block">
-          💻
-          <span className="ml-2">
-            You can find the prompt and model logic for this use-case in{" "}
-            <code>app/api/chat/route.ts</code>.
-          </span>
-        </li>
-        <li>
-          🏴‍☠️
-          <span className="ml-2">
-            By default, the bot is pretending to be a pirate, but you can change
-            the prompt to whatever you want!
-          </span>
-        </li>
-        <li className="hidden text-l md:block">
-          🎨
-          <span className="ml-2">
-            The main frontend logic is found in <code>app/page.tsx</code>.
+            Welcome to the Min Swenska Lärare. I am Linnea, your friendly
+            virtual Swedish language teacher!
           </span>
         </li>
         <li className="text-l">
-          🐙
+          📝
           <span className="ml-2">
-            This template is open source - you can see the source code and
-            deploy your own version{" "}
-            <a
-              href="https://github.com/langchain-ai/langchain-nextjs-template"
-              target="_blank"
-            >
-              from the GitHub repo
-            </a>
-            !
+            Create Homework: Linnea can generate custom homework tailored to
+            their language proficiency level and subjects
           </span>
         </li>
+        <li className="text-l">
+          🏋️‍♀️
+          <span className="ml-2">
+            Generate Exercises: Linnea can generate exercises to help you
+            reinforce your Swedish language skills, from vocabulary quizzes to
+            verb conjugation drills
+          </span>
+        </li>
+        <li className="text-l">
+          📖
+          <span className="ml-2">
+            Improve your reading skills: Here you can ask to read articles,
+            poems and even fairy tales in Swedish. Please note that the
+            available articles are up until August 2021.
+          </span>
+        </li>
+        <li className="text-l">
+          🌟
+          <span className="ml-2">
+            Don&apos;t hesitate to ask her anything, whether it&apos;s about
+            Swedish traditions, idioms, or any aspect of the language
+          </span>
+        </li>
+
         <li className="text-l">
           👇
           <span className="ml-2">
-            Try asking e.g. <code>What is it like to be a pirate?</code> below!
+            Try asking e.g. <code>Give 10 words related to sports </code> below!
           </span>
         </li>
       </ul>
@@ -70,10 +58,10 @@ export default function Home() {
   );
   return (
     <ChatWindow
-      endpoint="api/chat"
-      emoji="🏴‍☠️"
-      titleText="Patchy the Chatty Pirate"
-      placeholder="I'm an LLM pretending to be a pirate! Ask me about the pirate life!"
+      endpoint="chat/swedish"
+      emoji="🤖"
+      titleText="Min svenska lärare"
+      placeholder="Type your message"
       emptyStateComponent={InfoCard}
     ></ChatWindow>
   );
