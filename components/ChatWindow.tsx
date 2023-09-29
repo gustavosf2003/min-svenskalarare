@@ -139,7 +139,7 @@ export function ChatWindow(props: {
   }
 
   return (
-    <div className="flex flex-col items-center p-4 overflow-hidden rounded md:p-8 grow">
+    <div className="flex flex-col items-center overflow-hidden rounded md:p-8 grow">
       <h2 className={`${messages.length > 0 ? "" : "hidden"} text-2xl`}>
         🇸🇪 {titleText} 🇸🇪
       </h2>
@@ -147,7 +147,7 @@ export function ChatWindow(props: {
         {messages.length === 0 ? emptyStateComponent : ""}
       </div>
       <div
-        className="flex flex-col-reverse w-full mb-4 overflow-auto transition-[flex-grow] ease-in-out mt-2"
+        className="flex   flex-col-reverse w-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
         ref={messageContainerRef}
       >
         {messages.length > 0
