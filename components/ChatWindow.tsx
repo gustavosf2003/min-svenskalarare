@@ -170,8 +170,8 @@ export function ChatWindow(props: {
       <form onSubmit={sendMessage} className="flex flex-col w-full">
         <div className="flex">{intemediateStepsToggle}</div>
         <div className="flex w-full gap-4 mt-4 lg:gap-8">
-          <input
-            className="w-full p-4 px-3 py-2 border border-gray-300 rounded shadow-sm grow"
+          <textarea
+            className="w-full h-16 px-3 py-2 pt-5 border border-gray-300 rounded shadow-sm resize-none grow "
             value={input}
             placeholder={placeholder ?? "What's it like to be a pirate?"}
             onChange={handleInputChange}

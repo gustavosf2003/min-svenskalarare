@@ -8,8 +8,8 @@ import {
   LengthBasedExampleSelector,
   PromptTemplate,
 } from "langchain/prompts";
-import { SwedishQuestions } from "./questions";
-import { SwedishPrompt } from "./prompt";
+import { dictionaryPrompt } from "./prompt";
+import { dictionaryQuestions } from "./questions";
 
 export const runtime = "edge";
 
@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     });
 
     const exampleSelector = await LengthBasedExampleSelector.fromExamples(
-      SwedishQuestions,
+      dictionaryQuestions,
       {
         examplePrompt,
         maxLength: 2000,
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
     const dynamicPrompt = new FewShotPromptTemplate({
       exampleSelector,
       examplePrompt,
-      prefix: SwedishPrompt,
+      prefix: dictionaryPrompt,
       suffix: "Input: {adjective}\nOutput:",
       inputVariables: ["adjective"],
     });
@@ -50,11 +50,12 @@ export async function POST(req: NextRequest) {
       azureOpenAIApiInstanceName: process.env.API_INSTANCE_NAME,
       azureOpenAIApiDeploymentName: process.env.API_DEPLOYMENT_NAME,
       azureOpenAIApiVersion: process.env.API_VERSION,
-      temperature: 0.7,
-      topP: 0.95,
+      temperature: 1,
+      topP: 1,
       frequencyPenalty: 0,
       presencePenalty: 0,
     });
+
     const outputParser = new BytesOutputParser();
 
     const chain = dynamicPrompt.pipe(model).pipe(outputParser);

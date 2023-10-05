@@ -1,4 +1,4 @@
-export const SwedishQuestions = [
+export const dictionaryQuestions = [
   {
     input: "give me 12 verbs",
     output: `| Infinitiv   | Presens   | Preteritum | Supinum    |
@@ -303,62 +303,391 @@ Exempel:
       `,
   },
   {
-    input: "create a text about swedish weather",
-    output: `Sverige upplever olika väderförhållanden under året. Under vintermånaderna, särskilt i de norra regionerna, täcks landet av snö och skapar en naturskön vintermiljö. Temperaturerna kan sjunka avsevärt, ofta under fryspunkten, vilket gör det idealiskt för vintersport som skidåkning och skridskoåkning.
+    input: "målade",
+    output: `"målade" betyder "painted".
 
-    På våren, när snön smälter, vaknar Sverige till liv med blomstrande blommor och frodig grönska. Sommaren bjuder på behagliga, milda temperaturer, och många svenskar njuter av utomhusaktiviteter och långa dagar med mycket dagsljus. Det är en utmärkt tid för vandring, cykling och att utforska landets vackra landskap.
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att måla  | målar  |  målade  | har målat |
 
-    Hösten målar Sverige i levande färger när löven ändrar färg och den krispiga luften antyder den kommande vintern. Nederbörden är relativt jämnt fördelad under året med sporadiska sommarskurar.
+Exempel:
 
-    Sammanfattningsvis erbjuder Sveriges väder en unik charm under varje säsong, vilket gör det till en destination som är värd att besöka året om.`,
+      1. Jag målar en tavla.
+      2. Hon älskar att måla landskap.
+      3. Vi målade huset förra sommaren.
+      `,
   },
   {
-    input: "text about differences between portugal and sweden",
-    output: `Portugal ligger i södra Europa och har varma, soliga somrar och milda vintrar. Sverige å andra sidan ligger i norra Europa och har en blandning av kalla vintrar med snö och milda somrar med mycket dagsljus.
+    input: "sjöng",
+    output: `"sjöng" betyder "sang".
 
-    Portugal är känt för sin historia av utforskning, vilket har påverkat dess mat och språk. Sverige är känt för sin design och innovation, vilket gör det modernt och enkelt.
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att sjunga  | sjunger  | sjöng   | har sjungit |
 
-    Portugisisk mat handlar om skaldjur, bakverk som pastéis de nata och en rätt som kallas bacalhau (saltad torsk). I Sverige hittar du saker som köttbullar, sill och en traditionell buffé som kallas smörgåsbord.
+Exempel:
 
-    Portugisiska är Portugals språk, medan svenska är Sveriges språk. De tillhör olika språkfamiljer, med portugisiska som liknar andra romanska språk och svenska som liknar andra germanska språk.
-
-    I Portugal tar människor det lugnt och tar ibland tupplurar (siestas). I Sverige är saker mer organiserade och människor balanserar arbete och liv väl, med bra stöd från regeringen.`,
+      1. Barnen sjöng glatt på skolavslutningen
+      2. Hon sjunger vackert.
+      3. Jag sjunger en sång.
+      `,
   },
   {
-    input: "can you create sentences about swedish food",
-    output: `
-    1. Svensk mat innehåller ofta tröstande och hjärtliga rätter, perfekt för de kalla nordiska vintrarna.
-    2. En av de mest ikoniska svenska rätterna är köttbullar, vanligtvis serverade med lingonsås och krämig potatismos.
-    3. Strömming är en grundpelare i det svenska köket och tillagas i olika smakrika marinader, såsom inlagd strömming och strömming i senapssås.
-    4. Gravlax, tunt skivad lax som har lagrats med en blandning av socker, salt och dill, är en populär aptitretare i Sverige.
-    5. Smörgåsbord, en traditionell svensk buffé, inkluderar lufttorkat kött, ostar och inlagda grönsaker.
-    6. Rågbröd, känt som knäckebröd, är en vanlig tillbehör till många svenska måltider och toppas ofta med smör och ost.
-    7. Surströmming, fermenterad strömming, är en smak som även svenskar förvärvar på grund av dess starka lukt och kraftiga smak.
-    8. Svenska köket inkluderar också rätter som pyttipanna, en hash gjord av tärnad potatis, lök och olika köttsorter, oftast serverad med ett stekt ägg.
-    9. När det kommer till sötsaker, njuter svenskar av fika, ett kaffepaus med godsaker som kanelbullar och mandeltårta.
-    10. För en uppfriskande dryck, prova traditionell svensk snaps eller akvavit, ofta konsumerad under festliga tillställningar och firanden.
+    input: "gå",
+    output: `"gå" betyder "go" eller "walk".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att gå  | går  | gick   | har gått |
+
+Exempel:
+
+      1. Jag går till skolan varje morgon.
+      2. Vi gick en lång promenad i parken igår.
+      3. Hon gick försiktigt på den hala isen.
+      `,
+  },
+  {
+    input: "ska",
+    output: `"ska" betyder "will".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att skola  | ska  | skulle   | har skolat |
+
+Exempel:
+
+      1. Det ska regna imorgon.
+      2. Vi ska resa till Paris i sommar.
+      3. Jag ska träffa dig imorgon
+      `,
+  },
+  {
+    input: "meaming of tittade",
+    output: `"tittade" betyder "looked".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att titta  | tittar  | tittade   | har tittat |
+
+Exempel:
+
+      1. Jag tittar på TV.
+      2. Han tittade ut genom fönstret.
+      3. Vi ska titta på den nya filmen ikväll.
+      `,
+  },
+  {
+    input: "dansat",
+    output: `"dansat" betyder "have danced".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att dansa  | dansar  | dansade   | har dansat |
+
+Exempel:
+
+      1. Jag dansar på festen ikväll.
+      2. De dansade tillsammans hela natten.
+      3. Hon älskar att dansa balett.
+      `,
+  },
+  {
+    input: "leka",
+    output: `"leka" betyder "play".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att leka  | leker  | lekte   | har lekt |
+
+Exempel:
+
+      1. Barnen leker i parken.
+      2. Vi brukade leka gömme när vi var små.
+      3. Katten älskar att leka med sin leksaksmus.
+      `,
+  },
+  {
+    input: "skrattar",
+    output: `"skrattar" betyder "to laugh".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att skratta  | skrattar  | skrattade   | har skrattat |
+
+Exempel:
+
+      1. Vi skrattar åt skämtet.
+      2. Barnen skrattade högt när de såg clownen.
+      3. Hon skrattar alltid när hon är glad.
+      `,
+  },
+  {
+    input: "avlider",
+    output: `"avlider" betyder "pass away".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att avlida  | avlider  | avled   | har avlidit |
+
+Exempel:
+
+      1. Min farfar avled i en ålder av 92 år.
+      2. Trots att läkarna gjorde allt de kunde, avled patienten under natten.
+      3. Han avled fridfullt i sitt hem omgiven av sina nära och kära.
+      `,
+  },
+  {
+    input: "Skända",
+    output: `"skända" betyder "to defile".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att skända  | skändar  | skändade   | har skändat |
+
+Exempel:
+
+      1. Han skändade boken genom att riva ut sidorna.
+      2. Tjuven skändade kyrkans ingång genom att klottra på väggarna.
+      3. Att skända en minnesplats är respektlöst.
+      `,
+  },
+  {
+    input: "Försmå",
+    output: `"Försmå" betyder "to scorn".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att försmå  | försmår  | försmådde   | har försmått  |
+
+Exempel:
+
+      1. Han försmådde hennes vänförfrågan på sociala medier.
+      2. Det är viktigt att inte försmå andra människor på grund av deras åsikter
+      3. Hon försmådde hans förslag att dela med sig av sina leksaker.
+      `,
+  },
+  {
+    input: "plundrat",
+    output: `"plundrat" betyder "plundered".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att plundra  | plundrar  | plundrade   | har pluntrat  |
+
+Exempel:
+
+      1. Piraterna plundrade handelsfartyget och stal dess last.
+      2. Under oroligheterna plundrades flera affärer och butiker i staden.
+      3. Efter erövringen plundrade soldaterna staden och tog med sig värdefulla skatter.
+      `,
+  },
+  {
+    input: "slutade",
+    output: `"slutade" betyder "finished".
+
+| Infinitiv  | Present | Preteritum | Perfekt   |
+| ---------- | ------- | ---------- | --------- |
+| Att sluta  | slutar  | slutade   | har slutat  |
+
+Exempel:
+
+      1. Jag slutade jobbet igår.
+      2. Hon slutade sjunga när publiken applåderade.
+      3. Vi slutade äta socker för att bli friskare.
+      `,
+  },
+
+  //  ===================  OTHER WORDS ======================//
+
+  {
+    input: "för att",
+    output: `"För att" används som en sammansatt konjunktion i svenskan. Det kan översättas till engelska som "in order to" eller "to"..
+
+Exempel:
+
+      1. Han läste böcker för att lära sig mer
+      2. Jag går till affären för att köpa mjölk
+      3. Hon tränar varje dag för att bli starkare.
+      `,
+  },
+  {
+    input: "trots att",
+    output: `"Trots att" betyder "even though" eller "although" på engelska. Det används för att visa att något är sant eller händer, trots en motståndande faktor eller hinder.
+
+Exempel:
+
+      1. Han läste böcker för att lära sig mer
+      2. Jag går till affären för att köpa mjölk
+      3. Hon tränar varje dag för att bli starkare.
+      `,
+  },
+  {
+    input: "eftersom",
+    output: `Uttrycket "eftersom" på svenska används för att ange en orsak eller förklaring till något som händer eller är sant. Det kan översättas till engelska som "because," "since," eller "as."
+
+Exempel:
+
+      1. Jag gick inte till jobbet idag, eftersom jag är sjuk.
+      2. Eftersom det regnar ute, tar jag med mig ett paraply.
+      3. Jag tycker om att läsa, eftersom det hjälper mig att slappna av.
+      `,
+  },
+  {
+    input: "ibland",
+    output: `"ibland" är en adverb som används för att beskriva att något händer, sker, eller förekommer med viss frekvens, men inte hela tiden. "Ibland" betyder "sometimes"
+
+Exempel:
+
+      1. Jag träffar mina vänner ibland, men vi är alla upptagna med olika saker.
+      2. Ibland äter vi pizza till middag när vi inte känner för att laga mat.
+      3. Jag går ibland till gymmet för att träna.
+      `,
+  },
+  {
+    input: "trolligtvis",
+    output: `Ordet "troligtvis" används för att ange en hög grad av sannolikhet eller att något är troligt att hända. Det används för att indikera att något är sannolikt att inträffa eller är sant. "Trolligtvis" betyder "probably" eller "likely" på engelska.
+
+Exempel:
+
+      1. Det kommer troligtvis att regna imorgon.
+      2. Hon kommer troligtvis att komma till festen.
+      3. Vi kommer troligtvis att åka till Spanien i sommar.
+      `,
+  },
+
+  // ==================== ADJECTIVES  ====================== //
+
+  {
+    input: "Artig",
+    output: `Ordet "artig" på svenska betyder "polite" eller "well-mannered" på engelska.
+
+Exempel:
+
+      1. Barnet tackade artigt för presenten.
+      2. Hon var alltid artig och sa "snälla" och "tack."
+      3. Under middagen var gästerna mycket artiga mot varandra.
+      `,
+  },
+  {
+    input: "Gulliga",
+    output: `Ordet "gulliga" betyder "cute" eller "sweet".
+
+Exempel:
+
+      1. Barnet var gulligt när det sa "tack" till sin mamma.
+      2. Hon hade en gullig hund som hette "Bella."
+      3. Han hade en gullig flickvän som hette "Anna."
+      `,
+  },
+  {
+    input: "Vänlig",
+    output: `Ordet "vänlig" betyder "friendly" eller "kind."
+
+Exempel:
+
+      1. Hon var en vänlig person som alltid hjälpte andra.
+      2. Han var en vänlig granne som alltid hälsade på alla.
+      3. De var vänliga mot varandra.
     `,
   },
   {
-    input: "hey. create a text about french cusine",
-    output: `Fransk matlagning, även känd som "haute cuisine," är berömd över hela världen för sin elegans och sofistikation. Den kännetecknas av användningen av högkvalitativa ingredienser och noggranna förberedningstekniker. Franska rätter präglas ofta av rika smaker och komplexa såser. Några ikoniska franska rätter inkluderar coq au vin, bœuf bourguignon och ratatouille. Fransk matlagning är också känd för sina bakverk, som croissanter, macarons och crème brûlée. Det är en sann hyllning till kulinarisk konst.`,
+    input: "Snäll",
+    output: `Ordet "snäll" betyder "kind" eller "nice."
+
+Exempel:
+
+      1. Hon var en snäll person som alltid hjälpte andra.
+      2. Han var en snäll granne som alltid hälsade på alla.
+      3. De var snälla mot varandra.
+      `,
   },
   {
-    input: "fix grammar:  Jag vill var en stort bilen i framtiden",
-    output: "Jag vill ha en stort bilen i framtiden",
+    input: "Roliga",
+    output: `Ordet "rolig" betyder "funny" eller "fun."
+
+Exempel:
+
+      1. Hon var en rolig person som alltid skämtade.
+      2. Han var en rolig granne som alltid skämtade.
+      3. De var roliga mot varandra.
+        `,
   },
   {
-    input: "Correct grammar: Jag vill ha en stort bilen i framtiden",
-    output: "Din mening är korrekt! Bra jobbet :)",
+    input: "Intressant",
+    output: `Ordet "intressant" betyder "interesting."
+
+Exempel:
+
+      1. Hon var en intressant person som alltid berättade intressanta historier.
+      2. Han var en intressant granne som alltid berättade intressanta historier.
+      3. De var intressanta mot varandra.
+`,
   },
   {
-    input: "Create 10 questions",
-    output:
-      "1. Vilken typ av filmer är din favorit och vilka film gillar du mest?\n 2. Vad var sista bok som läste du? \n3. Kan du spela ett musikinstrument?\n 4. Brukade du att ställa till problem när du var i skolan? \n5. Finns det många sjöar i Ukraina?\n 6. Hur hamnade du i Sverige? \n7. Vilken sak sakna du mest från Sverige?\n 8. Hände med dig några roliga situationer när du pratade svenska?\n 9. Hur mycket tid spenderade du för att lära sig svenska?\n 10. Föredrar du att besöka stranden eller fjällar? \n11. Var är nästa ställe du kommer att besöka?",
+    input: "Söt",
+    output: `Ordet "söt" betyder "cute."
+
+Exempel:
+
+      1. Hon var en söt person som alltid skämtade.
+      2. Han var en söt granne som alltid skämtade.
+      3. De var söta mot varandra.
+`,
   },
   {
-    input: "Give me 3 exercises to my students about Snow White",
-    output:
-      "Här är 3 frågor om Snow White Saga \n1. Vad tycker du om sagan Snövit?. Skriv ner dina tankar om berättelsen \n2. Varför kallades  Snövit för Snövit?\n 3.Beskriv den onda drottningen i Snövit, vilken personlighet har hon?",
+    input: "Vackert",
+    output: `Ordet "vackert" betyder "beautiful."
+
+Exempel:
+
+      1. Hon var en vacker person som alltid skämtade.
+      2. Han var en vacker granne som alltid skämtade.
+      3. De var vackra mot varandra.
+              `,
+  },
+  {
+    input: "Snygg",
+    output: `Ordet "snygg" betyder "handsome" eller "pretty."
+
+Exempel:
+
+      1. Hon var en snygg person som alltid skämtade.
+      2. Han var en snygg granne som alltid skämtade.
+      3. De var snygga mot varandra.
+                `,
+  },
+  {
+    input: "Bra",
+    output: `Ordet "bra" betyder "good."
+
+Exempel:
+
+      1. Hon var en bra person som alltid skämtade.
+      2. Han var en bra granne som alltid skämtade.
+      3. De var bra mot varandra.
+`,
+  },
+  {
+    input: "Dålig",
+    output: `Ordet "dålig" betyder "bad."
+
+Exempel:
+
+      1. Hon var en dålig person som alltid skämtade.
+      2. Han var en dålig granne som alltid skämtade.
+      3. De var dåliga mot varandra.
+                    `,
+  },
+  {
+    input: "Stark",
+    output: `Ordet "stark" betyder "strong."
+
+Exempel:
+
+      1. Hon var en stark person som alltid skämtade.
+      2. Han var en stark granne som alltid skämtade.
+      3. De var starka mot varandra.
+                      `,
   },
 ];

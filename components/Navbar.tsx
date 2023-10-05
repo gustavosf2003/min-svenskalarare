@@ -4,22 +4,16 @@ import { usePathname } from "next/navigation";
 
 const NAVBAR_ICONS = [
   {
-    name: "Svenska",
+    name: "Lärare",
     icon: "🇸🇪",
-    abbreviation: "Sv",
+    abbreviation: "Lärare",
     route: "/",
   },
   {
-    name: "Português",
-    icon: "🇵🇹",
-    abbreviation: "Pt",
-    route: "/portuguese",
-  },
-  {
-    name: "українська",
-    icon: "🇺🇦",
-    abbreviation: "Uk",
-    route: "/ukrainian",
+    name: "Lexikon",
+    icon: "📖",
+    abbreviation: "Lexikon",
+    route: "/dictionary",
   },
 ];
 
