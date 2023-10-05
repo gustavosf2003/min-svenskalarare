@@ -562,6 +562,11 @@ Exempel:
     input: "Artig",
     output: `Ordet "artig" på svenska betyder "polite" eller "well-mannered" på engelska.
 
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| artig  | artigt  | artiga   |
+
+
 Exempel:
 
       1. Barnet tackade artigt för presenten.
@@ -573,6 +578,10 @@ Exempel:
     input: "Gulliga",
     output: `Ordet "gulliga" betyder "cute" eller "sweet".
 
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| gullig  | gulligt  | gulliga   |
+
 Exempel:
 
       1. Barnet var gulligt när det sa "tack" till sin mamma.
@@ -582,7 +591,11 @@ Exempel:
   },
   {
     input: "Vänlig",
-    output: `Ordet "vänlig" betyder "friendly" eller "kind."
+    output: `Ordet "vänlig" betyder "friendly" eller "kind"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| vänlig  | vänligt  | vänliga   |
 
 Exempel:
 
@@ -593,7 +606,11 @@ Exempel:
   },
   {
     input: "Snäll",
-    output: `Ordet "snäll" betyder "kind" eller "nice."
+    output: `Ordet "snäll" betyder "kind" eller "nice"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| snäll  | snällt  | snälla   |
 
 Exempel:
 
@@ -604,7 +621,11 @@ Exempel:
   },
   {
     input: "Roliga",
-    output: `Ordet "rolig" betyder "funny" eller "fun."
+    output: `Ordet "rolig" betyder "funny" eller "fun"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| rolig  | roligt  | roliga   |
 
 Exempel:
 
@@ -617,6 +638,10 @@ Exempel:
     input: "Intressant",
     output: `Ordet "intressant" betyder "interesting."
 
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| Intressant  | Intressant  | Intressanta   |
+
 Exempel:
 
       1. Hon var en intressant person som alltid berättade intressanta historier.
@@ -626,7 +651,11 @@ Exempel:
   },
   {
     input: "Söt",
-    output: `Ordet "söt" betyder "cute."
+    output: `Ordet "söt" betyder "cute"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| söt  | sött  | söta   |
 
 Exempel:
 
@@ -637,7 +666,11 @@ Exempel:
   },
   {
     input: "Vackert",
-    output: `Ordet "vackert" betyder "beautiful."
+    output: `Ordet "vackert" betyder "beautiful"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| vacker  | vackert  | vackra   |
 
 Exempel:
 
@@ -648,7 +681,11 @@ Exempel:
   },
   {
     input: "Snygg",
-    output: `Ordet "snygg" betyder "handsome" eller "pretty."
+    output: `Ordet "snygg" betyder "handsome" eller "pretty"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| snygg  | snyggt  | snygga   |
 
 Exempel:
 
@@ -658,19 +695,12 @@ Exempel:
                 `,
   },
   {
-    input: "Bra",
-    output: `Ordet "bra" betyder "good."
-
-Exempel:
-
-      1. Hon var en bra person som alltid skämtade.
-      2. Han var en bra granne som alltid skämtade.
-      3. De var bra mot varandra.
-`,
-  },
-  {
     input: "Dålig",
-    output: `Ordet "dålig" betyder "bad."
+    output: `Ordet "dålig" betyder "bad"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| dålig  | dåligt  | dåliga   |
 
 Exempel:
 
@@ -681,13 +711,92 @@ Exempel:
   },
   {
     input: "Stark",
-    output: `Ordet "stark" betyder "strong."
+    output: `Ordet "stark" betyder "strong"
+
+| Utrum | Neutrum | Plural   |
+| ---------- | ------- | ---------- |
+| stark  | starkt  | starka   |
 
 Exempel:
 
       1. Hon var en stark person som alltid skämtade.
       2. Han var en stark granne som alltid skämtade.
       3. De var starka mot varandra.
-                      `,
+`,
+  },
+  {
+    input: "svårare",
+    output: `Ordet "stark" betyder "stronger"
+
+| Adjektiv | Komparativ | Superlativ   |
+| ---------- | ------- | ---------- |
+| Svår  | Svårare  | Svåraste   |
+
+Exempel:
+
+      1. Att lära sig ett nytt språk kan vara svårt
+      2. Matteuppgifterna idag var svårare än de igår
+      3. Tentamenen var den svåraste jag någonsin har gjort.
+      `,
+  },
+  {
+    input: "lättare",
+    output: `Ordet "lätt" betyder "easier"
+
+| Adjektiv | Komparativ | Superlativ   |
+| ---------- | ------- | ---------- |
+| Lätt  | Lättare  | Lättaste   |
+
+Exempel:
+
+      1. Att lära sig ett nytt språk kan vara lätt
+      2. Matteuppgifterna idag var lättare än de igår
+      3. Tentamenen var den lättaste jag någonsin har gjort.
+  `,
+  },
+  {
+    input: "roligare",
+    output: `Ordet "rolig" betyder "funnier"
+
+| Adjektiv | Komparativ | Superlativ   |
+| ---------- | ------- | ---------- |
+| Rolig  | Roligare  | Roligast   |
+
+Exempel:
+
+      1. Den tecknade serien är riktigt rolig
+      2. Skämtet du berättade igår var roligare än det idag
+      3. Den där sketchen på TV var den roligast jag sett på länge
+  `,
+  },
+  {
+    input: "roligast",
+    output: `Ordet "rolig" betyder "funniest"
+
+| Adjektiv | Komparativ | Superlativ   |
+| ---------- | ------- | ---------- |
+| Rolig  | Roligare  | Roligast   |
+
+Exempel:
+
+      1. Den tecknade serien är riktigt rolig
+      2. Skämtet du berättade igår var roligare än det idag
+      3. Den där sketchen på TV var den roligast jag sett på länge
+    `,
+  },
+  {
+    input: "allvarlig",
+    output: `Ordet "allvarlig" betyder "serious"
+
+| Adjektiv | Komparativ | Superlativ   |
+| ---------- | ------- | ---------- |
+| Allvarlig  | Mer allvarlig  | Mest allvarlig   |
+
+Exempel:
+
+      1. Det här fallet är mer allvarligt än det förra
+      2. Detta är det mest allvarliga problemet vi någonsin har stött på
+      3. De allvarliga fallen
+    `,
   },
 ];
