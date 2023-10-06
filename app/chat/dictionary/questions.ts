@@ -555,6 +555,167 @@ Exempel:
       3. Vi kommer troligtvis att åka till Spanien i sommar.
       `,
   },
+  {
+    input: "kanske",
+    output: `"Kanske" används för att ange en möjlighet eller att något är möjligt att hända. "Kanske" betyder "maybe" eller "perhaps"
+
+Exampel:
+
+      1. Jag kommer kanske att åka till Stockholm i sommar.
+      2. Hon kanske kommer till festen.
+      3. Vi kanske kommer att åka till Portugal i sommar.
+    `,
+  },
+  {
+    input: "mycket",
+    output: `"Mycket" är ett adverb som används för att beskriva en hög grad av något. "Mycket" betyder "very"
+
+Exempel:
+
+      1. Jag är mycket trött.
+      2. Hon är mycket glad.
+      3. Vi är mycket hungriga.`,
+  },
+  {
+    input: "lite",
+    output: `"Lite" är ett adverb som används för att beskriva en låg grad av något. "Lite" betyder "a little" eller "a bit"
+
+Exempel:
+
+      1. Jag är lite trött.
+      2. Hon är lite glad.
+      3. Vi är lite hungriga.`,
+  },
+  {
+    input: "mycket",
+    output: `"Mycket" är ett adverb som används för att beskriva en hög grad av något. "Mycket" betyder "very".
+
+Exempel:
+
+    1. Jag är mycket trött.
+    2. Hon är mycket glad.
+    3. Vi är mycket hungriga.`,
+  },
+  {
+    input: "lite",
+    output: `"Lite" är ett adverb som används för att beskriva en låg grad av något. "Lite" betyder "a little" eller "a bit".
+
+Exempel:
+
+    1. Jag är lite trött.
+    2. Hon är något glad.
+    3. Vi är en smula hungriga.`,
+  },
+  {
+    input: "något",
+    output: `"Något" är ett adverb som används för att beskriva en låg grad av något. "Något" betyder "something".
+
+Exempel:
+
+    1. Jag är något trött.
+    2. Hon känner sig något glad.
+    3. Vi är något hungriga.`,
+  },
+  {
+    input: "någon",
+    output: `"Någon" är ett pronomen som används för att hänvisa till en person. "Någon" betyder "someone".
+
+Exempel:
+
+    1. Jag är någon trött.
+    2. Hon är någon glad.
+    3. Vi har någon hungrig i vår grupp.`,
+  },
+  {
+    input: "några",
+    output: `"Några" är ett pronomen som används för att hänvisa till ett antal saker eller personer. "Några" betyder "some".
+
+Exempel:
+
+    1. Jag har några böcker.
+    2. Hon träffade några vänner.
+    3. Vi har några äpplen.`,
+  },
+  {
+    input: "alltid",
+    output: `"Alltid" är ett adverb som används för att beskriva något som händer i varje situation eller utan undantag. "Alltid" betyder "always".
+
+Exempel:
+
+    1. Jag är alltid trött på morgonen.
+    2. Hon är alltid glad att hjälpa till.
+    3. Vi är alltid hungriga efter träningen.`,
+  },
+  {
+    input: "aldrig",
+    output: `"Aldrig" är ett adverb som används för att beskriva frånvaron av något som inte händer vid någon tidpunkt. "Aldrig" betyder "never".
+
+Exempel:
+
+    1. Jag är aldrig trött på semestern.
+    2. Hon har aldrig varit i Paris.
+    3. Vi har aldrig ätit sushi.`,
+  },
+  {
+    input: "ofta",
+    output: `"Ofta" är ett adverb som används för att beskriva något som sker med frekvens eller regelbundenhet. "Ofta" betyder "often".
+
+Exempel:
+
+    1. Jag äter ofta frukt till frukost.
+    2. Hon går ofta till gymmet.
+    3. Vi träffas ofta på helgerna.`,
+  },
+  {
+    input: "sällan",
+    output: `"Sällan" är ett adverb som används för att beskriva något som händer med låg frekvens eller oregelbundet. "Sällan" betyder "rarely".
+
+Exempel:
+
+    1. Jag äter sällan godis.
+    2. Hon reser sällan utomlands.
+    3. Vi har sällan tid att titta på TV.`,
+  },
+  {
+    input: "snart",
+    output: `"Snart" är ett adverb som används för att beskriva något som kommer att hända inom en kort tidsram. "Snart" betyder "soon".
+
+Exempel:
+
+    1. Jag kommer snart tillbaka.
+    2. Hon ska snart börja sitt nya jobb.
+    3. Vi ska snart äta middag.`,
+  },
+  {
+    input: "ju",
+    output: `"Ju" är en partikel som används för att understryka eller belysa en uppenbarhet eller ett faktum. "Ju" betonar en relation mellan två saker eller fakta. "Ju" kan översättas till "indeed" eller "as".
+
+  Exempel:
+
+    1. Ju tidigare du går, desto bättre.
+    2. Ju mer du tränar, ju starkare blir du.
+    3. Ju mer du läser, desto klokare blir du.`,
+  },
+  {
+    input: "redan",
+    output: `"Redan" är ett adverb som används för att beskriva att något har hänt eller börjat tidigare än förväntat. "Redan" betyder "already".
+
+Exempel:
+
+    1. Jag är redan klar med arbetet.
+    2. Hon har redan ätit lunch.
+    3. Vi har redan sett den filmen.`,
+  },
+  {
+    input: "inte",
+    output: `"Inte" är ett adverb som används för att ange negation eller motsatsen till något. "Inte" betyder "not".
+
+Exempel:
+
+    1. Jag är inte trött.
+    2. Hon är inte hungrig.
+    3. Vi är inte redo än.`,
+  },
 
   // ==================== ADJECTIVES  ====================== //
 
