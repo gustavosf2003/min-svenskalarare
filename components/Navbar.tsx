@@ -21,7 +21,7 @@ export function Navbar() {
   const pathname = usePathname();
   return (
     <div className="flex items-center justify-center">
-      <nav className="flex px-1 py-1.5 flex-1 mb-4 bg-gray-800 rounded-md max-w-[80%]">
+      <nav className="flex px-1 py-1.5 flex-1 mb-4 bg-gray-800 rounded-md lg:max-w-[80%]">
         {NAVBAR_ICONS.map((item) => (
           <a
             key={item.name}

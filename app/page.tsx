@@ -1,8 +1,9 @@
 import { ChatWindow } from "@/components/ChatWindow";
+import Link from "next/link";
 
 export default function Home() {
   const InfoCard = (
-    <div className="p-4 md:p-8 rounded bg-[#25252d] w-full max-h-[85%]  lg:overflow-hidden overflow-y-auto">
+    <div className="p-4 md:p-8 rounded bg-[#25252d] w-full max-h-[340px]  lg:overflow-hidden overflow-y-auto">
       <a href="https://github.com/gustavosf2003">
         <h1 className="mb-4 text-3xl text-white md:text-4xl">
           Min Svenska Lärare 🇸🇪 🔗

@@ -10,6 +10,7 @@ import type { AgentStep } from "langchain/schema";
 
 import { ChatMessageBubble } from "@/components/ChatMessageBubble";
 import { IntermediateStep } from "./IntermediateStep";
+import Link from "next/link";
 
 export function ChatWindow(props: {
   endpoint: string;
@@ -21,7 +22,7 @@ export function ChatWindow(props: {
   showIntermediateStepsToggle?: boolean;
 }) {
   const messageContainerRef = useRef<HTMLDivElement | null>(null);
-
+  const formRef = useRef<HTMLFormElement | null>(null);
   const {
     endpoint,
     emptyStateComponent,
@@ -139,7 +140,7 @@ export function ChatWindow(props: {
   }
 
   return (
-    <div className="flex flex-col items-center overflow-hidden rounded md:p-8 grow">
+    <div className="flex flex-col items-center -mb-8 rounded grow">
       <h2 className={`${messages.length > 0 ? "" : "hidden"} text-2xl`}>
         🇸🇪 {titleText} 🇸🇪
       </h2>
@@ -147,7 +148,7 @@ export function ChatWindow(props: {
         {messages.length === 0 ? emptyStateComponent : ""}
       </div>
       <div
-        className="flex   flex-col-reverse w-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
+        className="flex flex-col-reverse w-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
         ref={messageContainerRef}
       >
         {messages.length > 0
@@ -167,10 +168,21 @@ export function ChatWindow(props: {
           : ""}
       </div>
 
-      <form onSubmit={sendMessage} className="flex flex-col w-full">
+      <form
+        ref={formRef}
+        onSubmit={sendMessage}
+        className="flex flex-col w-full"
+      >
         <div className="flex">{intemediateStepsToggle}</div>
         <div className="flex w-full gap-4 mt-4 lg:gap-8">
           <textarea
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && e.shiftKey == false) {
+                e.preventDefault();
+                console.log("submitting");
+                formRef.current?.requestSubmit();
+              }
+            }}
             className="w-full h-16 px-3 py-2 pt-5 border border-gray-300 rounded shadow-sm resize-none grow "
             value={input}
             placeholder={placeholder ?? "What's it like to be a pirate?"}
@@ -218,6 +230,12 @@ export function ChatWindow(props: {
           </button>
         </div>
       </form>
+      <Link
+        href="https://www.buymeacoffee.com/gustavoferreira"
+        className="mt-6 mb-5 text-sm text-white underline cursor-pointer opacity-60"
+      >
+        Made by Gustavo Ferreira
+      </Link>
       <ToastContainer />
     </div>
   );
