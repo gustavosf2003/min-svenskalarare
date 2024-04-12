@@ -64,6 +64,6 @@ export default function Home() {
       titleText="Min svenska lärare"
       placeholder="Type your message"
       emptyStateComponent={InfoCard}
-    ></ChatWindow>
+    />
   );
 }
