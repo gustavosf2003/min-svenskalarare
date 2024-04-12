@@ -4,6 +4,8 @@ import { Public_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import Meta from "../components/Meta";
 import Script from "next/script";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Providers from "./providers";
 
 const publicSans = Public_Sans({ subsets: ["latin"] });
 
@@ -29,15 +31,16 @@ export default function RootLayout({
           gtag('config', '${process.env.GOOGLE_ANALYTICS_KEY}', {
             page_path: window.location.pathname,
           });
-        `}
+          `}
       </Script>
-
-      <body className={publicSans.className}>
-        <div className="flex flex-col p-4 md:p-12 h-[100vh]">
-          <Navbar />
-          {children}
-        </div>
-      </body>
+      <Providers>
+        <body className={publicSans.className}>
+          <div className="flex flex-col p-4 md:p-12 h-[100vh]">
+            <Navbar />
+            {children}
+          </div>
+        </body>
+      </Providers>
     </html>
   );
 }
