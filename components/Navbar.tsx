@@ -15,6 +15,12 @@ const NAVBAR_ICONS = [
     abbreviation: "Lexikon",
     route: "/dictionary",
   },
+  {
+    name: "Utveckling",
+    icon: "⚠️",
+    abbreviation: "Utveckling",
+    route: "/dictionary2",
+  },
 ];
 
 export function Navbar() {
