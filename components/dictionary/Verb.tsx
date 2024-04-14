@@ -29,8 +29,13 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
                 key={wordForm.title}
                 className="text-center  border border-black"
               >
-                {data.WordForms.find((wf) => wf.msd === wordForm.form)
-                  ?.writtenForm ?? "-"}
+                {wordForm.form === "inf aktiv" && "att "}
+                <span
+                  className={wordForm.form === "inf aktiv" ? "font-bold" : ""}
+                >
+                  {data.WordForms.find((wf) => wf.msd === wordForm.form)
+                    ?.writtenForm ?? "-"}
+                </span>
               </td>
             ))}
           </tr>
