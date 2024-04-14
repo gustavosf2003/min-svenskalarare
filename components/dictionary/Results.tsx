@@ -14,13 +14,15 @@ const Results = ({
   data,
   isLoading,
   isError,
+  currentIndex,
+  setCurrentIndex,
 }: {
   data: WordRequestType;
   isLoading: boolean;
   isError: boolean;
+  currentIndex: number;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0); // State to keep track of the current index
-
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -85,7 +87,6 @@ const Results = ({
       setCurrentIndex(data.hits?.hits.length - 1);
     }
   };
-  console.log(data.hits?.hits);
   return (
     <>
       <div className="mt-8 bg-gray-800 p-4 w-full rounded-md">

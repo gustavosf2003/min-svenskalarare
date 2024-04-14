@@ -2,6 +2,7 @@ import { WordSourceType } from "@/types/dictionary";
 
 const AdjektivComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
+    { title: "Adjektiv", form: "invar" },
     { title: "Adjektiv", form: "pos indef sg u nom" },
     { title: "Plural", form: "pos def sg no_masc nom" },
     { title: "Komparativ", form: "komp nom" },

@@ -2,7 +2,7 @@ import { WordSourceType } from "@/types/dictionary";
 
 const NounComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
-    { title: "Obestämd", form: "sg indef gen" },
+    { title: "Obestämd", form: "sg indef nom" },
     { title: "Bestämd", form: "sg def nom" },
     { title: "Plural", form: "pl indef nom" },
     { title: "Bestämd plural", form: "pl def nom" },

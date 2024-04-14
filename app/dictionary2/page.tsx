@@ -10,6 +10,7 @@ import { useState } from "react";
 const Dictionary2 = () => {
   const [word, setWord] = useState("");
   const [isCleared, setIsCleared] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const { data, refetch, isFetching, isError } = useQuery({
     queryKey: ["dicionary"],
     queryFn: () => dictionaryService.getWord(word),
@@ -31,6 +32,7 @@ const Dictionary2 = () => {
         <Button
           onClick={() => {
             refetch();
+            setCurrentIndex(0);
             setIsCleared(false);
           }}
         >
@@ -40,6 +42,7 @@ const Dictionary2 = () => {
           <Button
             onClick={() => {
               setWord("");
+              setCurrentIndex(0);
               setIsCleared(true);
             }}
           >
@@ -48,7 +51,13 @@ const Dictionary2 = () => {
         )}
       </div>
       {!isCleared && (
-        <Results data={data} isLoading={isFetching} isError={isError} />
+        <Results
+          data={data}
+          isLoading={isFetching}
+          isError={isError}
+          currentIndex={currentIndex}
+          setCurrentIndex={setCurrentIndex}
+        />
       )}
     </div>
   );
