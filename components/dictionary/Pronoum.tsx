@@ -1,11 +1,12 @@
 import { WordSourceType } from "@/types/dictionary";
 
-const VerbComponent = ({ data }: { data: WordSourceType }) => {
+const PronoumComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
-    { title: "Infinitiv", form: "inf aktiv" },
-    { title: "Presens", form: "pres ind aktiv" },
-    { title: "Preteritum", form: "pret ind aktiv" },
-    { title: "Supinum", form: "sup aktiv" },
+    { title: "Pronoum", form: "nom" },
+    { title: "Objekt", form: "ack" },
+    { title: "Possessiv ( EN )", form: "poss sg u" },
+    { title: "Possessiv ( ETT )", form: "poss sg n" },
+    { title: "Plural", form: "poss pl" },
   ];
   return (
     <>
@@ -20,4 +21,4 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
   );
 };
 
-export default VerbComponent;
+export default PronoumComponent;

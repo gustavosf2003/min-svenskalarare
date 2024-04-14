@@ -1,11 +1,11 @@
 import { WordSourceType } from "@/types/dictionary";
 
-const VerbComponent = ({ data }: { data: WordSourceType }) => {
+const AdjektivComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
-    { title: "Infinitiv", form: "inf aktiv" },
-    { title: "Presens", form: "pres ind aktiv" },
-    { title: "Preteritum", form: "pret ind aktiv" },
-    { title: "Supinum", form: "sup aktiv" },
+    { title: "Adjektiv", form: "pos indef sg u nom" },
+    { title: "Plural", form: "pos def sg no_masc nom" },
+    { title: "Komparativ", form: "komp nom" },
+    { title: "Superlativ", form: "super def no_masc nom" },
   ];
   return (
     <>
@@ -20,4 +20,4 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
   );
 };
 
-export default VerbComponent;
+export default AdjektivComponent;

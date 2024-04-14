@@ -6,7 +6,7 @@ async function getWord(word: string): Promise<WordRequestType> {
     `https://ws.spraakbanken.gu.se/ws/karp/v4/query?q=extended||and|wf|equals|${word}&resource=saldom`,
   );
   response.data.searchedWord = word;
-  console.log(response.data);
+
   return response.data;
 }
 
