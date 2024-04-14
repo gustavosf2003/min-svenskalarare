@@ -14,7 +14,7 @@ const languages = [
 const TranslatorComponent = () => {
   const [selectedLocale, setSelectedLocale] = useState(languages[0]);
   const [selectedTargetLocale, setSelectedTargetLocale] = useState(
-    languages[0],
+    languages[1],
   );
   const [text, setText] = useState("");
   return (
