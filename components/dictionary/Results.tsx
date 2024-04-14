@@ -66,8 +66,6 @@ const Results = ({
         return <ConjunctionComponent data={wordSource} />;
       case "pn":
         return <PronoumComponent data={wordSource} />;
-      case "pnm":
-        return <PronoumComponent data={wordSource} />;
       default:
         return <p>Error trying to find the component</p>;
     }
@@ -87,7 +85,7 @@ const Results = ({
       setCurrentIndex(data.hits?.hits.length - 1);
     }
   };
-  console.log(data.hits?.hits[currentIndex]?._source);
+  console.log(data.hits?.hits);
   return (
     <>
       <div className="mt-8 bg-gray-800 p-4 w-full rounded-md">

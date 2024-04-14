@@ -1,7 +1,7 @@
 import { WordSourceType } from "@/types/dictionary";
 
 const NounComponent = ({ data }: { data: WordSourceType }) => {
-  const nounForms = [
+  const wordForms = [
     { title: "Obestämd", form: "sg indef gen" },
     { title: "Bestämd", form: "sg def nom" },
     { title: "Plural", form: "pl indef nom" },
@@ -9,13 +9,33 @@ const NounComponent = ({ data }: { data: WordSourceType }) => {
   ];
   return (
     <>
-      {nounForms.map((nounForm) => (
-        <p key={nounForm.title}>
-          {nounForm.title}:{" "}
-          {data.WordForms.find((wf) => wf.msd === nounForm.form)?.writtenForm ??
-            "-"}
-        </p>
-      ))}
+      <table cellPadding="10" className="border border-black">
+        <thead>
+          <tr className="bg-blue-400 text-white font-semibold">
+            {wordForms.map((wordForm) => (
+              <th
+                key={wordForm.title}
+                className="text-center border border-black"
+              >
+                {wordForm.title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white text-black border border-black">
+            {wordForms.map((wordForm) => (
+              <td
+                key={wordForm.title}
+                className="text-center  border border-black"
+              >
+                {data.WordForms.find((wf) => wf.msd === wordForm.form)
+                  ?.writtenForm ?? "-"}
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
     </>
   );
 };
