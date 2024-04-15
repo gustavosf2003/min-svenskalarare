@@ -1,8 +1,13 @@
-"use client";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 
-const Dropdown = ({ items, selectedItem, setSelectedItem }) => {
+export type DropdownProps = {
+  items: any[];
+  selectedItem: any;
+  setSelectedItem: any;
+};
+
+const Dropdown = ({ items, selectedItem, setSelectedItem }: DropdownProps) => {
   return (
     <div className="relative w-40">
       <Listbox value={selectedItem} onChange={setSelectedItem}>
@@ -14,14 +19,14 @@ const Dropdown = ({ items, selectedItem, setSelectedItem }) => {
           </span>
         </Listbox.Button>
         <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-gray-800 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-          {items.map((language) => (
+          {items.map((item) => (
             <Listbox.Option
               className="hover:bg-gray-900 flex items-center gap-2 px-2 cursor-pointer py-1"
-              key={language.icon}
-              value={language}
+              key={item.icon}
+              value={item}
             >
-              <span className="text-xl">{language.icon}</span>
-              {language.language}
+              <span className="text-xl">{item.icon}</span>
+              {item.language}
             </Listbox.Option>
           ))}
         </Listbox.Options>
