@@ -17,8 +17,8 @@ async function translate(
     return result.data as TranslationType;
   } catch (error) {
     console.log(error);
+    throw new Error("Translation Error");
   }
-  return {} as TranslationType;
 }
 
 const translatorService = { translate };

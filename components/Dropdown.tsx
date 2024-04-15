@@ -1,3 +1,4 @@
+"use client";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline";
 
@@ -16,7 +17,7 @@ const Dropdown = ({ items, selectedItem, setSelectedItem }) => {
           {items.map((language) => (
             <Listbox.Option
               className="hover:bg-gray-900 flex items-center gap-2 px-2 cursor-pointer py-1"
-              key={language.id}
+              key={language.icon}
               value={language}
             >
               <span className="text-xl">{language.icon}</span>
