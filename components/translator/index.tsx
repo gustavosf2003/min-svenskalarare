@@ -7,6 +7,7 @@ import { Button } from "../Button";
 import translatorService from "@/services/translator";
 import { TranslationType } from "@/types/translation";
 import Loading from "../Loading";
+import { useDebounce } from "@/hooks/useDebounce";
 
 const languages = [
   {
@@ -41,7 +42,6 @@ const languages = [
 
 const TranslatorComponent = () => {
   const [selectedLocale, setSelectedLocale] = useState(languages[0]);
-  const [isQueryEnabled, setIsQueryEnabled] = useState(false);
   const [selectedTargetLocale, setSelectedTargetLocale] = useState(
     languages[1],
   );
@@ -58,17 +58,22 @@ const TranslatorComponent = () => {
       );
     },
     initialData: {} as TranslationType,
-    enabled: isQueryEnabled,
+    enabled: false,
   });
+  const debouncedSearch = useDebounce(text);
 
-  // useEffect(() => {
-  //   setIsQueryEnabled(false);
-  //   setText("");
-  // }, [selectedLocale, selectedTargetLocale]);
+  useEffect(() => {
+    const loadUsers = async () => {
+      if (text.length > 0 && text.length < 400) {
+        await refetch();
+      }
+    };
+    loadUsers();
+  }, [debouncedSearch, selectedLocale, selectedTargetLocale]);
 
   return (
     <>
-      <Button onClick={() => refetch()}>Oversätt</Button>
+      {/* <Button onClick={() => refetch()}>Oversätt</Button> */}
       <div className="w-full flex justify-between gap-4 pb-80">
         <div className="gap-3 w-full flex flex-col items-start">
           <div className="relative w-40">
