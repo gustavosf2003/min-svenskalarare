@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { WordRequestType } from "@/types/dictionary";
-import VerbComponent from "./Verb";
-import NounComponent from "./Noun";
+import VerbComponent from "./grammaticalTypes/Verb";
+import NounComponent from "./grammaticalTypes/Noun";
 import { Button } from "../Button";
-import AdjektivComponent from "./Adjektiv";
-import AdverbComponent from "./Adverb";
-import InterjectionComponent from "./Interjection";
-import PrepositionComponent from "./Preposition";
-import ConjunctionComponent from "./Conjunction";
-import PronoumComponent from "./Pronoum";
+import AdjektivComponent from "./grammaticalTypes/Adjektiv";
+import AdverbComponent from "./grammaticalTypes/Adverb";
+import InterjectionComponent from "./grammaticalTypes/Interjection";
+import PrepositionComponent from "./grammaticalTypes/Preposition";
+import ConjunctionComponent from "./grammaticalTypes/Conjunction";
+import PronoumComponent from "./grammaticalTypes/Pronoum";
+import Loading from "../Loading";
 
 const Results = ({
   data,
@@ -24,7 +25,11 @@ const Results = ({
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
 }) => {
   if (isLoading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="w-full flex justify-center mt-24">
+        <Loading />
+      </div>
+    );
   }
   if (isError) {
     return <p>Something went wrong...</p>;
@@ -89,23 +94,36 @@ const Results = ({
   };
   return (
     <>
-      <div className="mt-8 bg-gray-800 p-4 w-full rounded-md">
-        <p className="">Results for: {data.searchedWord}</p>
-        {getGrammaticalClassComponent(
-          data.hits?.hits[currentIndex]?._source.FormRepresentations[0]
-            .partOfSpeech,
-          currentIndex,
-        )}
-      </div>
-      {data.hits?.hits.length > 1 && (
-        <div className="flex gap-4">
-          <Button onClick={handleDecreaseIndex}>{"<"}</Button>
-          <p>{currentIndex + 1}</p>
-          <Button onClick={handleIncreaseIndex}>{">"}</Button>
+      <div className="w-full">
+        <div className="flex-col flex items-center w-auto">
+          <div className="justify-center flex flex-col">
+            <p className="font-light text-sm">
+              Results for:{" "}
+              <span className="font-semibold underline">
+                {data.searchedWord}
+              </span>
+            </p>
+            {getGrammaticalClassComponent(
+              data.hits?.hits[currentIndex]?._source.FormRepresentations[0]
+                .partOfSpeech,
+              currentIndex,
+            )}
+          </div>
+          {data.hits?.hits.length > 1 && (
+            <div className="flex gap-4 mt-4">
+              <Button onClick={handleDecreaseIndex}>{"<"}</Button>
+              <p>{currentIndex + 1}</p>
+              <Button onClick={handleIncreaseIndex}>{">"}</Button>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </>
   );
 };
 
 export default Results;
+
+const ResultsView = () => {
+  return;
+};

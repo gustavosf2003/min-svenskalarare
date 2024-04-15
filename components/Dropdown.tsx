@@ -11,7 +11,7 @@ const Dropdown = ({ items, selectedItem, setSelectedItem }: DropdownProps) => {
   return (
     <div className="relative w-40">
       <Listbox value={selectedItem} onChange={setSelectedItem}>
-        <Listbox.Button className="relative w-full cursor-pointer rounded-lg bg-gray-800  shadow-md  focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm flex items-center gap-2 px-2 py-2">
+        <Listbox.Button className="relative w-full cursor-pointer rounded bg-gray-800  shadow-md  focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm flex items-center gap-2 px-2 py-2">
           <span className="text-xl">{selectedItem.icon}</span>
           {selectedItem.language}
           <span className="absolute right-2">

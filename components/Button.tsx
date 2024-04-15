@@ -20,7 +20,7 @@ export const Button = ({
       title=""
       disabled={disabled || loading}
       className={clsx(
-        "bg-blue-600 rounded-md text-white disabled:opacity-30 disabled:border-neutral-200 disabled:text-blue-100 shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
+        "bg-[#006AA7] rounded-md text-white disabled:opacity-30 disabled:border-neutral-200 disabled:text-blue-100 shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
         loading && "min-w-20",
         className,
       )}

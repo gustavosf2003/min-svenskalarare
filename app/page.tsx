@@ -1,4 +1,6 @@
+"use client";
 import { ChatWindow } from "@/components/ChatWindow";
+import Dictionary from "@/components/dictionary";
 import TranslatorComponent from "@/components/translator";
 import Link from "next/link";
 
@@ -66,7 +68,7 @@ export default function Home() {
   //   emptyStateComponent={InfoCard}
   // />
   return (
-    <div className="w-full h-full flex-1 flex relative">
+    <div className="w-full h-full flex-1 flex relative ">
       <div className="w-full bg-gray-800 py-1.5 px-8 fixed">
         <h1 className="text-2xl leading-6 flex items-center gap-2">
           <span className="text-4xl">🇸🇪</span>
@@ -78,8 +80,8 @@ export default function Home() {
           CHAT
         </div>
         <div className="flex  md:w-1/2 flex-col gap-8">
-          <div className="h-[55%] bg-gray-700 rounded-sm shadow-md">
-            lexikon
+          <div className="h-[55%] bg-gray-700 rounded-sm shadow-md ">
+            <Dictionary />
           </div>
           <div className="h-[45%] bg-gray-700 rounded-sm shadow-md p-4 mb-8 md:mb-0">
             <TranslatorComponent />

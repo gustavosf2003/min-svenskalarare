@@ -100,7 +100,7 @@ const TranslatorComponent = () => {
           selectedItem={selectedTargetLocale}
           setSelectedItem={setSelectedTargetLocale}
         />
-        <div className="bg-gray-900 w-full h-40 md:h-full rounded-sm px-3.5 py-[10.5px]  text-sm">
+        <div className="bg-gray-900 w-full h-40 md:h-full rounded px-3.5 py-[10.5px]  text-sm">
           {isFetching ? (
             <Loading />
           ) : isError ? (
