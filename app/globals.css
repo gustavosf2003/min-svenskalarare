@@ -7,6 +7,18 @@ body {
   background: #131318;
 }
 
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: none;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #006AA7
+  ;
+  border-radius: 3px;
+}
 body input,
 body textarea {
   color: black;

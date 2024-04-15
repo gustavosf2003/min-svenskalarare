@@ -140,15 +140,13 @@ export function ChatWindow(props: {
   }
 
   return (
-    <div className="flex flex-col items-center -mb-8 rounded grow">
+    <div className="flex flex-col items-center -mb-8 rounded grow h-full">
       <h2 className={`${messages.length > 0 ? "" : "hidden"} text-2xl`}>
         🇸🇪 {titleText} 🇸🇪
       </h2>
-      <div className="flex-1">
-        {messages.length === 0 ? emptyStateComponent : ""}
-      </div>
+      <div>{messages.length === 0 ? emptyStateComponent : ""}</div>
       <div
-        className="flex flex-col-reverse w-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
+        className="flex flex-col-reverse w-full h-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
         ref={messageContainerRef}
       >
         {messages.length > 0
@@ -230,12 +228,7 @@ export function ChatWindow(props: {
           </button>
         </div>
       </form>
-      <Link
-        href="https://www.buymeacoffee.com/gustavoferreira"
-        className="mt-6 mb-5 text-sm text-white underline cursor-pointer opacity-60"
-      >
-        Made by Gustavo Ferreira
-      </Link>
+
       <ToastContainer />
     </div>
   );
