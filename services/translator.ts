@@ -7,13 +7,16 @@ async function translate(
   targetLanguage: string,
 ): Promise<TranslationType> {
   try {
-    const result = await axios.get("http://localhost:3030", {
-      params: {
-        text: word,
-        sourceLang: sourceLocale,
-        targetLang: targetLanguage,
+    const result = await axios.get(
+      "https://min-svenska-larare-server.onrender.com/",
+      {
+        params: {
+          text: word,
+          sourceLang: sourceLocale,
+          targetLang: targetLanguage,
+        },
       },
-    });
+    );
     return result.data as TranslationType;
   } catch (error) {
     console.log(error);
