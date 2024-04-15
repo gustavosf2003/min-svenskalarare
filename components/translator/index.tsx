@@ -28,7 +28,7 @@ const languages = [
     language: "Português",
     icon: "🇧🇷",
     sourceLocale: "PT",
-    targetLocale: "pt_PT",
+    targetLocale: "pt-PT",
   },
   {
     id: 4,
@@ -61,10 +61,10 @@ const TranslatorComponent = () => {
     enabled: isQueryEnabled,
   });
 
-  useEffect(() => {
-    setIsQueryEnabled(false);
-    setText("");
-  }, [selectedLocale, selectedTargetLocale]);
+  // useEffect(() => {
+  //   setIsQueryEnabled(false);
+  //   setText("");
+  // }, [selectedLocale, selectedTargetLocale]);
 
   return (
     <>
