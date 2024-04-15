@@ -9,7 +9,7 @@ export default function Home() {
     <div className="p-4 md:p-8 rounded bg-gray-800  w-full  lg:overflow-hidden overflow-y-auto">
       <a href="https://github.com/gustavosf2003">
         <h1 className="mb-4 text-3xl text-white md:text-4xl">
-          Min Svenska Lärare 🇸🇪 🔗
+          🤖 AI Assistent
         </h1>
       </a>
       <ul>
@@ -17,7 +17,7 @@ export default function Home() {
           👨‍🏫
           <span className="ml-2">
             Welcome to the Min Swenska Lärare. I am Linnea, your friendly
-            virtual Swedish language teacher!
+            virtual Swedish language assistent!
           </span>
         </li>
         <li className="text-l">
@@ -54,7 +54,8 @@ export default function Home() {
         <li className="text-l">
           👇
           <span className="ml-2">
-            Try asking e.g. <code>Give 10 words related to sports </code> below!
+            Try asking e.g. <code>Create sentences about swedish cousine</code>{" "}
+            below!
           </span>
         </li>
       </ul>
@@ -90,7 +91,7 @@ export default function Home() {
           </div>
           <Link
             href="https://www.buymeacoffee.com/gustavoferreira"
-            className="w-full flex justify-center pb-6 text-sm text-white underline cursor-pointer opacity-60"
+            className="flex md:hidden w-full justify-center pb-6 text-sm text-white underline cursor-pointer opacity-60"
           >
             Made by Gustavo Ferreira ©
           </Link>
@@ -98,7 +99,7 @@ export default function Home() {
       </div>
       <Link
         href="https://www.buymeacoffee.com/gustavoferreira"
-        className="hidden md:bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"
+        className="hidden md:block bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"
       >
         Made by Gustavo Ferreira ©
       </Link>
