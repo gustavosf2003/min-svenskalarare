@@ -1,4 +1,5 @@
 import { ChatWindow } from "@/components/ChatWindow";
+import TranslatorComponent from "@/components/translator";
 import Link from "next/link";
 
 export default function Home() {
@@ -57,13 +58,34 @@ export default function Home() {
       </ul>
     </div>
   );
+  // <ChatWindow
+  //   endpoint="chat/swedish"
+  //   emoji="🤖"
+  //   titleText="Min svenska lärare"
+  //   placeholder="Type your message"
+  //   emptyStateComponent={InfoCard}
+  // />
   return (
-    <ChatWindow
-      endpoint="chat/swedish"
-      emoji="🤖"
-      titleText="Min svenska lärare"
-      placeholder="Type your message"
-      emptyStateComponent={InfoCard}
-    />
+    <div className="w-full h-full flex-1 flex relative">
+      <div className="w-full bg-gray-800 py-1.5 px-8 fixed">
+        <h1 className="text-2xl leading-6 flex items-center gap-2">
+          <span className="text-4xl">🇸🇪</span>
+          Min svenska Lärare
+        </h1>
+      </div>
+      <div className="w-full block md:flex gap-8 flex-1 min-h-full pt-20 pb-8 px-7">
+        <div className="w-full md:w-1/2 h-full bg-gray-700 rounded-sm shadow-md mb-8">
+          CHAT
+        </div>
+        <div className="flex  md:w-1/2 flex-col gap-8">
+          <div className="h-[55%] bg-gray-700 rounded-sm shadow-md">
+            lexikon
+          </div>
+          <div className="h-[45%] bg-gray-700 rounded-sm shadow-md p-4 mb-8 md:mb-0">
+            <TranslatorComponent />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

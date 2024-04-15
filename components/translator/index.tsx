@@ -72,47 +72,45 @@ const TranslatorComponent = () => {
   }, [debouncedSearch, selectedLocale, selectedTargetLocale]);
 
   return (
-    <>
-      {/* <Button onClick={() => refetch()}>Oversätt</Button> */}
-      <div className="w-full flex justify-between gap-4 pb-80">
-        <div className="gap-3 w-full flex flex-col items-start">
-          <div className="relative w-40">
-            <Dropdown
-              items={languages.filter(
-                (language) =>
-                  language.sourceLocale !== selectedLocale.sourceLocale,
-              )}
-              selectedItem={selectedLocale}
-              setSelectedItem={setSelectedLocale}
-            />
-          </div>
-          <TextArea
-            className="w-[100%] h-40"
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
-        <div className="gap-3 w-full flex flex-col items-start">
+    <div className="w-full md:flex justify-between gap-4 h-full">
+      <div className="gap-3 w-full flex flex-col items-start">
+        <div className="relative w-40">
           <Dropdown
             items={languages.filter(
               (language) =>
-                language.targetLocale !== selectedTargetLocale.targetLocale,
+                language.sourceLocale !== selectedLocale.sourceLocale,
             )}
-            selectedItem={selectedTargetLocale}
-            setSelectedItem={setSelectedTargetLocale}
+            selectedItem={selectedLocale}
+            setSelectedItem={setSelectedLocale}
           />
-          <div className="bg-gray-900 w-full h-40 px-3.5 py-[10.5px]  text-sm">
-            {isFetching ? (
-              <Loading />
-            ) : isError ? (
-              "Error fetching data"
-            ) : (
-              data?.text
-            )}
-          </div>
+        </div>
+        <TextArea
+          placeholder="Skriv här.."
+          className="w-[100%] h-40 md:h-full"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+      </div>
+      <div className="gap-3 w-full flex flex-col items-start mt-3 md:mt-0">
+        <Dropdown
+          items={languages.filter(
+            (language) =>
+              language.targetLocale !== selectedTargetLocale.targetLocale,
+          )}
+          selectedItem={selectedTargetLocale}
+          setSelectedItem={setSelectedTargetLocale}
+        />
+        <div className="bg-gray-900 w-full h-40 md:h-full rounded-sm px-3.5 py-[10.5px]  text-sm">
+          {isFetching ? (
+            <Loading />
+          ) : isError ? (
+            "Error fetching data"
+          ) : (
+            data?.text
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default TranslatorComponent;
