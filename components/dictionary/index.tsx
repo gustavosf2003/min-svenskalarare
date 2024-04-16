@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { WordRequestType } from "@/types/dictionary";
 import dictionaryService from "@/services/dictionary";
 import Results from "./Results";
+import { TrashIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Dictionary = () => {
   const [word, setWord] = useState("");
@@ -21,9 +22,9 @@ const Dictionary = () => {
   return (
     <>
       <div className="flex flex-col pt-4 mb-8">
-        <p className="text-center text-xl">Lexikon</p>
-        <div className="flex justify-center w-full ">
-          <div className="flex justify-center gap-2">
+        <p className="text-center text-2xl">Lexikon</p>
+        <div className="flex justify-center w-full relative mt-4">
+          <div className="flex justify-center gap-2 ml-12">
             <InputText
               onChange={(e) => setWord(e.target.value)}
               placeholder="Sök efter ord"
@@ -38,17 +39,18 @@ const Dictionary = () => {
             >
               Sök
             </Button>
-            {/* {!isCleared && (
-              <Button
+            {!isCleared && (
+              <button
+                className="hidden md:flex rounded-md hover:bg-gray-800 p-2 gap-2 top-1 text-red-800 items-center hover:opacity-60"
                 onClick={() => {
                   setWord("");
                   setCurrentIndex(0);
                   setIsCleared(true);
                 }}
               >
-                Rensa
-              </Button>
-            )} */}
+                <XCircleIcon width={24} strokeWidth={1.8} />
+              </button>
+            )}
           </div>
         </div>
       </div>

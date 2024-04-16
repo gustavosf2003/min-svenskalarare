@@ -77,7 +77,7 @@ export default function Home() {
               endpoint="chat/swedish"
               emoji="🤖"
               titleText="Min svenska lärare"
-              placeholder="Type your message"
+              placeholder="Skriv här..."
               emptyStateComponent={InfoCard}
             />
           </div>

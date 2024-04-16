@@ -10,6 +10,11 @@ import PrepositionComponent from "./grammaticalTypes/Preposition";
 import ConjunctionComponent from "./grammaticalTypes/Conjunction";
 import PronoumComponent from "./grammaticalTypes/Pronoum";
 import Loading from "../Loading";
+import {
+  ArrowLeftIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/outline";
 
 const Results = ({
   data,
@@ -100,7 +105,10 @@ const Results = ({
             <p className="font-light text-sm">
               Results for:{" "}
               <span className="font-semibold underline">
-                {data.searchedWord}
+                {
+                  data.hits?.hits[currentIndex]?._source.FormRepresentations[0]
+                    .baseform
+                }
               </span>
             </p>
             {getGrammaticalClassComponent(
@@ -111,9 +119,28 @@ const Results = ({
           </div>
           {data.hits?.hits.length > 1 && (
             <div className="flex gap-4 mt-4">
-              <Button onClick={handleDecreaseIndex}>{"<"}</Button>
+              <button
+                onClick={handleDecreaseIndex}
+                className=" rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm  border-t-2 border-transparent  "
+              >
+                <ChevronRightIcon
+                  className="rotate-180"
+                  width={20}
+                  strokeWidth={2}
+                />
+              </button>
               <p>{currentIndex + 1}</p>
-              <Button onClick={handleIncreaseIndex}>{">"}</Button>
+
+              <button
+                onClick={handleIncreaseIndex}
+                className=" rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm  border-t-2 border-transparent  "
+              >
+                <ChevronLeftIcon
+                  className="rotate-180"
+                  width={20}
+                  strokeWidth={2}
+                />
+              </button>
             </div>
           )}
         </div>
@@ -123,7 +150,3 @@ const Results = ({
 };
 
 export default Results;
-
-const ResultsView = () => {
-  return;
-};

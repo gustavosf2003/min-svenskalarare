@@ -11,6 +11,7 @@ import type { AgentStep } from "langchain/schema";
 import { ChatMessageBubble } from "@/components/ChatMessageBubble";
 import { IntermediateStep } from "./IntermediateStep";
 import Link from "next/link";
+import { Button } from "./Button";
 
 export function ChatWindow(props: {
   endpoint: string;
@@ -172,7 +173,7 @@ export function ChatWindow(props: {
         className="flex flex-col w-full"
       >
         <div className="flex">{intemediateStepsToggle}</div>
-        <div className="flex w-full gap-4 mt-4 lg:gap-8">
+        <div className="flex w-full gap-4 mt-4 ">
           <textarea
             onKeyDown={(e) => {
               if (e.key === "Enter" && e.shiftKey == false) {
@@ -181,15 +182,12 @@ export function ChatWindow(props: {
                 formRef.current?.requestSubmit();
               }
             }}
-            className="w-full h-16 px-3 py-2 pt-5 border border-gray-300 rounded shadow-sm resize-none grow "
+            className="w-full h-16 px-3 text-white py-2 pt-5 border !border-gray-700 focus:outline-none focus:!border-gray-600 rounded bg-gray-800 resize-none grow "
             value={input}
             placeholder={placeholder ?? "What's it like to be a pirate?"}
             onChange={handleInputChange}
           />
-          <button
-            type="submit"
-            className="w-24 py-4 rounded lg:px-8 shrink-0 bg-sky-700 lg:w-28"
-          >
+          <Button type="submit" className=" lg:px-8 shrink-0">
             <div
               role="status"
               className={`${
@@ -223,9 +221,9 @@ export function ChatWindow(props: {
                   : ""
               }
             >
-              Send
+              Skicka
             </span>
-          </button>
+          </Button>
         </div>
       </form>
 
