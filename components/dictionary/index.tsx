@@ -24,14 +24,16 @@ const Dictionary = () => {
       <div className="flex flex-col pt-4 mb-8">
         <p className="text-center text-2xl">Lexikon</p>
         <div className="flex justify-center w-full relative mt-4">
-          <div className="flex justify-center gap-2 ml-12">
+          <form className="flex justify-center gap-2 md:ml-12">
             <InputText
               onChange={(e) => setWord(e.target.value)}
               placeholder="Sök efter ord"
               value={word}
             />
             <Button
-              onClick={() => {
+              type="submit"
+              onClick={(e) => {
+                e.preventDefault();
                 refetch();
                 setCurrentIndex(0);
                 setIsCleared(false);
@@ -51,7 +53,7 @@ const Dictionary = () => {
                 <XCircleIcon width={24} strokeWidth={1.8} />
               </button>
             )}
-          </div>
+          </form>
         </div>
       </div>
       <div className="px-4 pb-8">

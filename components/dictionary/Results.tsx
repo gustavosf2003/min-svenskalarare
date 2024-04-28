@@ -100,8 +100,8 @@ const Results = ({
   return (
     <>
       <div className="w-full">
-        <div className="flex-col flex items-center w-auto">
-          <div className="justify-center flex flex-col">
+        <div className="flex-col flex items-center">
+          <div className="justify-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
             <p className="font-light text-sm">
               Results for:{" "}
               <span className="font-semibold underline">
