@@ -1,4 +1,6 @@
 import { WordSourceType } from "@/types/dictionary";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+import { useEffect, useState } from "react";
 
 const VerbComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
@@ -7,8 +9,43 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
     { title: "Preteritum", form: "pret ind aktiv" },
     { title: "Supinum", form: "sup aktiv" },
   ];
+  const [isShowingCopyIndicator, setIsShowingCopyIndicator] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener("copy", handleCopy);
+    return () => document.removeEventListener("copy", handleCopy);
+  }, []);
+
+  const handleCopy = (e: any) => {
+    e.preventDefault();
+    const clipboardData = e.clipboardData;
+    const words = wordForms
+      .map(
+        (wordForm) =>
+          data.WordForms.find((wf) => wf.msd === wordForm.form)?.writtenForm ??
+          "-",
+      )
+      .join(" - ");
+
+    clipboardData.setData("text/plain", words);
+  };
+
+  const exportData = () => {
+    document.execCommand("copy");
+  };
+
   return (
-    <>
+    <div
+      className="relative cursor-pointer"
+      onMouseEnter={() => setIsShowingCopyIndicator(true)}
+      onMouseLeave={() => setIsShowingCopyIndicator(false)}
+      onClick={exportData}
+    >
+      {isShowingCopyIndicator && (
+        <div className="absolute  flex justify-center bg-gray-600  rounded-lg p-1.5 -right-2 -top-5">
+          <DocumentDuplicateIcon width={16} />
+        </div>
+      )}
       <table cellPadding="10" className="border border-black">
         <thead>
           <tr className="bg-blue-400 text-white font-semibold">
@@ -41,7 +78,7 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
           </tr>
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 
