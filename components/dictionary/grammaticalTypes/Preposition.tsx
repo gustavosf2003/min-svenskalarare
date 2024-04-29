@@ -1,3 +1,4 @@
+import { useToast } from "@/context/toast";
 import { WordSourceType } from "@/types/dictionary";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
@@ -5,6 +6,7 @@ import { useEffect, useState } from "react";
 const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [{ title: "Preposition", form: "invar" }];
   const [isShowingCopyIndicator, setIsShowingCopyIndicator] = useState(false);
+  const { showToast } = useToast();
 
   useEffect(() => {
     document.addEventListener("copy", handleCopy);
@@ -13,16 +15,20 @@ const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
 
   const handleCopy = (e: any) => {
     e.preventDefault();
-    const clipboardData = e.clipboardData;
-    const words = wordForms
-      .map(
-        (wordForm) =>
-          data.WordForms.find((wf) => wf.msd === wordForm.form)?.writtenForm ??
-          "-",
-      )
-      .join(" - ");
-
-    clipboardData.setData("text/plain", words);
+    try {
+      const clipboardData = e.clipboardData;
+      const words = wordForms
+        .map(
+          (wordForm) =>
+            data.WordForms.find((wf) => wf.msd === wordForm.form)
+              ?.writtenForm ?? "-",
+        )
+        .join(" - ");
+      showToast("success", "Text kopierad till urklipp");
+      clipboardData.setData("text/plain", words);
+    } catch (error) {
+      showToast("error", "Något gick fel. Det gick inte att kopiera texten");
+    }
   };
 
   const exportData = () => {

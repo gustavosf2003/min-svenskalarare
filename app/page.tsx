@@ -2,6 +2,7 @@
 import { ChatWindow } from "@/components/ChatWindow";
 import Dictionary from "@/components/dictionary";
 import TranslatorComponent from "@/components/translator";
+import { ToastProvider } from "@/context/toast";
 import Link from "next/link";
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
   );
 
   return (
-    <>
+    <ToastProvider>
       <div className="w-full h-full flex-1 flex relative ">
         <div className="w-full bg-gray-800 py-1.5 px-8 fixed">
           <h1 className="text-2xl leading-6 flex items-center gap-2">
@@ -103,6 +104,6 @@ export default function Home() {
       >
         Made by Gustavo Ferreira ©
       </Link>
-    </>
+    </ToastProvider>
   );
 }
