@@ -5,7 +5,6 @@ import {
   DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { utils, writeFile } from "xlsx";
 
 const NounComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
