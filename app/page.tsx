@@ -17,8 +17,8 @@ export default function Home() {
         <li className="text-l">
           👨‍🏫
           <span className="ml-2">
-            Welcome to the Min Swenska Lärare. I am Linnea, your friendly
-            virtual Swedish language assistent!
+            Welcome to the Min Svenskalärare. I am Linnea, your friendly virtual
+            Swedish language assistent!
           </span>
         </li>
         <li className="text-l">
@@ -69,7 +69,7 @@ export default function Home() {
         <div className="w-full bg-gray-800 py-1.5 px-8 fixed">
           <h1 className="text-2xl leading-6 flex items-center gap-2">
             <span className="text-4xl">🇸🇪</span>
-            Min svenska Lärare
+            Min svenskalärare
           </h1>
         </div>
         <div className="w-full block md:flex gap-8 flex-1 min-h-full pt-20 pb-8 px-7">
@@ -77,7 +77,7 @@ export default function Home() {
             <ChatWindow
               endpoint="chat/swedish"
               emoji="🤖"
-              titleText="Min svenska lärare"
+              titleText="Min svenskalärare"
               placeholder="Skriv här..."
               emptyStateComponent={InfoCard}
             />
