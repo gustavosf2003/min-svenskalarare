@@ -1,115 +1,81 @@
-# 🦜️🔗 LangChain + Next.js Starter Template
+# 🇸🇪 Min Svenskalärare
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/langchain-ai/langchain-nextjs-template)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Flangchain-ai%2Flangchain-nextjs-template)
+Min Svenskalärare is an AI-powered assistant designed to help Swedish language learners and educators. This application provides personalized support for learning and teaching Swedish, offering tools such as text checking, exercise generation, grammar assistance, translation, and a dictionary. The AI assistant, Linnea, utilizes GPT-4 to deliver exceptional service and support.
 
-This template scaffolds a LangChain.js + Next.js starter app. It showcases how to use and combine LangChain modules for several
-use cases. Specifically:
+*OBS: Linnea, vår AI-assistent, är så bra att hon kan rätta svensk grammatik medan hon bakar kanelbullar!*
 
-- [Simple chat](/app/api/chat/route.ts)
-- [Returning structured output from an LLM call](/app/api/chat/structured_output/route.ts)
-- [Answering complex, multi-step questions with agents](/app/api/chat/agents/route.ts)
-- [Retrieval augmented generation (RAG) with a chain and a vector store](/app/api/chat/retrieval/route.ts)
-- [Retrieval augmented generation (RAG) with an agent and a vector store](/app/api/chat/retrieval_agents/route.ts)
+## ✨ Features
 
-Most of them use Vercel's [AI SDK](https://github.com/vercel-labs/ai) to stream tokens to the client and display the incoming messages.
+### 👨🏻‍🎓 For Students:
+- 📝 **Text Checking**: Submit your texts and get feedback on grammar, spelling, and overall structure.
+- 🏋️ **Exercise Generation**: Receive custom exercises to improve your language skills, from vocabulary quizzes to verb conjugation drills.
+- 📚 **Grammar Assistance**: Get help with understanding and applying Swedish grammar rules.
+- 📖 **Reading Material**: Access articles, poems, and fairy tales in Swedish to improve your reading skills (available articles up until August 2021).
 
-![Demo GIF](/public/images/agent-convo.gif)
+### 🧑🏻‍🏫 For Teachers:
+- 🏫 **Customized Class Ideas**: Generate class and lesson ideas tailored to your students' needs and preferences.
+- 📝 **Homework Creation**: Create custom homework assignments based on students' proficiency levels and subject requirements.
 
-You can check out a hosted version of this repo here: https://langchain-nextjs-template.vercel.app/
+### Additional Tools:
+- 🌐 **Translator**: Use the integrated DeepL translator for accurate and reliable translations.
+- 📘 **Dictionary**: Look up words and their meanings in the integrated dictionary.
+
+## 🛠 Tech Stack
+
+- ⚛️ **React**: A JavaScript library for building user interfaces.
+- 🟦 **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
+- 🌐 **Next.js**: A React framework for server-side rendering and generating static websites.
+- 🎨 **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- ⚡ **Bun**: A fast JavaScript runtime, bundler, and package manager.
+- 🤖 **OpenAI**: Utilized for natural language processing to power the AI assistant features.
 
 ## 🚀 Getting Started
 
-First, clone this repo and download it locally.
+To get a local copy up and running, follow these steps:
 
-Next, you'll need to set up environment variables in your repo's `.env.local` file. Copy the `.env.example` file to `.env.local`.
-To start with the basic examples, you'll just need to add your OpenAI API key.
+### Prerequisites
 
-Next, install the required packages using your preferred package manager (e.g. `yarn`).
+Make sure you have the following installed:
 
-Now you're ready to run the development server:
+- 🟢 Node.js
+- ⚡ Bun
 
-```bash
-yarn dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result! Ask the bot something and you'll see a streamed response:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/min-svenskalärare.git
+    cd min-svenskalärare
+    ```
 
-![A streaming conversation between the user and the AI](/public/images/chat-conversation.png)
+2. **Install dependencies:**
+    Using Bun:
+    ```bash
+    bun install
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Start the development server:**
+    Using Bun:
+    ```bash
+    bun dev
+    ```
 
-Backend logic lives in `app/api/chat/route.ts`. From here, you can change the prompt and model, or add other modules and logic.
+4. **Open your browser and visit:**
+    ```
+    http://localhost:3000
+    ```
 
-## 🧱 Structured Output
+## 🎓 Usage
 
-The second example shows how to have a model return output according to a specific schema using OpenAI Functions.
-Click the `Structured Output` link in the navbar to try it out:
+- Navigate through the app to access the various features for students and teachers.
+- Use the translator and dictionary tools as needed.
+- Customize your learning or teaching experience based on the available options.
 
-![A streaming conversation between the user and an AI agent](/public/images/structured-output-conversation.png)
+## 🌍 Deployment
 
-The chain in this example uses a [popular library called Zod](https://zod.dev) to construct a schema, then formats it in the way OpenAI expects.
-It then passes that schema as a function into OpenAI and passes a `function_call` parameter to force OpenAI to return arguments in the specified format.
+The app is deployed on Vercel and can be accessed at:
+[https://min-svenskalarare.vercel.app/](https://min-svenskalarare.vercel.app/)
 
-For more details, [check out this documentation page](https://js.langchain.com/docs/modules/chains/popular/structured_output).
+## 🤝 Contributing
 
-## 🦜 Agents
-
-To try out the agent example, you'll need to give the agent access to the internet by populating the `SERPAPI_API_KEY` in `.env.local`.
-Head over to [the SERP API website](https://serpapi.com/) and get an API key if you don't already have one.
-
-You can then click the `Agent` example and try asking it more complex questions:
-
-![A streaming conversation between the user and an AI agent](/public/images/agent-conversation.png)
-
-This example uses the OpenAI Functions agent, but there are a few other options you can try as well.
-See [this documentation page for more details](https://js.langchain.com/docs/modules/agents/agent_types/).
-
-## 🐶 Retrieval
-
-The retrieval examples both use Supabase as a vector store. However, you can swap in
-[another supported vector store](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/) if preferred by changing
-the code under `app/api/retrieval/ingest/route.ts`, `app/api/chat/retrieval/route.ts`, and `app/api/chat/retrieval_agents/route.ts`.
-
-For Supabase, follow [these instructions](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/supabase) to set up your
-database, then get your database URL and private key and paste them into `.env.local`.
-
-You can then switch to the `Retrieval` and `Retrieval Agent` examples. The default document text is pulled from the LangChain.js retrieval
-use case docs, but you can change them to whatever text you'd like.
-
-For a given text, you'll only need to press `Upload` once. Pressing it again will re-ingest the docs, resulting in duplicates.
-You can clear your Supabase vector store by navigating to the console and running `DELETE FROM docuemnts;`.
-
-After splitting, embedding, and uploading some text, you're ready to ask questions!
-
-![A streaming conversation between the user and an AI retrieval chain](/public/images/retrieval-chain-conversation.png)
-
-![A streaming conversation between the user and an AI retrieval agent](/public/images/retrieval-agent-conversation.png)
-
-For more info on retrieval chains, [see this page](https://js.langchain.com/docs/use_cases/question_answering/).
-The specific variant of the conversational retrieval chain used here is composed using LangChain Expression Language, which you can
-[read more about here](https://js.langchain.com/docs/guides/expression_language/cookbook).
-
-For more info on retrieval agents, [see this page](https://js.langchain.com/docs/use_cases/question_answering/conversational_retrieval_agents).
-
-## 📚 Learn More
-
-The example chains in the `app/api/chat/route.ts` and `app/api/chat/retrieval/route.ts` files use
-[LangChain Expression Language](https://js.langchain.com/docs/guides/expression_language/interface) to
-compose different LangChain modules together. You can integrate other retrievers, agents, preconfigured chains, and more too, though keep in mind
-`BytesOutputParser` is meant to be used directly with model output.
-
-To learn more about what you can do with LangChain.js, check out the docs here:
-
-- https://js.langchain.com/docs/
-
-## ▲ Deploy on Vercel
-
-When ready, you can deploy your app on the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
-
-Check out the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Thank You!
-
-Thanks for reading! If you have any questions or comments, reach out to us on Twitter
-[@LangChainAI](https://twitter.com/langchainai), or [click here to join our Discord server](https://discord.gg/langchain).
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
