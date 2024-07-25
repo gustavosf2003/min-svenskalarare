@@ -54,8 +54,8 @@ export async function POST(req: NextRequest) {
     const model = new ChatOpenAI({
       openAIApiKey: process.env.API_KEY,
       modelName: "gpt-4o-mini",
-      temperature: 0.7,
-      topP: 0.95,
+      temperature: 0.5,
+      topP: 0.5,
       frequencyPenalty: 0,
       presencePenalty: 0,
     });
