@@ -21,14 +21,14 @@ export default function Home() {
             Swedish language assistent!
           </span>
         </li>
-        <li className="text-l">
+        <li className="text-l hidden md:block">
           📝
           <span className="ml-2">
             Create Homework: Linnea can generate custom homework tailored to
             their language proficiency level and subjects
           </span>
         </li>
-        <li className="text-l">
+        <li className="text-l hidden md:block">
           🏋️‍♀️
           <span className="ml-2">
             Generate Exercises: Linnea can generate exercises to help you
@@ -36,7 +36,7 @@ export default function Home() {
             verb conjugation drills
           </span>
         </li>
-        <li className="text-l">
+        <li className="text-l hidden md:block">
           📖
           <span className="ml-2">
             Improve your reading skills: Here you can ask to read articles,
@@ -44,7 +44,7 @@ export default function Home() {
             available articles are up until August 2021.
           </span>
         </li>
-        <li className="text-l">
+        <li className="text-l hidden md:block">
           🌟
           <span className="ml-2">
             Don&apos;t hesitate to ask her anything, whether it&apos;s about
@@ -52,7 +52,7 @@ export default function Home() {
           </span>
         </li>
 
-        <li className="text-l">
+        <li className="text-l ">
           👇
           <span className="ml-2">
             Try asking e.g. <code>Create sentences about swedish cousine</code>{" "}
@@ -73,7 +73,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="w-full block md:flex gap-8 flex-1 min-h-full pt-20 pb-8 px-7">
-          <div className="w-full md:w-1/2 h-full bg-gray-700 rounded-sm shadow-md mb-8 p-4 overflow-y-scroll">
+          <div className="w-full md:w-1/2 h-[75%] md:h-full bg-gray-700 rounded-sm shadow-md mb-8 p-4 overflow-y-scroll">
             <ChatWindow
               endpoint="chat/swedish"
               emoji="🤖"

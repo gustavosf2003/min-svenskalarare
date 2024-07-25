@@ -12,6 +12,7 @@ import { ChatMessageBubble } from "@/components/ChatMessageBubble";
 import { IntermediateStep } from "./IntermediateStep";
 import Link from "next/link";
 import { Button } from "./Button";
+import clsx from "clsx";
 
 export function ChatWindow(props: {
   endpoint: string;
@@ -141,13 +142,22 @@ export function ChatWindow(props: {
   }
 
   return (
-    <div className="flex flex-col items-center -mb-8 rounded grow h-full">
-      <h2 className={`${messages.length > 0 ? "" : "hidden"} text-2xl`}>
-        🇸🇪 {titleText} 🇸🇪
-      </h2>
-      <div>{messages.length === 0 ? emptyStateComponent : ""}</div>
+    <div
+      className={clsx(
+        "flex flex-col  items-center -mb-8 h-full rounded",
+        messages.length === 0 && "justify-between",
+      )}
+    >
+      {messages.length === 0 ? (
+        emptyStateComponent
+      ) : (
+        <h2 className={`${messages.length > 0 ? "" : "hidden"} text-2xl`}>
+          🇸🇪 {titleText} 🇸🇪
+        </h2>
+      )}
+
       <div
-        className="flex flex-col-reverse w-full h-full  overflow-auto transition-[flex-grow] ease-in-out mt-2"
+        className="flex  justify-start flex-col-reverse items-start w-full  max-h-[700px]  overflow-y-scroll"
         ref={messageContainerRef}
       >
         {messages.length > 0
@@ -226,8 +236,6 @@ export function ChatWindow(props: {
           </Button>
         </div>
       </form>
-
-      <ToastContainer />
     </div>
   );
 }
