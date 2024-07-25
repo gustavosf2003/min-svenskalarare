@@ -10,6 +10,7 @@ import {
 } from "langchain/prompts";
 import { SwedishQuestions } from "./questions";
 import { SwedishPrompt } from "./prompt";
+import { BufferMemory } from "langchain/memory";
 
 export const runtime = "edge";
 
@@ -21,9 +22,14 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const messages = body.messages ?? [];
-    const formattedPreviousMessages = messages.slice(0, -1).map(formatMessage);
-    const currentMessageContent = messages[messages.length - 1].content;
 
+    if (messages.length === 0) {
+      throw new Error("No messages found in the request body.");
+    }
+    const memory = new BufferMemory({ memoryKey: "history" });
+
+    const formattedMessages = messages.map(formatMessage).join("\n");
+    const currentMessageContent = messages[messages.length - 1]?.content ?? "";
     const examplePrompt = new PromptTemplate({
       inputVariables: ["input", "output"],
       template: "Input: {input}\nOutput: {output}",
@@ -40,8 +46,8 @@ export async function POST(req: NextRequest) {
     const dynamicPrompt = new FewShotPromptTemplate({
       exampleSelector,
       examplePrompt,
-      prefix: SwedishPrompt,
-      suffix: "Input: {adjective}\nOutput:",
+      prefix: `${SwedishPrompt}\n`,
+      suffix: `Chat_history: ${formattedMessages} \n Input: {adjective}\nOutput:`,
       inputVariables: ["adjective"],
     });
 
@@ -58,7 +64,7 @@ export async function POST(req: NextRequest) {
     const chain = dynamicPrompt.pipe(model).pipe(outputParser);
 
     const stream = await chain.stream({
-      chat_history: formattedPreviousMessages.join("\n"),
+      memory,
       input: currentMessageContent,
       adjective: currentMessageContent,
     });
