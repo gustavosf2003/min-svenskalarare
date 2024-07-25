@@ -46,10 +46,8 @@ export async function POST(req: NextRequest) {
     });
 
     const model = new ChatOpenAI({
-      azureOpenAIApiKey: process.env.API_KEY,
-      azureOpenAIApiInstanceName: process.env.API_INSTANCE_NAME,
-      azureOpenAIApiDeploymentName: process.env.API_DEPLOYMENT_NAME,
-      azureOpenAIApiVersion: process.env.API_VERSION,
+      openAIApiKey: process.env.API_KEY,
+      modelName: "gpt-4o-mini",
       temperature: 0.7,
       topP: 0.95,
       frequencyPenalty: 0,

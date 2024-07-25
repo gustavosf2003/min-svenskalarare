@@ -46,14 +46,7 @@ export async function POST(req: NextRequest) {
     });
 
     const model = new ChatOpenAI({
-      azureOpenAIApiKey: process.env.API_KEY,
-      azureOpenAIApiInstanceName: process.env.API_INSTANCE_NAME,
-      azureOpenAIApiDeploymentName: process.env.API_DEPLOYMENT_NAME,
-      azureOpenAIApiVersion: process.env.API_VERSION,
-      temperature: 1,
-      topP: 1,
-      frequencyPenalty: 0,
-      presencePenalty: 0,
+      openAIApiKey: process.env.API_KEY,
     });
 
     const outputParser = new BytesOutputParser();
