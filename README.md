@@ -76,6 +76,11 @@ Make sure you have the following installed:
 The app is deployed on Vercel and can be accessed at:
 [https://min-svenskalarare.vercel.app/](https://min-svenskalarare.vercel.app/)
 
+## 📋 Project Management
+
+We use Trello for project management. You can join our Trello board to keep up with the latest updates and contribute to the project: 
+[Min Svenskalärare Trello Board](https://trello.com/invite/b/66a2e3fe3acdeecc943d8320/ATTI1405cc43cf838dd7af1a207e1eceb85360B84B16/min-svenskalarare)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request with your changes.
