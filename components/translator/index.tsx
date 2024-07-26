@@ -86,7 +86,7 @@ const TranslatorComponent = () => {
         </div>
         <TextArea
           placeholder="Skriv här.."
-          className="w-[100%] h-40 md:h-full"
+          className="w-[100%] h-40 md:h-full "
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
