@@ -1,13 +1,11 @@
-"use client";
 import { ChatWindow } from "@/components/chat/ChatWindow";
 import InfoCard from "@/components/chat/InfoCard";
-import Dictionary from "@/components/dictionary";
 import Navbar from "@/components/Navbar";
 import TranslatorComponent from "@/components/translator";
-import { ToastProvider } from "@/context/toast";
+import Dictionary from "@/services/dictionary";
 import Link from "next/link";
 
-export default function Home() {
+const Settings = () => {
   return (
     <>
       <div className="w-full h-full flex-1 flex flex-col relative">
@@ -23,9 +21,6 @@ export default function Home() {
             />
           </div>
           <div className="flex  md:w-1/2 flex-col gap-8">
-            <div className="h-[55%] rounded-xl border border-borderPrimary">
-              <Dictionary />
-            </div>
             <div className="h-[45%] rounded-xl border border-borderPrimary p-4 mb-8 md:mb-0">
               <TranslatorComponent />
             </div>
@@ -47,4 +42,6 @@ export default function Home() {
       </Link>
     </>
   );
-}
+};
+
+export default Settings;

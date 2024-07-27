@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -8,21 +9,21 @@ const Navbar = () => {
         Min svenskalärare
       </h1>
       <div className="h-full pt-1.5 gap-10 hidden md:flex">
-        <button
+        <Link
           className={clsx(
             "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md text-gray-400",
           )}
-          onClick={() => {}}
+          href="/settings"
         >
           Assistant
-        </button>
+        </Link>
         <button
           className={clsx(
             "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md",
             "text-gray-400",
           )}
         >
-          Logout
+          Logga ut
         </button>
       </div>
     </div>

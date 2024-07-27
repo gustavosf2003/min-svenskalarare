@@ -8,12 +8,12 @@ import { useRef, useState, useEffect, ReactElement } from "react";
 import type { FormEvent } from "react";
 import type { AgentStep } from "langchain/schema";
 
-import { ChatMessageBubble } from "@/components/ChatMessageBubble";
 import { IntermediateStep } from "./IntermediateStep";
 import Link from "next/link";
-import { Button } from "./Button";
+import { Button } from "../Button";
 import clsx from "clsx";
 import { PaperPlaneRight } from "@phosphor-icons/react";
+import { ChatMessageBubble } from "./ChatMessageBubble";
 
 export function ChatWindow(props: {
   endpoint: string;

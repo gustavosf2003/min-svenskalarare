@@ -4,6 +4,7 @@ import { Public_Sans } from "next/font/google";
 import Meta from "../components/Meta";
 import Script from "next/script";
 import Providers from "./providers";
+import { ToastProvider } from "@/context/toast";
 
 const publicSans = Public_Sans({ subsets: ["latin"] });
 
@@ -31,13 +32,13 @@ export default function RootLayout({
           });
           `}
       </Script>
-      <Providers>
-        <body className={publicSans.className}>
+      <body className={publicSans.className}>
+        <Providers>
           <div className="flex flex-col relative w-full min-h-screen text-[#ECECEC]">
             {children}
           </div>
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }
