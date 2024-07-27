@@ -34,7 +34,7 @@ export default function RootLayout({
       </Script>
       <body className={publicSans.className}>
         <Providers>
-          <div className="flex flex-col relative w-full min-h-screen text-[#ECECEC]">
+          <div className="flex flex-col relative w-full min-h-screen text-primaryWhite">
             {children}
           </div>
         </Providers>

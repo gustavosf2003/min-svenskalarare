@@ -16,7 +16,7 @@ export const InputText = forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             className={clsx(
-              "min-w-[246px] bg-[#2F2F2F] text-[#ECECEC] focus:outline-none rounded-full px-3.5 h-[48px] disabled:opacity-50 disabled:pointer-events-none w-full mt-0.5",
+              "min-w-[246px] bg-[#2F2F2F] text-primaryWhite focus:outline-none rounded-full px-3.5 h-[48px] disabled:opacity-50 disabled:pointer-events-none w-full mt-0.5",
               className,
             )}
             {...rest}
