@@ -228,7 +228,7 @@ export function ChatWindow(props: {
 
           <button
             className={clsx(
-              "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 -top-0.5 h-full",
+              "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2 h-8 w-8",
               input.trim().length > 0
                 ? "transition-all ease-in-out  duration-900 opacity-100"
                 : "transition-all ease-in-out  duration-900 opacity-0",

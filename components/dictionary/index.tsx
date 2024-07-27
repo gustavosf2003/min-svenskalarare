@@ -6,6 +6,8 @@ import { WordRequestType } from "@/types/dictionary";
 import dictionaryService from "@/services/dictionary";
 import Results from "./Results";
 import { TrashIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import clsx from "clsx";
+import { PaperPlaneRight } from "@phosphor-icons/react";
 
 const Dictionary = () => {
   const [word, setWord] = useState("");
@@ -25,22 +27,30 @@ const Dictionary = () => {
         <p className="text-center text-2xl">Lexikon</p>
         <div className="flex justify-center w-full relative mt-4">
           <form className="flex justify-center gap-2 md:ml-12">
-            <InputText
-              onChange={(e) => setWord(e.target.value)}
-              placeholder="Sök efter ord"
-              value={word}
-            />
-            <Button
-              type="submit"
-              onClick={(e) => {
-                e.preventDefault();
-                refetch();
-                setCurrentIndex(0);
-                setIsCleared(false);
-              }}
-            >
-              Sök
-            </Button>
+            <div className="relative">
+              <InputText
+                onChange={(e) => setWord(e.target.value)}
+                placeholder="Sök efter ord"
+                value={word}
+              />
+              <button
+                className={clsx(
+                  "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2.5 h-8 w-8",
+                  word.trim().length > 0
+                    ? "transition-all ease-in-out  duration-900 opacity-100"
+                    : "transition-all ease-in-out  duration-900 opacity-0",
+                )}
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  refetch();
+                  setCurrentIndex(0);
+                  setIsCleared(false);
+                }}
+              >
+                <PaperPlaneRight />
+              </button>
+            </div>
             {!isCleared && (
               <button
                 className="hidden md:flex rounded-md hover:bg-gray-800 p-2 gap-2 top-1 text-red-800 items-center hover:opacity-60"
