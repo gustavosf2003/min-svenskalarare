@@ -1,6 +1,7 @@
 "use client";
 import { ChatWindow } from "@/components/ChatWindow";
 import Dictionary from "@/components/dictionary";
+import Navbar from "@/components/Navbar";
 import TranslatorComponent from "@/components/translator";
 import { ToastProvider } from "@/context/toast";
 import Link from "next/link";
@@ -66,12 +67,7 @@ export default function Home() {
   return (
     <ToastProvider>
       <div className="w-full h-full flex-1 flex flex-col relative">
-        <div className="w-full bg-baseSecondary py-3 px-8 fixed top-0 left-0 right-0 z-50">
-          <h1 className="text-2xl leading-6 flex items-center gap-2">
-            <span className="text-4xl">🇸🇪</span>
-            Min svenskalärare
-          </h1>
-        </div>
+        <Navbar />
         <div className="w-full md:flex gap-8 bg-basePrimary flex-1 h-full min-h-full pt-20 pb-8 px-7 mt-3">
           <div className="w-full md:w-1/2  rounded-xl border border-borderPrimary  md:min-h-full  h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
             <ChatWindow
