@@ -7,7 +7,7 @@ interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
   loading?: boolean;
 }
 
-export const Button = ({
+const ButtonPrimary = ({
   children,
   loading,
   disabled,
@@ -20,7 +20,7 @@ export const Button = ({
       title=""
       disabled={disabled || loading}
       className={clsx(
-        "bg-[#006AA7] rounded-md text-white disabled:opacity-30 disabled:border-neutral-200 disabled:text-blue-100 shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
+        "bg-primaryWhite rounded-full text-[#0E0E0E] disabled:opacity-30 disabled:border-neutral-200  shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
         loading && "min-w-20",
         className,
       )}
@@ -28,4 +28,30 @@ export const Button = ({
       {loading ? <Loading className="!w-4 !h-4" /> : children}
     </button>
   );
+};
+
+const IconButton = ({
+  children,
+  loading,
+  disabled,
+  className,
+  ...rest
+}: ButtonProps) => {
+  return (
+    <button
+      className={clsx(
+        "bg-[#ECECEC]  rounded-full absolute right-1.5 top-[7px] h-[26px] w-[26px] flex justify-center items-center",
+        disabled
+          ? "transition-all ease-in-out  duration-900 opacity-100 hover:opacity-70"
+          : "transition-all ease-in-out  duration-900 opacity-40",
+      )}
+    >
+      {children}
+    </button>
+  );
+};
+
+export const Button = {
+  Primary: ButtonPrimary,
+  Icon: IconButton,
 };

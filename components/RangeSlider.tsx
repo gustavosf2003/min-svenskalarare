@@ -79,7 +79,6 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
             </div>
           )}
         />
-        <output style={{ marginTop: "30px" }}>{values[0].toFixed(1)}</output>
       </div>
     </>
   );
