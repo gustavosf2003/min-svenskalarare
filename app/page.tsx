@@ -65,15 +65,15 @@ export default function Home() {
 
   return (
     <ToastProvider>
-      <div className="w-full h-full flex-1 flex relative ">
-        <div className="w-full bg-baseSecondary py-1.5 px-8 fixed">
+      <div className="w-full h-full flex-1 flex flex-col relative">
+        <div className="w-full bg-baseSecondary py-3 px-8 fixed top-0 left-0 right-0 z-50">
           <h1 className="text-2xl leading-6 flex items-center gap-2">
             <span className="text-4xl">🇸🇪</span>
             Min svenskalärare
           </h1>
         </div>
-        <div className="w-full block md:flex gap-8 bg-basePrimary flex-1 min-h-full pt-20 pb-8 px-7">
-          <div className="w-full md:w-1/2 h-[75%] md:h-full  rounded-xl border border-borderPrimary mb-8  overflow-y-scroll">
+        <div className="w-full md:flex gap-8 bg-basePrimary flex-1 h-full min-h-full pt-20 pb-8 px-7 mt-3">
+          <div className="w-full md:w-1/2  rounded-xl border border-borderPrimary  md:min-h-full  h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
             <ChatWindow
               endpoint="chat/swedish"
               emoji="🤖"
@@ -90,14 +90,15 @@ export default function Home() {
               <TranslatorComponent />
             </div>
           </div>
-          <Link
-            href="https://www.buymeacoffee.com/gustavoferreira"
-            className="flex md:hidden w-full justify-center pb-6 text-sm text-white underline cursor-pointer opacity-60"
-          >
-            Made by Gustavo Ferreira ©
-          </Link>
         </div>
+        <Link
+          href="https://www.buymeacoffee.com/gustavoferreira"
+          className="hidden md:block bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"
+        >
+          Made by Gustavo Ferreira ©
+        </Link>
       </div>
+
       <Link
         href="https://www.buymeacoffee.com/gustavoferreira"
         className="hidden md:block bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"

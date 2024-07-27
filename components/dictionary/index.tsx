@@ -7,7 +7,7 @@ import dictionaryService from "@/services/dictionary";
 import Results from "./Results";
 import { TrashIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { PaperPlaneRight } from "@phosphor-icons/react";
+import { MagnifyingGlass, PaperPlaneRight } from "@phosphor-icons/react";
 
 const Dictionary = () => {
   const [word, setWord] = useState("");
@@ -48,7 +48,7 @@ const Dictionary = () => {
                   setIsCleared(false);
                 }}
               >
-                <PaperPlaneRight />
+                <MagnifyingGlass />
               </button>
             </div>
             {!isCleared && (
