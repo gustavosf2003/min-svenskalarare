@@ -52,13 +52,13 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
           <DocumentDuplicateIcon width={16} />
         </div>
       )}
-      <table cellPadding="10" className="border border-black">
+      <table cellPadding="10" className="border border-borderPrimary">
         <thead>
-          <tr className="bg-blue-400 text-white font-semibold">
+          <tr className="bg-[#383737] text-white">
             {wordForms.map((wordForm) => (
               <th
                 key={wordForm.title}
-                className="text-center border border-black"
+                className="text-center border border-borderPrimary"
               >
                 {wordForm.title}
               </th>
@@ -66,11 +66,11 @@ const VerbComponent = ({ data }: { data: WordSourceType }) => {
           </tr>
         </thead>
         <tbody>
-          <tr className="bg-white text-black border border-black">
+          <tr className="border border-borderPrimary">
             {wordForms.map((wordForm) => (
               <td
                 key={wordForm.title}
-                className="text-center  border border-black"
+                className="text-center  border border-borderPrimary"
               >
                 {wordForm.form === "inf aktiv" && "att "}
                 <span

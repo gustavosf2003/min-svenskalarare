@@ -104,7 +104,7 @@ const Results = ({
           <div className="justify-center  items-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
             <div>
               <p className="font-light text-sm">
-                Results for:{" "}
+                Resultat för :{" "}
                 <span className="font-semibold underline">
                   {
                     data.hits?.hits[currentIndex]?._source
