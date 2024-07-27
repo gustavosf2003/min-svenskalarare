@@ -1,7 +1,6 @@
 import "./globals.css";
 import { Public_Sans } from "next/font/google";
 
-import { Navbar } from "@/components/Navbar";
 import Meta from "../components/Meta";
 import Script from "next/script";
 import Providers from "./providers";

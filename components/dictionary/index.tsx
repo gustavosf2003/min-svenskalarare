@@ -7,7 +7,11 @@ import dictionaryService from "@/services/dictionary";
 import Results from "./Results";
 import { TrashIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import { MagnifyingGlass, PaperPlaneRight } from "@phosphor-icons/react";
+import {
+  MagnifyingGlass,
+  PaperPlaneRight,
+  XCircle,
+} from "@phosphor-icons/react";
 
 const Dictionary = () => {
   const [word, setWord] = useState("");
@@ -31,6 +35,7 @@ const Dictionary = () => {
               <InputText
                 onChange={(e) => setWord(e.target.value)}
                 placeholder="Sök efter ord"
+                className="!pr-10"
                 value={word}
               />
               <button
@@ -53,14 +58,14 @@ const Dictionary = () => {
             </div>
             {!isCleared && (
               <button
-                className="hidden md:flex rounded-md hover:bg-gray-800 p-2 gap-2 top-1 text-red-800 items-center hover:opacity-60"
+                className="hidden md:flex rounded-md hover:bg-basePrimary p-2 gap-2 top-1 text-red-800 items-center hover:opacity-60"
                 onClick={() => {
                   setWord("");
                   setCurrentIndex(0);
                   setIsCleared(true);
                 }}
               >
-                <XCircleIcon width={24} strokeWidth={1.8} />
+                <XCircle size={24} weight="bold" />
               </button>
             )}
           </form>
