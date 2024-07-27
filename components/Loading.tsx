@@ -6,8 +6,8 @@ export default function Loading({ className = "" }) {
       <svg
         aria-hidden="true"
         className={clsx(
-          "w-8 h-8 text-gray-400 animate-spin fill-blue-600",
-          className
+          "w-8 h-8 text-gray-600 animate-spin fill-[#FFA500]",
+          className,
         )}
         viewBox="0 0 100 101"
         fill="none"
