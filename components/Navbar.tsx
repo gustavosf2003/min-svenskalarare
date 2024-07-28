@@ -27,7 +27,7 @@ const Navbar = () => {
           )}
           onClick={() => router.push("/settings")}
         >
-          Settings
+          Inställningar
         </button>
         <button
           className={clsx(

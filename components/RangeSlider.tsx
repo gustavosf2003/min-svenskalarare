@@ -75,7 +75,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
               }}
               className="w-5 h-5 rounded-full bg-[#FFA500] outline-none flex items-center justify-center"
             >
-              <div className="bg-[#7c8591]/90 w-2 h-2 rounded-full"></div>
+              <div className="bg-[#7c8591] w-2 h-2 rounded-full"></div>
             </div>
           )}
         />

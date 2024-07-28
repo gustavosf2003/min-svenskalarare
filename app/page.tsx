@@ -38,13 +38,6 @@ export default function Home() {
           Made by Gustavo Ferreira ©
         </Link>
       </div>
-
-      <Link
-        href="https://www.buymeacoffee.com/gustavoferreira"
-        className="hidden md:block bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"
-      >
-        Made by Gustavo Ferreira ©
-      </Link>
     </>
   );
 }

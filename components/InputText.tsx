@@ -7,6 +7,7 @@ interface InputProps extends PropsWithChildren<JSX.IntrinsicElements["input"]> {
   label?: React.ReactNode | string;
   error?: string;
 }
+
 export const InputText = forwardRef<HTMLInputElement, InputProps>(
   function InputText({ label, className, error, ...rest }, ref) {
     return (

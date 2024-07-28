@@ -27,7 +27,7 @@ const Dictionary = () => {
       <div className="flex flex-col pt-4 mb-8">
         <p className="text-center text-2xl">Lexikon</p>
         <div className="flex justify-center w-full relative mt-4">
-          <form className="flex justify-center gap-2 md:ml-12">
+          <form className="flex justify-center gap-2">
             <div className="relative">
               <InputText
                 onChange={(e) => setWord(e.target.value)}

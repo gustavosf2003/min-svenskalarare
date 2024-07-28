@@ -110,7 +110,7 @@ const SettingsForm = () => {
             )}
           />
           <div className="w-full text-center">
-            <p className="text-sm">
+            <p className="text-sm text-gray-400">
               {getVocabularyText(watch("vocabularyLevel"))}
             </p>
           </div>

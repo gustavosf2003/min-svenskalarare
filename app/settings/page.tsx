@@ -1,6 +1,8 @@
 "use client";
 import { useRouter } from "next/navigation";
 
+import { ArrowBendDownLeft } from "@phosphor-icons/react";
+
 import Navbar from "@/components/Navbar";
 import SettingsForm from "@/components/settings/Form";
 
@@ -15,17 +17,24 @@ const Settings = () => {
           <div className="flex md:w-1/2 flex-col gap-8">
             <div>
               <button
-                className="text-sm"
+                className="text-sm flex items-center gap-2 -mt-2 hover:opacity-75"
                 onClick={() => {
                   router.back();
                 }}
               >
-                Back
+                <ArrowBendDownLeft
+                  weight="regular"
+                  size={18}
+                  className="text-[#7c8591]"
+                />
+                Tillbaka
               </button>
-              <h2 className="text-2xl font-medium -mb-1">
+              <h2 className="text-3xl font-medium -mb-1 mt-4">
                 Assistant inställningar
               </h2>
-              <p>Ändra inställningar för din assistent här</p>
+              <p className="text-sm text-gray-400">
+                Här kan du konfigurera ditt assistent så att det passar dig.
+              </p>
             </div>
             <SettingsForm />
           </div>

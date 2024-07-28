@@ -75,7 +75,9 @@ const Results = ({
       case "pn":
         return <PronoumComponent data={wordSource} />;
       default:
-        return <p>Error trying to find the component</p>;
+        return (
+          <p className="text-gray-400">Fel vid försök att hitta komponenten</p>
+        );
     }
   }
 
@@ -100,7 +102,7 @@ const Results = ({
           <div className="justify-center items-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
             <div>
               <p className="font-light text-sm">
-                Resultat för :{" "}
+                <span className="text-gray-400"> Resultat för : </span>
                 <span className="font-semibold underline">
                   {
                     data.hits?.hits[currentIndex]?._source
