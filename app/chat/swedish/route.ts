@@ -46,7 +46,6 @@ export async function POST(req: NextRequest) {
         maxLength: 2000,
       },
     );
-
     const dynamicPrompt = new FewShotPromptTemplate({
       exampleSelector,
       examplePrompt,
