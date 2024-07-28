@@ -10,6 +10,8 @@ import { useChat } from "ai/react";
 import clsx from "clsx";
 import { toast } from "react-toastify";
 
+import { useSettings } from "@/hooks/useSettings";
+
 import { ChatMessageBubble } from "./ChatMessageBubble";
 
 type ChatWindowProps = {
@@ -27,7 +29,7 @@ export function ChatWindow({
 }: ChatWindowProps) {
   const messageContainerRef = useRef<HTMLDivElement | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-
+  const { data } = useSettings();
   const {
     messages,
     input,
@@ -37,7 +39,7 @@ export function ChatWindow({
   } = useChat({
     api: endpoint,
     body: {
-      input: "",
+      settings: data,
     },
     onError: (e) => {
       toast(e.message, {
@@ -59,7 +61,6 @@ export function ChatWindow({
     }
     handleSubmit(e);
   }
-
   const getLineCount = (text, cols) => {
     const lines = text.split("\n");
     let lineCount = lines.length;

@@ -5,6 +5,7 @@ export type Settings = {
   selectedLanguage: {
     id: number;
     language: string;
+    englishName: string;
     icon: string;
   };
 };

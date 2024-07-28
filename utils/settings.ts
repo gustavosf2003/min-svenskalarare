@@ -25,67 +25,79 @@ export const LANGUAGES = [
   {
     id: 1,
     language: "English",
+    englishName: "English",
     icon: "🇬🇧",
   },
   {
     id: 2,
     language: "Português",
+    englishName: "Portuguese",
     icon: "🇧🇷",
   },
   {
     id: 3,
     language: "Русский",
+    englishName: "Russian",
     icon: "🇷🇺",
   },
-
   {
     id: 6,
     language: "Suomi",
+    englishName: "Finnish",
     icon: "🇫🇮",
   },
   {
     id: 12,
     language: "Norsk",
+    englishName: "Norwegian",
     icon: "🇳🇴",
   },
   {
     id: 13,
     language: "Dansk",
+    englishName: "Danish",
     icon: "🇩🇰",
   },
   {
     id: 10,
     language: "Deutsch",
+    englishName: "German",
     icon: "🇩🇪",
   },
   {
     id: 7,
     language: "Español",
+    englishName: "Spanish",
     icon: "🇪🇸",
   },
   {
     id: 4,
     language: "العربية",
+    englishName: "Arabic",
     icon: "🇸🇦",
   },
   {
     id: 5,
     language: "Polski",
+    englishName: "Polish",
     icon: "🇵🇱",
   },
   {
     id: 8,
     language: "中文",
+    englishName: "Chinese",
     icon: "🇨🇳",
   },
   {
     id: 9,
     language: "हिन्दी",
+    englishName: "Hindi",
     icon: "🇮🇳",
   },
   {
     id: 11,
     language: "Ελληνικά",
+    englishName: "Greek",
     icon: "🇬🇷",
   },
 ];

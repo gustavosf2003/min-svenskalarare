@@ -1,7 +1,7 @@
 export const SwedishQuestions = [
   {
     input: "vad betyder grönsaker?",
-    output: `"Grönsaker" betyder "vegetables".
+    output: `"Grönsaker" betyder "vegetais" på portugisiska.
 
 Här är några exempel på användningen av ordet "Grönsaker":
 

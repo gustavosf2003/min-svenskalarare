@@ -10,7 +10,9 @@ import {
 } from "langchain/prompts";
 import { BytesOutputParser } from "langchain/schema/output_parser";
 
-import { SwedishPrompt } from "./prompt";
+import { Settings } from "@/types/settings";
+
+import { createSwedishPrompt } from "./prompt";
 import { SwedishQuestions } from "./questions";
 
 export const runtime = "edge";
@@ -23,7 +25,8 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const messages = body.messages ?? [];
-    console.log("messages", body);
+    const settings = (body.settings as Settings) ?? ({} as Settings);
+
     if (messages.length === 0) {
       throw new Error("No messages found in the request body.");
     }
@@ -47,7 +50,7 @@ export async function POST(req: NextRequest) {
     const dynamicPrompt = new FewShotPromptTemplate({
       exampleSelector,
       examplePrompt,
-      prefix: `${SwedishPrompt}\n`,
+      prefix: `${createSwedishPrompt(settings)}\n`,
       suffix: `Chat_history: ${formattedMessages} \n Input: {adjective}\nOutput:`,
       inputVariables: ["adjective"],
     });
