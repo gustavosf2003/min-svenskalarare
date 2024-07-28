@@ -14,7 +14,7 @@ export function IntermediateStep(props: { message: Message }) {
     >
       <div
         className={`text-right ${expanded ? "w-full" : ""}`}
-        onClick={(e) => setExpanded(!expanded)}
+        onClick={() => setExpanded(!expanded)}
       >
         <code className="mr-2 bg-slate-600 px-2 py-1 rounded hover:text-blue-600">
           🛠️ <b>{action.tool}</b>

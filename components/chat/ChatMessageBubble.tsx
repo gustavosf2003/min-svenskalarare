@@ -22,20 +22,18 @@ export function ChatMessageBubble({ message }: ChatMessageBubbleProps) {
         className="whitespace-pre-wrap"
         remarkPlugins={[remarkGfm]}
         components={{
-          p: ({ node, ...props }) => <p className="leading-none" {...props} />,
-          ol: ({ node, ...props }) => (
+          p: ({ ...props }) => <p className="leading-none" {...props} />,
+          ol: ({ ...props }) => (
             <ol className="mb-1 list-disc ml-3" {...props} />
           ),
-          li: ({ node, ...props }) => <li className="-my-3" {...props} />,
-          th: ({ node, ...props }) => (
+          li: ({ ...props }) => <li className="-my-3" {...props} />,
+          th: ({ ...props }) => (
             <th className="bg-gray-300 border text- py-0.5 px-2" {...props} />
           ),
-          td: ({ node, ...props }) => (
+          td: ({ ...props }) => (
             <td className="px-3 py-1 text-sm font-medium border" {...props} />
           ),
-          table: ({ node, ...props }) => (
-            <table className="table-fixed" {...props} />
-          ),
+          table: ({ ...props }) => <table className="table-fixed" {...props} />,
         }}
       >
         {message.content}

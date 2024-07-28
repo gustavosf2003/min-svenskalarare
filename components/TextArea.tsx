@@ -9,7 +9,7 @@ interface InputProps
   error?: string;
 }
 export const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
-  function TextArea({ label, className, error, ...rest }, ref) {
+  function TextArea({ className, ...rest }, ref) {
     return (
       <div className="w-full h-full">
         <textarea

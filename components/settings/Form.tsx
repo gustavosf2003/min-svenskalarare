@@ -32,14 +32,11 @@ const getVocabularyText = (value: number): string => {
 const SettingsForm = () => {
   const [inputText, setInputText] = useState("");
   const {
-    register,
     handleSubmit,
-    setFocus,
     setValue,
-    setError,
     watch,
     control,
-    formState: { isDirty, isValid, errors, isSubmitting },
+    formState: { isDirty, isValid },
   } = useForm({
     mode: "onChange",
     defaultValues: {
@@ -73,7 +70,7 @@ const SettingsForm = () => {
                 <SelectableBadge
                   key={pref}
                   selected={value.includes(pref)}
-                  onChange={(e) => {
+                  onChange={() => {
                     if (value.includes(pref)) {
                       onChange(value.filter((p) => p !== pref));
                     } else {
@@ -103,7 +100,7 @@ const SettingsForm = () => {
           <Controller
             control={control}
             name="vocabularyLevel"
-            render={({ field: { onChange, onBlur, value, ref } }) => (
+            render={({ field: { onChange, value } }) => (
               <RangeSlider
                 onChange={(values) => {
                   onChange(values[0]);
@@ -174,7 +171,7 @@ const SettingsForm = () => {
             <SelectableBadge
               key={pref}
               selected={true}
-              onChange={(e) => {
+              onChange={() => {
                 setValue(
                   "otherPreferences",
                   watch("otherPreferences").filter((p) => p !== pref),

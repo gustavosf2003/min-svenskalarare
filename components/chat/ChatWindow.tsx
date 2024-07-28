@@ -30,9 +30,7 @@ export function ChatWindow(props: {
     emptyStateComponent,
     placeholder,
     titleText = "An LLM",
-    showIngestForm,
     showIntermediateStepsToggle,
-    emoji,
   } = props;
 
   const [showIntermediateSteps, setShowIntermediateSteps] = useState(false);

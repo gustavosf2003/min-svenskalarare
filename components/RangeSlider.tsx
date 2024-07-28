@@ -15,7 +15,6 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   min = 1,
   max = 3,
   step = 1,
-  defaultValue = min,
   onChange,
   values,
 }) => {
@@ -67,7 +66,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
               </div>
             </div>
           )}
-          renderThumb={({ props, isDragged }) => (
+          renderThumb={({ props }) => (
             <div
               {...props}
               key={props.key}
