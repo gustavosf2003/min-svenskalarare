@@ -9,6 +9,9 @@ import {
 } from "@phosphor-icons/react";
 import { Controller, useForm } from "react-hook-form";
 
+import { useToast } from "@/context/toast";
+import { useSettings } from "@/hooks/useSettings";
+import { Settings } from "@/types/settings";
 import { LANGUAGES, PREFERENCES } from "@/utils/settings";
 
 import { Button } from "../Button";
@@ -29,28 +32,35 @@ const getVocabularyText = (value: number): string => {
   }
 };
 
-const SettingsForm = () => {
+const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
   const [inputText, setInputText] = useState("");
   const {
     handleSubmit,
     setValue,
     watch,
     control,
+    reset,
     formState: { isDirty, isValid },
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      preferences: [],
-      otherPreferences: [],
-      vocabularyLevel: 2,
-      selectedLanguage: LANGUAGES[0],
+      preferences: defaultValues.preferences,
+      otherPreferences: defaultValues.otherPreferences,
+      vocabularyLevel: defaultValues.vocabularyLevel,
+      selectedLanguage: defaultValues.selectedLanguage,
     },
   });
+  const { saveSettings } = useSettings();
+  const { showToast } = useToast();
   const isValidPreference =
     inputText.length < 30 && inputText.trim().length > 2;
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data: Settings) => {
+    await saveSettings(data);
+    showToast("success", "Inställningar sparade");
+    reset({
+      ...data,
+    });
   };
 
   return (

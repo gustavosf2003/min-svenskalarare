@@ -5,9 +5,11 @@ import { ArrowBendDownLeft } from "@phosphor-icons/react";
 
 import Navbar from "@/components/Navbar";
 import SettingsForm from "@/components/settings/Form";
+import { useSettings } from "@/hooks/useSettings";
 
 const Settings = () => {
   const router = useRouter();
+  const { data, isLoading } = useSettings();
 
   return (
     <>
@@ -36,7 +38,7 @@ const Settings = () => {
                 Här kan du konfigurera ditt assistent så att det passar dig.
               </p>
             </div>
-            <SettingsForm />
+            {!isLoading && <SettingsForm defaultValues={data} />}
           </div>
         </div>
       </div>
