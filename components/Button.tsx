@@ -42,8 +42,8 @@ const IconButton = ({
       className={clsx(
         "bg-[#ECECEC]  rounded-full absolute right-1.5 top-[7px] h-[26px] w-[26px] flex justify-center items-center",
         disabled
-          ? "transition-all ease-in-out  duration-900 opacity-100 hover:opacity-70"
-          : "transition-all ease-in-out  duration-900 opacity-40",
+          ? "transition-all ease-in-out  duration-900 opacity-40"
+          : "transition-all ease-in-out  duration-900 opacity-100 hover:opacity-70",
       )}
     >
       {children}

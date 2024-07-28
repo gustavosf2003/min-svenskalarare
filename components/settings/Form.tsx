@@ -5,20 +5,17 @@ import Dropdown from "../Dropdown";
 import { InputText } from "../InputText";
 import clsx from "clsx";
 import {
-  Heart,
-  IconBase,
-  Lightbulb,
   LightbulbFilament,
   Notepad,
   Plus,
-  PlusCircle,
   PuzzlePiece,
   Translate,
 } from "@phosphor-icons/react";
 import { Button } from "../Button";
 import { LANGUAGES, PREFERENCES } from "@/utils/settings";
 import Title from "../Title";
-import { BookOpenText } from "@phosphor-icons/react/dist/ssr";
+import { Controller, useForm } from "react-hook-form";
+import { set } from "zod";
 
 const getVocabularyText = (value: number): string => {
   switch (value) {
@@ -32,31 +29,61 @@ const getVocabularyText = (value: number): string => {
 };
 
 const SettingsForm = () => {
-  const [preferences, setPreferences] = useState([]);
-  const [otherPreferences, setOtherPreferences] = useState([]);
-  const [values, setValues] = useState([2]);
-  const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0]);
   const [inputText, setInputText] = useState("");
-  const isActive = inputText.length < 20 && inputText.trim().length > 2;
+  const {
+    register,
+    handleSubmit,
+    setFocus,
+    setValue,
+    setError,
+    watch,
+    control,
+    formState: { isDirty, isValid, errors, isSubmitting },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      preferences: [],
+      otherPreferences: [],
+      vocabularyLevel: 2,
+      selectedLanguage: LANGUAGES[0],
+    },
+  });
+  const isValidPreference =
+    inputText.length < 30 && inputText.trim().length > 2;
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="rounded-xl border border-borderPrimary p-4 mb-8 md:mb-0">
       <div>
-        <Title icon={<PuzzlePiece size={20} />} text="Vad är dina intressen?" />
+        <Title
+          icon={<PuzzlePiece size={20} />}
+          text="Vilka ämnen gillar du att prata om?"
+        />
         <div className="flex flex-wrap gap-2">
           {PREFERENCES.map((pref) => (
-            <SelectableBadge
+            <Controller
               key={pref}
-              selected={preferences.includes(pref)}
-              onChange={(e) => {
-                if (preferences.includes(pref)) {
-                  setPreferences(preferences.filter((pref) => pref !== pref));
-                } else {
-                  setPreferences([...preferences, pref]);
-                }
-              }}
-            >
-              {pref}
-            </SelectableBadge>
+              control={control}
+              name="preferences"
+              render={({ field: { onChange, value } }) => (
+                <SelectableBadge
+                  key={pref}
+                  selected={value.includes(pref)}
+                  onChange={(e) => {
+                    if (value.includes(pref)) {
+                      onChange(value.filter((p) => p !== pref));
+                    } else {
+                      onChange([...value, pref]);
+                    }
+                  }}
+                >
+                  {pref}
+                </SelectableBadge>
+              )}
+            />
           ))}
         </div>
       </div>
@@ -64,7 +91,7 @@ const SettingsForm = () => {
       <div>
         <Title
           icon={<Notepad size={20} />}
-          text="Vilken typ av ordförråd ska din assistent använda? "
+          text="Vilken typ av ordförråd ska din assistent använda?"
         />
         <div className="relative px-6 mt-6">
           <div className="absolute flex justify-between left-2 w-full -top-7">
@@ -72,47 +99,63 @@ const SettingsForm = () => {
             <p className="text-xs -ml-5">Standard</p>
             <p className="text-xs mr-2.5">Komplex</p>
           </div>
-          <RangeSlider
-            onChange={(values) => {
-              setValues(values);
-            }}
-            values={values}
+          <Controller
+            control={control}
+            name="vocabularyLevel"
+            render={({ field: { onChange, onBlur, value, ref } }) => (
+              <RangeSlider
+                onChange={(values) => {
+                  onChange(values[0]);
+                }}
+                values={[value]}
+              />
+            )}
           />
           <div className="w-full text-center">
-            <p className="text-sm">{getVocabularyText(values[0])}</p>
+            <p className="text-sm">
+              {getVocabularyText(watch("vocabularyLevel"))}
+            </p>
           </div>
         </div>
       </div>
       <div className="h-0.5 bg-borderPrimary my-5" />
       <div className="relative z-20">
-        <Title icon={<Translate size={20} />} text="Välja en hjälp språk" />
-        <Dropdown
-          items={LANGUAGES.filter(
-            (language) => language.language !== selectedLanguage.language,
+        <Title icon={<Translate size={20} />} text="Välja ett hjälpspråk" />
+        <Controller
+          control={control}
+          name="selectedLanguage"
+          render={({ field: { onChange, value } }) => (
+            <Dropdown
+              items={LANGUAGES.filter(
+                (language) => language.language !== value.language,
+              )}
+              selectedItem={value}
+              setSelectedItem={onChange}
+            />
           )}
-          selectedItem={selectedLanguage}
-          setSelectedItem={setSelectedLanguage}
         />
       </div>
       <div className="h-0.5 bg-borderPrimary my-5" />
       <div>
-        <Title
-          icon={<LightbulbFilament size={20} />}
-          text="Andra preferenser"
-        />
+        <Title icon={<LightbulbFilament size={20} />} text="Anpassade ämnen" />
         <form
           className="relative"
           onSubmit={(e) => {
             e.preventDefault();
-            if (!isActive) return;
-            if (otherPreferences.includes(inputText)) return;
-            setOtherPreferences([...otherPreferences, inputText]);
+            console.log("passed");
+            if (!isValidPreference) return;
+            if (watch("otherPreferences").includes(inputText)) return;
+            setValue(
+              "otherPreferences",
+              [...watch("otherPreferences"), inputText],
+              { shouldValidate: true, shouldDirty: true },
+            );
             setInputText("");
           }}
         >
           <div className="relative">
             <InputText
-              placeholder="Lägg till en ny preferens"
+              placeholder="Lägg till ett anpassat ämne"
               className="!h-9"
               onChange={(e) => {
                 setInputText(e.target.value);
@@ -120,18 +163,22 @@ const SettingsForm = () => {
               value={inputText}
             />
 
-            <Button.Icon disabled={isActive}>
+            <Button.Icon disabled={!isValidPreference}>
               <Plus weight="bold" size={14} className="text-basePrimary" />
             </Button.Icon>
           </div>
         </form>
         <div className="flex flex-wrap gap-2 mt-3">
-          {otherPreferences.map((pref) => (
+          {watch("otherPreferences").map((pref) => (
             <SelectableBadge
               key={pref}
               selected={true}
               onChange={(e) => {
-                setOtherPreferences(otherPreferences.filter((p) => p !== pref));
+                setValue(
+                  "otherPreferences",
+                  watch("otherPreferences").filter((p) => p !== pref),
+                  { shouldValidate: true, shouldDirty: true }, // Ensure validation and dirty state update
+                );
               }}
             >
               {pref}
@@ -142,11 +189,10 @@ const SettingsForm = () => {
       <div className="h-0.5 bg-borderPrimary my-5" />
       <div className="w-full mt-4">
         <Button.Primary
-          disabled
+          disabled={!isDirty || !isValid}
           className="w-full"
           onClick={async () => {
-            // await savePreferences();
-            // router.push("/home");
+            await handleSubmit(onSubmit)();
           }}
         >
           Spara
