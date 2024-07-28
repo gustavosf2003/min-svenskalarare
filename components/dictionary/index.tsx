@@ -1,17 +1,14 @@
 import { useState } from "react";
-import { Button } from "../Button";
-import { InputText } from "../InputText";
+
+import { MagnifyingGlass, XCircle } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
-import { WordRequestType } from "@/types/dictionary";
-import dictionaryService from "@/services/dictionary";
-import Results from "./Results";
-import { TrashIcon, XCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import {
-  MagnifyingGlass,
-  PaperPlaneRight,
-  XCircle,
-} from "@phosphor-icons/react";
+
+import dictionaryService from "@/services/dictionary";
+import { WordRequestType } from "@/types/dictionary";
+
+import Results from "./Results";
+import { InputText } from "../InputText";
 
 const Dictionary = () => {
   const [word, setWord] = useState("");
@@ -19,7 +16,7 @@ const Dictionary = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const { data, refetch, isFetching, isError } = useQuery({
-    queryKey: ["dicionary"],
+    queryKey: ["dicionary", word],
     queryFn: () => dictionaryService.getWord(word),
     initialData: {} as WordRequestType,
     enabled: false,
@@ -42,8 +39,8 @@ const Dictionary = () => {
                 className={clsx(
                   "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2.5 h-8 w-8",
                   word.trim().length > 0
-                    ? "transition-all ease-in-out  duration-900 opacity-100"
-                    : "transition-all ease-in-out  duration-900 opacity-0",
+                    ? "transition-all ease-in-out duration-900 opacity-100"
+                    : "transition-all ease-in-out duration-900 opacity-0",
                 )}
                 type="submit"
                 onClick={(e) => {

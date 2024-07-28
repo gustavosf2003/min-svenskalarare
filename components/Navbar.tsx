@@ -1,8 +1,8 @@
 "use client";
 
-import clsx from "clsx";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
+
+import clsx from "clsx";
 
 const Navbar = () => {
   const router = useRouter();

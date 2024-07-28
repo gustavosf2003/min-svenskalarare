@@ -1,9 +1,5 @@
 import { useState } from "react";
-import SelectableBadge from "../SelectableBadge";
-import RangeSlider from "../RangeSlider";
-import Dropdown from "../Dropdown";
-import { InputText } from "../InputText";
-import clsx from "clsx";
+
 import {
   LightbulbFilament,
   Notepad,
@@ -11,11 +7,16 @@ import {
   PuzzlePiece,
   Translate,
 } from "@phosphor-icons/react";
-import { Button } from "../Button";
-import { LANGUAGES, PREFERENCES } from "@/utils/settings";
-import Title from "../Title";
 import { Controller, useForm } from "react-hook-form";
-import { set } from "zod";
+
+import { LANGUAGES, PREFERENCES } from "@/utils/settings";
+
+import { Button } from "../Button";
+import Dropdown from "../Dropdown";
+import { InputText } from "../InputText";
+import RangeSlider from "../RangeSlider";
+import SelectableBadge from "../SelectableBadge";
+import Title from "../Title";
 
 const getVocabularyText = (value: number): string => {
   switch (value) {

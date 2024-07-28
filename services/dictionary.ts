@@ -1,5 +1,6 @@
-import { WordRequestType } from "@/types/dictionary";
 import axios from "axios";
+
+import { WordRequestType } from "@/types/dictionary";
 
 async function getWord(word: string): Promise<WordRequestType> {
   let response = await axios.get(

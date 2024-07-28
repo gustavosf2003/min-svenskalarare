@@ -1,6 +1,5 @@
 import type { Message } from "ai/react";
 import clsx from "clsx";
-import { Suspense } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
@@ -29,7 +28,7 @@ export function ChatMessageBubble({ message }: ChatMessageBubbleProps) {
           ),
           li: ({ node, ...props }) => <li className="-my-3" {...props} />,
           th: ({ node, ...props }) => (
-            <th className="bg-gray-300 border text-  py-0.5  px-2" {...props} />
+            <th className="bg-gray-300 border text- py-0.5 px-2" {...props} />
           ),
           td: ({ node, ...props }) => (
             <td className="px-3 py-1 text-sm font-medium border" {...props} />

@@ -1,11 +1,11 @@
 "use client";
+import Link from "next/link";
+
 import { ChatWindow } from "@/components/chat/ChatWindow";
 import InfoCard from "@/components/chat/InfoCard";
 import Dictionary from "@/components/dictionary";
 import Navbar from "@/components/Navbar";
 import TranslatorComponent from "@/components/translator";
-import { ToastProvider } from "@/context/toast";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <div className="w-full h-full flex-1 flex flex-col relative">
         <Navbar />
         <div className="w-full md:flex gap-8 bg-basePrimary flex-1 h-full min-h-full pt-20 pb-8 px-7 mt-3">
-          <div className="w-full md:w-1/2  rounded-xl border border-borderPrimary  md:min-h-full  h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
+          <div className="w-full md:w-1/2 rounded-xl border border-borderPrimary md:min-h-full h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
             <ChatWindow
               endpoint="chat/swedish"
               emoji="🤖"
@@ -22,7 +22,7 @@ export default function Home() {
               emptyStateComponent={<InfoCard />}
             />
           </div>
-          <div className="flex  md:w-1/2 flex-col gap-8">
+          <div className="flex md:w-1/2 flex-col gap-8">
             <div className="h-[55%] rounded-xl border border-borderPrimary">
               <Dictionary />
             </div>

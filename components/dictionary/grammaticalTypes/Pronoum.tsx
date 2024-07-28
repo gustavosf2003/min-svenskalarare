@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
+
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+
 import { useToast } from "@/context/toast";
 import { WordSourceType } from "@/types/dictionary";
-import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
 
 const PronoumComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [
@@ -17,6 +19,7 @@ const PronoumComponent = ({ data }: { data: WordSourceType }) => {
   useEffect(() => {
     document.addEventListener("copy", handleCopy);
     return () => document.removeEventListener("copy", handleCopy);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCopy = (e: any) => {
@@ -49,7 +52,7 @@ const PronoumComponent = ({ data }: { data: WordSourceType }) => {
       onClick={exportData}
     >
       {isShowingCopyIndicator && (
-        <div className="absolute  flex justify-center bg-gray-600  rounded-lg p-1.5 -right-2 -top-5">
+        <div className="absolute flex justify-center bg-gray-600 rounded-lg p-1.5 -right-2 -top-5">
           <DocumentDuplicateIcon width={16} />
         </div>
       )}
@@ -71,7 +74,7 @@ const PronoumComponent = ({ data }: { data: WordSourceType }) => {
             {wordForms.map((wordForm) => (
               <td
                 key={wordForm.title}
-                className="text-center  border border-borderPrimary"
+                className="text-center border border-borderPrimary"
               >
                 {data.WordForms.find((wf) => wf.msd === wordForm.form)
                   ?.writtenForm ?? "-"}

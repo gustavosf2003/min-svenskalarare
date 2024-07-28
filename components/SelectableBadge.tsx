@@ -19,7 +19,7 @@ const SelectableBadge = ({
         className,
         selected
           ? "border border-[#FFA500] text-primaryWhite transition-colors"
-          : "border-[#7c8591] text-[#7c8591] transition-colors  hover:text-opacity-80",
+          : "border-[#7c8591] text-[#7c8591] transition-colors hover:text-opacity-80",
       )}
     >
       {children}

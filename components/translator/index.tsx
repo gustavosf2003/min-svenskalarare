@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
-import { TextArea } from "../TextArea";
-import Dropdown from "../Dropdown";
+
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "../Button";
+
+import { useDebounce } from "@/hooks/useDebounce";
 import translatorService from "@/services/translator";
 import { TranslationType } from "@/types/translation";
+
+import Dropdown from "../Dropdown";
 import Loading from "../Loading";
-import { useDebounce } from "@/hooks/useDebounce";
+import { TextArea } from "../TextArea";
 
 const languages = [
   {
@@ -69,6 +71,7 @@ const TranslatorComponent = () => {
       }
     };
     loadUsers();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, selectedLocale, selectedTargetLocale]);
 
   return (
@@ -86,7 +89,7 @@ const TranslatorComponent = () => {
         </div>
         <TextArea
           placeholder="Skriv här.."
-          className="w-[100%] h-40 md:h-full "
+          className="w-[100%] h-40 md:h-full"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -100,7 +103,7 @@ const TranslatorComponent = () => {
           selectedItem={selectedTargetLocale}
           setSelectedItem={setSelectedTargetLocale}
         />
-        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl px-3.5 py-[10.5px]  text-sm">
+        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl px-3.5 py-[10.5px] text-sm">
           {isFetching ? (
             <Loading />
           ) : isError ? (

@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef } from "react";
 
 import clsx from "clsx";
+
 import Loading from "./Loading";
 
 interface ButtonProps extends ComponentPropsWithoutRef<"button"> {
@@ -20,7 +21,7 @@ const ButtonPrimary = ({
       title=""
       disabled={disabled || loading}
       className={clsx(
-        "bg-primaryWhite rounded-full text-[#0E0E0E] disabled:opacity-30 disabled:border-neutral-200  shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
+        "bg-primaryWhite rounded-full text-[#0E0E0E] disabled:opacity-30 disabled:border-neutral-200 shadow-xl disabled:cursor-not-allowed body-md justify-center inline-flex px-4 py-2.5 items-center hover:opacity-70 transition-opacity",
         loading && "min-w-20",
         className,
       )}
@@ -40,10 +41,10 @@ const IconButton = ({
   return (
     <button
       className={clsx(
-        "bg-[#ECECEC]  rounded-full absolute right-1.5 top-[7px] h-[26px] w-[26px] flex justify-center items-center",
+        "bg-[#ECECEC] rounded-full absolute right-1.5 top-[7px] h-[26px] w-[26px] flex justify-center items-center",
         disabled
-          ? "transition-all ease-in-out  duration-900 opacity-40"
-          : "transition-all ease-in-out  duration-900 opacity-100 hover:opacity-70",
+          ? "transition-all ease-in-out duration-900 opacity-40"
+          : "transition-all ease-in-out duration-900 opacity-100 hover:opacity-70",
       )}
     >
       {children}

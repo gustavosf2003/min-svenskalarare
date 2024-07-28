@@ -1,10 +1,9 @@
 import "./globals.css";
 import { Public_Sans } from "next/font/google";
-
-import Meta from "../components/Meta";
 import Script from "next/script";
+
 import Providers from "./providers";
-import { ToastProvider } from "@/context/toast";
+import Meta from "../components/Meta";
 
 const publicSans = Public_Sans({ subsets: ["latin"] });
 

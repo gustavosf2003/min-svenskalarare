@@ -1,6 +1,6 @@
 const InfoCard = () => {
   return (
-    <div className="p-4 md:p-8 rounded w-full  lg:overflow-hidden overflow-y-auto">
+    <div className="p-4 md:p-8 rounded w-full lg:overflow-hidden overflow-y-auto">
       <a href="https://github.com/gustavosf2003">
         <h1 className="mb-4 text-3xl text-white md:text-4xl">
           🤖 AI Assistent
@@ -45,7 +45,7 @@ const InfoCard = () => {
           </span>
         </li>
 
-        <li className="text-l ">
+        <li className="text-l">
           👇
           <span className="ml-2">
             Try asking e.g. <code>Create sentences about swedish cousine</code>{" "}

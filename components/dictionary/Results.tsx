@@ -1,20 +1,16 @@
-import { useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+
 import { WordRequestType } from "@/types/dictionary";
-import VerbComponent from "./grammaticalTypes/Verb";
-import NounComponent from "./grammaticalTypes/Noun";
-import { Button } from "../Button";
+
 import AdjektivComponent from "./grammaticalTypes/Adjektiv";
 import AdverbComponent from "./grammaticalTypes/Adverb";
-import InterjectionComponent from "./grammaticalTypes/Interjection";
-import PrepositionComponent from "./grammaticalTypes/Preposition";
 import ConjunctionComponent from "./grammaticalTypes/Conjunction";
+import InterjectionComponent from "./grammaticalTypes/Interjection";
+import NounComponent from "./grammaticalTypes/Noun";
+import PrepositionComponent from "./grammaticalTypes/Preposition";
 import PronoumComponent from "./grammaticalTypes/Pronoum";
+import VerbComponent from "./grammaticalTypes/Verb";
 import Loading from "../Loading";
-import {
-  ArrowLeftIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "@heroicons/react/24/outline";
 
 const Results = ({
   data,
@@ -101,7 +97,7 @@ const Results = ({
     <>
       <div className="w-full">
         <div className="flex-col flex items-center">
-          <div className="justify-center  items-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
+          <div className="justify-center items-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
             <div>
               <p className="font-light text-sm">
                 Resultat för :{" "}
@@ -123,7 +119,7 @@ const Results = ({
             <div className="flex gap-4 mt-4">
               <button
                 onClick={handleDecreaseIndex}
-                className=" rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm  border-t-2 border-transparent  "
+                className="rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm border-t-2 border-transparent"
               >
                 <ChevronRightIcon
                   className="rotate-180"
@@ -135,7 +131,7 @@ const Results = ({
 
               <button
                 onClick={handleIncreaseIndex}
-                className=" rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm  border-t-2 border-transparent  "
+                className="rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm border-t-2 border-transparent"
               >
                 <ChevronLeftIcon
                   className="rotate-180"

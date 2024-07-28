@@ -1,19 +1,18 @@
 "use client";
 
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useChat } from "ai/react";
-import { useRef, useState, useEffect, ReactElement } from "react";
+import { useRef, useState, ReactElement } from "react";
 import type { FormEvent } from "react";
-import type { AgentStep } from "langchain/schema";
 
-import { IntermediateStep } from "./IntermediateStep";
-import Link from "next/link";
-import { Button } from "../Button";
-import clsx from "clsx";
 import { PaperPlaneRight } from "@phosphor-icons/react";
+import { useChat } from "ai/react";
+import clsx from "clsx";
+import type { AgentStep } from "langchain/schema";
+import { toast } from "react-toastify";
+
 import { ChatMessageBubble } from "./ChatMessageBubble";
+import { IntermediateStep } from "./IntermediateStep";
 
 export function ChatWindow(props: {
   endpoint: string;
@@ -171,7 +170,7 @@ export function ChatWindow(props: {
   return (
     <div
       className={clsx(
-        "flex flex-col  items-center -mb-8 h-full rounded py-4",
+        "flex flex-col items-center -mb-8 h-full rounded py-4",
         messages.length === 0 && "justify-between",
       )}
     >
@@ -184,7 +183,7 @@ export function ChatWindow(props: {
       )}
 
       <div
-        className="flex  justify-start flex-col-reverse items-start w-full  max-h-[700px]  overflow-y-scroll pl-4 pr-1.5"
+        className="flex justify-start flex-col-reverse items-start w-full max-h-[700px] overflow-y-scroll pl-4 pr-1.5"
         ref={messageContainerRef}
       >
         {messages.length > 0
@@ -230,8 +229,8 @@ export function ChatWindow(props: {
             className={clsx(
               "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2 h-8 w-8",
               input.trim().length > 0
-                ? "transition-all ease-in-out  duration-900 opacity-100"
-                : "transition-all ease-in-out  duration-900 opacity-0",
+                ? "transition-all ease-in-out duration-900 opacity-100"
+                : "transition-all ease-in-out duration-900 opacity-0",
             )}
             type="submit"
           >

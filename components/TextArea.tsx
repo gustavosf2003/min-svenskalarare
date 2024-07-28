@@ -16,7 +16,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, InputProps>(
           ref={ref}
           style={{ resize: "none" }}
           className={clsx(
-            "min-w-[246px] focus:outline-none rounded-xl bg-[#2F2F2F] text-primaryWhite px-3.5 py-[10.5px]  disabled:opacity-50 disabled:pointer-events-none w-full",
+            "min-w-[246px] focus:outline-none rounded-xl bg-[#2F2F2F] text-primaryWhite px-3.5 py-[10.5px] disabled:opacity-50 disabled:pointer-events-none w-full",
             className,
           )}
           {...rest}

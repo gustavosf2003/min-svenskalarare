@@ -1,5 +1,6 @@
-import { TranslationType } from "@/types/translation";
 import axios from "axios";
+
+import { TranslationType } from "@/types/translation";
 
 async function translate(
   word: string,
