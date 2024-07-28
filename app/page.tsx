@@ -16,7 +16,6 @@ export default function Home() {
           <div className="w-full md:w-1/2 rounded-xl border border-borderPrimary md:min-h-full h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
             <ChatWindow
               endpoint="chat/swedish"
-              emoji="🤖"
               titleText="Min svenskalärare"
               placeholder="Skriv här..."
               emptyStateComponent={<InfoCard />}

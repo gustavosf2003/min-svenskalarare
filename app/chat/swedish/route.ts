@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const messages = body.messages ?? [];
-
+    console.log("messages", body);
     if (messages.length === 0) {
       throw new Error("No messages found in the request body.");
     }

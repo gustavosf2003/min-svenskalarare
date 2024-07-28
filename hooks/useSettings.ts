@@ -10,14 +10,14 @@ export const useSettings = () => {
     vocabularyLevel: 2,
     selectedLanguage: LANGUAGES[0],
   });
-  const [isLoading, setIsLoading] = useState(true); // New loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   const getSettings = async () => {
     const storedSettings = await getLocalStorage("settings");
     if (storedSettings) {
       setSettings(storedSettings);
     }
-    setIsLoading(false); // Set loading to false after settings are fetched
+    setIsLoading(false);
   };
 
   useEffect(() => {

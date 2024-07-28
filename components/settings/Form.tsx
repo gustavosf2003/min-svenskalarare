@@ -185,7 +185,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
                 setValue(
                   "otherPreferences",
                   watch("otherPreferences").filter((p) => p !== pref),
-                  { shouldValidate: true, shouldDirty: true }, // Ensure validation and dirty state update
+                  { shouldValidate: true, shouldDirty: true },
                 );
               }}
             >
