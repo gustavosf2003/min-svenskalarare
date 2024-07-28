@@ -43,6 +43,7 @@ const Dictionary = () => {
                     : "transition-all ease-in-out duration-900 opacity-0",
                 )}
                 type="submit"
+                disabled={isFetching || word.trim().length === 0}
                 onClick={(e) => {
                   e.preventDefault();
                   refetch();

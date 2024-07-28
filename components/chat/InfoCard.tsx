@@ -7,49 +7,50 @@ const InfoCard = () => {
         </h1>
       </a>
       <ul>
-        <li className="text-l">
+        <li className="">
           👨‍🏫
           <span className="ml-2">
-            Welcome to the Min Svenskalärare. I am Linnea, your friendly virtual
-            Swedish language assistent!
+            Välkommen till Min Svenskalärare. Jag är Linnea, din virtuella
+            svenskalärare!
           </span>
         </li>
-        <li className="text-l hidden md:block">
+        <li className="">
+          🎨
+          <span className="ml-2">
+            Anpassa assistenten: Välj teman och ställ in assistenten efter dina
+            önskemål.
+          </span>
+        </li>
+        <li className="hidden md:block">
           📝
           <span className="ml-2">
-            Create Homework: Linnea can generate custom homework tailored to
-            their language proficiency level and subjects
+            Skapa läxor: Linnea kan skapa läxor som passar din nivå.
           </span>
         </li>
-        <li className="text-l hidden md:block">
+        <li className="hidden md:block">
           🏋️‍♀️
           <span className="ml-2">
-            Generate Exercises: Linnea can generate exercises to help you
-            reinforce your Swedish language skills, from vocabulary quizzes to
-            verb conjugation drills
+            Skapa övningar: Linnea kan skapa övningar för att förbättra dina
+            svenskkunskaper, från ordquiz till verbövningar.
           </span>
         </li>
-        <li className="text-l hidden md:block">
+        <li className="hidden md:block">
           📖
           <span className="ml-2">
-            Improve your reading skills: Here you can ask to read articles,
-            poems and even fairy tales in Swedish. Please note that the
-            available articles are up until August 2021.
+            Förbättra din läsning: Be om att läsa artiklar, dikter eller sagor
+            på svenska. Artiklar finns fram till augusti 2021.
           </span>
         </li>
-        <li className="text-l hidden md:block">
+        <li className="hidden md:block">
           🌟
           <span className="ml-2">
-            Don&apos;t hesitate to ask her anything, whether it&apos;s about
-            Swedish traditions, idioms, or any aspect of the language
+            Fråga om vad som helst, från svenska traditioner till idiom.
           </span>
         </li>
-
-        <li className="text-l">
+        <li className="">
           👇
           <span className="ml-2">
-            Try asking e.g. <code>Create sentences about swedish cousine</code>{" "}
-            below!
+            Fråga t.ex. <code>Skapa meningar om svensk mat</code> nedan!
           </span>
         </li>
       </ul>
