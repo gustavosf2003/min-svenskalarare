@@ -22,7 +22,7 @@ export function ToastProvider({ children }) {
 
   return (
     <ToastContext.Provider value={{ showToast }}>
-      <ToastContainer position="bottom-center" />
+      <ToastContainer position="top-right" />
       {children}
     </ToastContext.Provider>
   );

@@ -66,9 +66,4 @@ Här är några exempel på användningen av ordet "Grönsaker":
     output:
       "1. Vilken typ av filmer är din favorit och vilka film gillar du mest?\n 2. Vad var sista bok som läste du? \n3. Kan du spela ett musikinstrument?\n 4. Brukade du att ställa till problem när du var i skolan? \n5. Finns det många sjöar i Ukraina?\n 6. Hur hamnade du i Sverige? \n7. Vilken sak sakna du mest från Sverige?\n 8. Hände med dig några roliga situationer när du pratade svenska?\n 9. Hur mycket tid spenderade du för att lära sig svenska?\n 10. Föredrar du att besöka stranden eller fjällar? \n11. Var är nästa ställe du kommer att besöka?",
   },
-  {
-    input: "Give me 3 exercises to my students about Snow White",
-    output:
-      "Här är 3 frågor om Snow White Saga \n1. Vad tycker du om sagan Snövit?. Skriv ner dina tankar om berättelsen \n2. Varför kallades  Snövit för Snövit?\n 3.Beskriv den onda drottningen i Snövit, vilken personlighet har hon?",
-  },
 ];
