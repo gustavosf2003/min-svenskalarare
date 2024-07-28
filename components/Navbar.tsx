@@ -20,6 +20,7 @@ const Navbar = () => {
       </h1>
       <div className="flex md:hidden">
         <button
+          className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
           onClick={() => {
             router.push(isSettingsPage ? "/" : "/settings");
           }}
