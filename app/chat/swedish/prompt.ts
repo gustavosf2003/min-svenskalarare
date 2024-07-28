@@ -78,10 +78,10 @@ export const createSwedishPrompt = (settings?: Settings) => {
 
   prompt += `\n\n ${getVocabularyLevelPrompt(settings?.vocabularyLevel)}`;
 
-  prompt += `\n\n Här är några ämnen att använda: ${getTopics(
+  prompt += `\n\n Använd dessa teman så mycket som möjligt ${getTopics(
     settings.preferences,
     settings.otherPreferences,
-  )}. Försök att använda dem så mycket som möjligt men du kan prata om andra ämnen också: `;
+  )}. Försök att använda dem så mycket som möjligt men du kan prata om andra ämnen också`;
 
   return prompt;
 };
