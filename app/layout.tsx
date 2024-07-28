@@ -2,6 +2,8 @@ import "./globals.css";
 import { Public_Sans } from "next/font/google";
 import Script from "next/script";
 
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Providers from "./providers";
 import Meta from "../components/Meta";
 
@@ -35,6 +37,7 @@ export default function RootLayout({
         <Providers>
           <div className="flex flex-col relative w-full min-h-screen text-primaryWhite">
             {children}
+            <SpeedInsights />
           </div>
         </Providers>
       </body>
