@@ -60,10 +60,11 @@ const getVocabularyLevelPrompt = (level: number) => {
 
 const getTopics = (preferences: string[], otherPreferences: string[]) => {
   let topics = "";
+  if (preferences.length == 0 && otherPreferences.length == 0) {
+    topics = DEFAULT_TOPICS.join(", ");
+  }
   if (preferences.length > 0) {
     topics = preferences.join(", ");
-  } else {
-    topics = DEFAULT_TOPICS.join(", ");
   }
   if (otherPreferences.length > 0) {
     topics += `, ${otherPreferences.join(", ")}`;
