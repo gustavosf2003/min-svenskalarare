@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  color: #f8f8f8;
-  background: #131318;
+  color: #ececec;
+  background: #212121;
 }
 
 *::-webkit-scrollbar {
@@ -21,10 +21,6 @@ body {
 body input,
 body textarea {
   color: black;
-}
-
-a {
-  color: #2d7bd4;
 }
 
 a:hover {

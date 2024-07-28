@@ -32,7 +32,7 @@ export default function Home() {
         </div>
         <Link
           href="https://www.buymeacoffee.com/gustavoferreira"
-          className="hidden md:block bottom-0 right-8 absolute text-sm text-white underline cursor-pointer opacity-60"
+          className="hidden md:block bottom-0 right-8 absolute text-sm underline cursor-pointer opacity-60"
         >
           Made by Gustavo Ferreira ©
         </Link>
