@@ -5,7 +5,6 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useDebounce } from "@/hooks/useDebounce";
 import translatorService from "@/services/translator";
-import { TranslationType } from "@/types/translation";
 
 import Dropdown from "../Dropdown";
 import Loading from "../Loading";
@@ -59,7 +58,7 @@ const TranslatorComponent = () => {
         selectedTargetLocale.targetLocale,
       );
     },
-    initialData: {} as TranslationType,
+    initialData: "",
     enabled: false,
   });
   const debouncedSearch = useDebounce(text);
@@ -104,13 +103,7 @@ const TranslatorComponent = () => {
           setSelectedItem={setSelectedTargetLocale}
         />
         <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl px-3.5 py-[10.5px] text-sm">
-          {isFetching ? (
-            <Loading />
-          ) : isError ? (
-            "Error fetching data"
-          ) : (
-            data?.text
-          )}
+          {isFetching ? <Loading /> : isError ? "Error fetching data" : data}
         </div>
       </div>
     </div>

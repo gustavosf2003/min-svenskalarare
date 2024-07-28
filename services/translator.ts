@@ -1,12 +1,10 @@
 import axios from "axios";
 
-import { TranslationType } from "@/types/translation";
-
 async function translate(
   word: string,
   sourceLocale: string,
   targetLanguage: string,
-): Promise<TranslationType> {
+): Promise<string> {
   try {
     const result = await axios.get(
       "https://min-svenska-larare-server.onrender.com/",
@@ -18,7 +16,7 @@ async function translate(
         },
       },
     );
-    return result.data as TranslationType;
+    return result.data as string;
   } catch (error) {
     console.log(error);
     throw new Error("Translation Error");
