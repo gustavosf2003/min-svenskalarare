@@ -7,7 +7,7 @@ async function translate(
 ): Promise<string> {
   try {
     const result = await axios.get(
-      "https://min-svenska-larare-server.onrender.com/",
+      "https://min-svenska-larare-server.vercel.app/",
       {
         params: {
           text: word,
