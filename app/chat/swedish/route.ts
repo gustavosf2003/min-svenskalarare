@@ -13,7 +13,7 @@ import { BytesOutputParser } from "langchain/schema/output_parser";
 import { Settings } from "@/types/settings";
 
 import { createSwedishPrompt } from "./prompt";
-import { SwedishQuestions } from "./questions";
+import { SwedishQuestionsPrompt } from "./questions";
 
 export const runtime = "edge";
 
@@ -40,7 +40,9 @@ export async function POST(req: NextRequest) {
     });
 
     const exampleSelector = await LengthBasedExampleSelector.fromExamples(
-      SwedishQuestions,
+      SwedishQuestionsPrompt({
+        language: settings.selectedLanguage.englishName,
+      }),
       {
         examplePrompt,
         maxLength: 2000,

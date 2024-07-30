@@ -1,18 +1,5 @@
 export const SwedishQuestions = [
   {
-    input: "vad betyder grönsaker?",
-    output: `"Grönsaker" betyder "vegetais" på portugisiska.
-
-Här är några exempel på användningen av ordet "Grönsaker":
-
-    1. Restaurangen serverar färska grönsaker.
-    2. Vi handlade grönsaker på marknaden.
-    3. Jag äter alltid en sallad med olika grönsaker till lunch.
-    4. Mina barn älskar att äta grönsaker som morötter och potatisar.
-`,
-  },
-
-  {
     input: "create a text about swedish weather",
     output: `Sverige upplever olika väderförhållanden under året. Under vintermånaderna, särskilt i de norra regionerna, täcks landet av snö och skapar en naturskön vintermiljö. Temperaturerna kan sjunka avsevärt, ofta under fryspunkten, vilket gör det idealiskt för vintersport som skidåkning och skridskoåkning.
 
@@ -67,3 +54,44 @@ Här är några exempel på användningen av ordet "Grönsaker":
       "1. Vilken typ av filmer är din favorit och vilka film gillar du mest?\n 2. Vad var sista bok som läste du? \n3. Kan du spela ett musikinstrument?\n 4. Brukade du att ställa till problem när du var i skolan? \n5. Finns det många sjöar i Ukraina?\n 6. Hur hamnade du i Sverige? \n7. Vilken sak sakna du mest från Sverige?\n 8. Hände med dig några roliga situationer när du pratade svenska?\n 9. Hur mycket tid spenderade du för att lära sig svenska?\n 10. Föredrar du att besöka stranden eller fjällar? \n11. Var är nästa ställe du kommer att besöka?",
   },
 ];
+
+const translateVegetables = (language: string) => {
+  const translations = {
+    english: { language: "engelska", word: "vegetables" },
+    portuguese: { language: "portugisiska", word: "vegetais" },
+    finnish: { language: "finska", word: "vegetaali" },
+    norwegian: { language: "norska", word: "vegetabler" },
+    russian: { language: "ryska", word: "вегетарианские" },
+    danish: { language: "danska", word: "vegetabler" },
+    german: { language: "tyska", word: "vegetarische" },
+    spanish: { language: "spanska", word: "vegetales" },
+    arabic: { language: "arabiska", word: "الخضار" },
+    polish: { language: "polska", word: "warzywa" },
+    chinese: { language: "kinesiska", word: "蔬菜" },
+    hindi: { language: "hindi", word: "विज़ड़े" },
+    greek: { language: "grekiska", word: "φυτούρια" },
+  };
+
+  const currentLanguage = language.toLowerCase();
+  return translations[currentLanguage] || translations.english;
+};
+
+export const SwedishQuestionsPrompt = ({ language }) => {
+  const { word: translatedWord, language: translatedLanguageName } =
+    translateVegetables(language);
+
+  const newPrompt = {
+    input: "vad betyder grönsaker?",
+    output: `"Grönsaker" betyder "${translatedWord}" på ${translatedLanguageName}.
+
+Här är några exempel på användningen av ordet "Grönsaker":
+
+1. Restaurangen serverar färska grönsaker.
+2. Vi handlade grönsaker på marknaden.
+3. Jag äter alltid en sallad med olika grönsaker till lunch.
+4. Mina barn älskar att äta grönsaker som morötter och potatisar.
+`,
+  };
+
+  return SwedishQuestions.concat(newPrompt);
+};
