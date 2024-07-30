@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 
 import { ChatWindow } from "@/components/chat/ChatWindow";
@@ -12,7 +13,7 @@ export default function Home() {
     <>
       <div className="relative flex flex-col flex-1 w-full h-full">
         <Navbar />
-        <div className="flex-1 w-full h-full min-h-full pt-20 pb-8 mt-3 md:flex gap-8 bg-basePrimary px-7">
+        <div className="flex-1 w-full h-full min-h-full gap-8 pt-20 pb-8 mt-3 md:flex bg-basePrimary px-7">
           <div className="w-full md:w-1/2 rounded-xl border border-borderPrimary md:min-h-full h-[600px] md:h-auto mb-8 md:mb-0 overflow-y-scroll">
             <ChatWindow
               endpoint="chat/swedish"
@@ -21,7 +22,7 @@ export default function Home() {
               emptyStateComponent={<InfoCard />}
             />
           </div>
-          <div className="flex flex-col md:w-1/2 gap-8">
+          <div className="flex flex-col gap-8 md:w-1/2">
             <div className="h-[55%] rounded-xl border border-borderPrimary">
               <Dictionary />
             </div>

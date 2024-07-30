@@ -107,15 +107,23 @@ export function ChatWindow({
         ref={messageContainerRef}
       >
         {messages.length > 0
-          ? [...messages]
-              .reverse()
-              .map((m) =>
-                m.role === "system" ? (
-                  <></>
-                ) : (
-                  <ChatMessageBubble key={m.id} message={m} />
+          ? (() => {
+              const reversedMessages = [...messages].reverse();
+              const mostRecentAIIndex = reversedMessages.findIndex(
+                (m) => m.role !== "user",
+              );
+
+              return reversedMessages.map((m, index) =>
+                m.role === "system" ? null : (
+                  <ChatMessageBubble
+                    key={m.id}
+                    message={m}
+                    isLatestAiMessage={index === mostRecentAIIndex}
+                    isLoading={chatEndpointIsLoading}
+                  />
                 ),
-              )
+              );
+            })()
           : ""}
       </div>
 
