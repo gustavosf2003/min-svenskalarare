@@ -48,11 +48,6 @@ const SpeechComponent = ({ text }: { text: string }) => {
           <SpeakerHigh size={16} />
         )}
       </button>
-      <button
-        className="flex items-center justify-center p-2 rounded-xl hover:bg-[#2F2F2F] hover:bg-opacity-40"
-        onClick={handleStop}
-        disabled={!isSpeaking}
-      ></button>
     </div>
   );
 };

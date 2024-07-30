@@ -31,7 +31,7 @@ const ReadOptions = ({ text }: { text: string }) => {
   };
 
   return (
-    <div className="absolute flex items-center right-2 -top-8">
+    <div className="absolute flex items-center right-1 -top-8">
       <button
         className="flex items-center justify-center p-2 rounded-md hover:bg-[#2F2F2F] hover:bg-opacity-40"
         onClick={exportData}
