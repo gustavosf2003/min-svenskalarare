@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Public_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -8,7 +8,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import Providers from "./providers";
 import Meta from "../components/Meta";
 
-const publicSans = Public_Sans({ subsets: ["latin"] });
+const publicSans = Inter({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
