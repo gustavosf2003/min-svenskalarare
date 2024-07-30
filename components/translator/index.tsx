@@ -83,7 +83,7 @@ const TranslatorComponent = () => {
   return (
     <div className="justify-between w-full h-full gap-4 md:flex">
       <div className="flex flex-col items-start w-full gap-3">
-        <div className="flex items-center justify-between w-full">
+        <div className="z-10 flex items-center justify-between w-full">
           <Dropdown
             items={languages.filter(
               (language) =>
@@ -100,7 +100,7 @@ const TranslatorComponent = () => {
           </button>
           <div className="hidden h-12 bg-red-50 md:flex" />
         </div>
-        <div className="relative w-full h-full">
+        <div className="relative z-0 w-full h-full">
           {text.length > 0 && (
             <button
               className="p-3 hover:bg-[#3E3D3B]/40 hover:rounded-full absolute right-1 top-1"
