@@ -10,9 +10,9 @@ const Navbar = () => {
   const pathname = usePathname();
   const isSettingsPage = pathname === "/settings";
   return (
-    <div className="flex justify-between w-full bg-baseSecondary py-3 px-8 fixed top-0 left-0 right-0 z-50">
+    <div className="fixed top-0 left-0 right-0 z-50 flex justify-between w-full px-8 py-3 bg-baseSecondary">
       <h1
-        className="text-xl md:text-2xl leading-6 flex items-center gap-2 cursor-pointer"
+        className="flex items-center text-xl cursor-pointer md:text-2xl leading-6 gap-2"
         onClick={() => router.push("/")}
       >
         <span className="text-2xl md:text-4xl">🇸🇪</span>

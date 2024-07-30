@@ -124,7 +124,7 @@ export function ChatWindow({
         onSubmit={sendMessage}
         className="flex flex-col w-full px-4"
       >
-        <div className="w-full mt-4 relative">
+        <div className="relative w-full mt-4">
           <textarea
             onKeyDown={(e) => {
               if (e.key === "Enter" && e.shiftKey == false) {

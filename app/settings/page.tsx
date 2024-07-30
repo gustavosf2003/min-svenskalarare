@@ -13,13 +13,13 @@ const Settings = () => {
 
   return (
     <>
-      <div className="w-full h-full flex-1 flex flex-col relative">
+      <div className="relative flex flex-col flex-1 w-full h-full">
         <Navbar />
-        <div className="w-full md:flex gap-8 bg-basePrimary flex-1 h-full min-h-full justify-center pt-20 pb-8 px-7 mt-3">
-          <div className="flex md:w-1/2 flex-col gap-8">
+        <div className="justify-center flex-1 w-full h-full min-h-full pt-20 pb-8 mt-3 md:flex gap-8 bg-basePrimary px-7">
+          <div className="flex flex-col md:w-1/2 gap-8">
             <div>
               <button
-                className="text-sm flex items-center gap-2 -mt-2 hover:opacity-75"
+                className="flex items-center -mt-2 text-sm gap-2 hover:opacity-75"
                 onClick={() => {
                   router.back();
                 }}
@@ -31,7 +31,7 @@ const Settings = () => {
                 />
                 Tillbaka
               </button>
-              <h2 className="text-3xl font-medium -mb-1 mt-4">
+              <h2 className="mt-4 -mb-1 text-3xl font-medium">
                 Assistant inställningar
               </h2>
               <p className="text-sm text-gray-400">

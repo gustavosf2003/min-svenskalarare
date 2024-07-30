@@ -20,7 +20,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 }) => {
   return (
     <>
-      <div className="flex justify-center flex-wrap">
+      <div className="flex flex-wrap justify-center">
         <Range
           values={values}
           step={step}
@@ -47,7 +47,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
               style={{
                 ...props.style,
               }}
-              className="h-9 w-full flex"
+              className="flex w-full h-9"
             >
               <div
                 ref={props.ref}

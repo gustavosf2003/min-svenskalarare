@@ -21,7 +21,7 @@ const Dropdown = ({ items, selectedItem, setSelectedItem }: DropdownProps) => {
         <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-[#2F2F2F] py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
           {items.map((item) => (
             <Listbox.Option
-              className="hover:bg-basePrimary flex items-center gap-2 px-2 cursor-pointer py-1"
+              className="flex items-center px-2 py-1 cursor-pointer hover:bg-basePrimary gap-2"
               key={item.icon}
               value={item}
             >

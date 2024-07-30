@@ -16,7 +16,7 @@ export function IntermediateStep(props: { message: Message }) {
         className={`text-right ${expanded ? "w-full" : ""}`}
         onClick={() => setExpanded(!expanded)}
       >
-        <code className="mr-2 bg-slate-600 px-2 py-1 rounded hover:text-blue-600">
+        <code className="px-2 py-1 mr-2 rounded bg-slate-600 hover:text-blue-600">
           🛠️ <b>{action.tool}</b>
         </code>
         <span className={expanded ? "hidden" : ""}>🔽</span>

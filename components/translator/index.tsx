@@ -93,7 +93,7 @@ const TranslatorComponent = () => {
           onChange={(e) => setText(e.target.value)}
         />
       </div>
-      <div className="flex flex-col items-start w-full gap-3 mt-3 md:mt-0">
+      <div className="flex flex-col items-start w-full mt-3 gap-3 md:mt-0">
         <Dropdown
           items={languages.filter(
             (language) =>

@@ -64,7 +64,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
   };
 
   return (
-    <div className="rounded-xl border border-borderPrimary p-4 mb-8 md:mb-0">
+    <div className="p-4 mb-8 border rounded-xl border-borderPrimary md:mb-0">
       <div>
         <Title
           icon={<PuzzlePiece size={20} />}
@@ -102,9 +102,9 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
           text="Vilken typ av ordförråd ska din assistent använda?"
         />
         <div className="relative px-6 mt-6">
-          <div className="absolute flex justify-between left-2 w-full -top-7">
+          <div className="absolute flex justify-between w-full left-2 -top-7">
             <p className="text-xs -ml-1.5">Lättsvenska</p>
-            <p className="text-xs -ml-5">Standard</p>
+            <p className="-ml-5 text-xs">Standard</p>
             <p className="text-xs mr-2.5">Komplex</p>
           </div>
           <Controller
@@ -176,7 +176,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
             </Button.Icon>
           </div>
         </form>
-        <div className="flex flex-wrap gap-2 mt-3">
+        <div className="flex flex-wrap mt-3 gap-2">
           {watch("otherPreferences").map((pref) => (
             <SelectableBadge
               key={pref}

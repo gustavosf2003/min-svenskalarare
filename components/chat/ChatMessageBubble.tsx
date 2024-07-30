@@ -24,7 +24,7 @@ export function ChatMessageBubble({ message }: ChatMessageBubbleProps) {
         components={{
           p: ({ ...props }) => <p className="leading-none" {...props} />,
           ol: ({ ...props }) => (
-            <ol className="mb-1 list-disc ml-3" {...props} />
+            <ol className="mb-1 ml-3 list-disc" {...props} />
           ),
           li: ({ ...props }) => <li className="-my-3" {...props} />,
           th: ({ ...props }) => (

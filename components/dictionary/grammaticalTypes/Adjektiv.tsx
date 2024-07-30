@@ -62,7 +62,7 @@ const AdjektivComponent = ({ data }: { data: WordSourceType }) => {
             {wordForms.map((wordForm) => (
               <th
                 key={wordForm.title}
-                className="text-center border border-borderPrimary font-medium"
+                className="font-medium text-center border border-borderPrimary"
               >
                 {wordForm.title}
               </th>

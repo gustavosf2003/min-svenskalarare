@@ -25,8 +25,8 @@ const Dictionary = () => {
   return (
     <>
       <div className="flex flex-col pt-4 mb-8">
-        <p className="text-center text-2xl">Lexikon</p>
-        <div className="flex justify-center w-full relative mt-4">
+        <p className="text-2xl text-center">Lexikon</p>
+        <div className="relative flex justify-center w-full mt-4">
           <form className="flex justify-center gap-2">
             <div className="relative">
               <InputText
@@ -56,7 +56,7 @@ const Dictionary = () => {
             </div>
             {!isCleared && (
               <button
-                className="hidden md:flex rounded-md hover:bg-basePrimary p-2 gap-2 top-1 text-red-800 items-center hover:opacity-60"
+                className="items-center hidden p-2 text-red-800 md:flex rounded-md hover:bg-basePrimary gap-2 top-1 hover:opacity-60"
                 onClick={() => {
                   setWord("");
                   setCurrentIndex(0);

@@ -1,6 +1,6 @@
 const InfoCard = () => {
   return (
-    <div className="p-4 md:p-8 rounded w-full lg:overflow-hidden overflow-y-auto">
+    <div className="w-full p-4 overflow-y-auto rounded md:p-8 lg:overflow-hidden">
       <a href="https://github.com/gustavosf2003">
         <h1 className="mb-4 text-3xl text-white md:text-4xl">
           🤖 AI Assistent
