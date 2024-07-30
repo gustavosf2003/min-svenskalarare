@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import Providers from "./providers";
 import Meta from "../components/Meta";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const publicSans = Inter({
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export default function RootLayout({
       </Script>
       <body className={publicSans.className}>
         <Providers>
-          <div className="flex flex-col relative w-full min-h-screen text-primaryWhite">
+          <div className="relative flex flex-col w-full min-h-screen text-primaryWhite">
             {children}
             <SpeedInsights />
             <Analytics />

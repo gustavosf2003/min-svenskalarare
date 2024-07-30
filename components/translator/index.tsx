@@ -7,7 +7,7 @@ import { useDebounce } from "@/hooks/useDebounce";
 import translatorService from "@/services/translator";
 
 import Dropdown from "../Dropdown";
-import Loading from "../Loading";
+import SkeletonLoading from "../Skeleton";
 import { TextArea } from "../TextArea";
 
 const languages = [
@@ -74,8 +74,8 @@ const TranslatorComponent = () => {
   }, [debouncedSearch, selectedLocale, selectedTargetLocale]);
 
   return (
-    <div className="w-full md:flex justify-between gap-4 h-full">
-      <div className="gap-3 w-full flex flex-col items-start">
+    <div className="justify-between w-full h-full gap-4 md:flex">
+      <div className="flex flex-col items-start w-full gap-3">
         <div className="relative w-40">
           <Dropdown
             items={languages.filter(
@@ -93,7 +93,7 @@ const TranslatorComponent = () => {
           onChange={(e) => setText(e.target.value)}
         />
       </div>
-      <div className="gap-3 w-full flex flex-col items-start mt-3 md:mt-0">
+      <div className="flex flex-col items-start w-full gap-3 mt-3 md:mt-0">
         <Dropdown
           items={languages.filter(
             (language) =>
@@ -103,7 +103,15 @@ const TranslatorComponent = () => {
           setSelectedItem={setSelectedTargetLocale}
         />
         <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl px-3.5 py-[10.5px] text-sm">
-          {isFetching ? <Loading /> : isError ? "Error fetching data" : data}
+          {isFetching ? (
+            <div>
+              <SkeletonLoading width={250} height={32} />
+            </div>
+          ) : isError ? (
+            "Error fetching data"
+          ) : (
+            data
+          )}
         </div>
       </div>
     </div>

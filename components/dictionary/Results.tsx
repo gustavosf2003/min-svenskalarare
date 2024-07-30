@@ -10,7 +10,7 @@ import NounComponent from "./grammaticalTypes/Noun";
 import PrepositionComponent from "./grammaticalTypes/Preposition";
 import PronoumComponent from "./grammaticalTypes/Pronoum";
 import VerbComponent from "./grammaticalTypes/Verb";
-import Loading from "../Loading";
+import SkeletonLoading from "../Skeleton";
 
 const Results = ({
   data,
@@ -27,8 +27,19 @@ const Results = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="w-full flex justify-center mt-24">
-        <Loading />
+      <div className="flex flex-col items-center justify-center w-full gap-2 mt-8">
+        <div className="lg:hidden flex gap-1.5 flex-col">
+          <SkeletonLoading width={240} height={32} />
+          <SkeletonLoading width={240} height={32} />
+        </div>
+        <div className="flex-col gap-1.5 hidden lg:flex">
+          <SkeletonLoading width={100} height={32} />
+          <SkeletonLoading width={400} height={32} />
+          <SkeletonLoading width={400} height={32} />
+          <div className="flex justify-center w-full mt-4">
+            <SkeletonLoading width={100} height={32} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -98,10 +109,10 @@ const Results = ({
   return (
     <>
       <div className="w-full">
-        <div className="flex-col flex items-center">
-          <div className="justify-center items-center flex flex-col w-full overflow-x-scroll pb-3 md:pb-0">
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center w-full pb-3 overflow-x-scroll md:pb-0">
             <div>
-              <p className="font-light text-sm">
+              <p className="text-sm font-light">
                 <span className="text-gray-400"> Resultat för : </span>
                 <span className="font-semibold underline">
                   {
@@ -121,7 +132,7 @@ const Results = ({
             <div className="flex gap-4 mt-4">
               <button
                 onClick={handleDecreaseIndex}
-                className="rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm border-t-2 border-transparent"
+                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
               >
                 <ChevronRightIcon
                   className="rotate-180"
@@ -133,7 +144,7 @@ const Results = ({
 
               <button
                 onClick={handleIncreaseIndex}
-                className="rounded-lg flex items-center gap-3 px-2 py-1 hover:bg-gray-800 text-sm border-t-2 border-transparent"
+                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
               >
                 <ChevronLeftIcon
                   className="rotate-180"
