@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { ArrowsDownUp } from "@phosphor-icons/react";
+import { ArrowsDownUp, X } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 
 import { useDebounce } from "@/hooks/useDebounce";
@@ -83,7 +83,7 @@ const TranslatorComponent = () => {
   return (
     <div className="justify-between w-full h-full gap-4 md:flex">
       <div className="flex flex-col items-start w-full gap-3">
-        <div className="relative w-40">
+        <div className="flex items-center justify-between w-full">
           <Dropdown
             items={languages.filter(
               (language) =>
@@ -92,16 +92,33 @@ const TranslatorComponent = () => {
             selectedItem={selectedLocale}
             setSelectedItem={setSelectedLocale}
           />
+          <button
+            className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full md:hidden flex"
+            onClick={handleSwapLanguages}
+          >
+            <ArrowsDownUp className="rotate-90" size={20} />
+          </button>
+          <div className="hidden h-12 bg-red-50 md:flex" />
         </div>
-        <TextArea
-          placeholder="Skriv här.."
-          className="w-[100%] h-40 md:h-full"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
+        <div className="relative w-full h-full">
+          {text.length > 0 && (
+            <button
+              className="p-3 hover:bg-[#3E3D3B]/40 hover:rounded-full absolute right-1 top-1"
+              onClick={() => setText("")}
+            >
+              <X size={20} />
+            </button>
+          )}
+          <TextArea
+            placeholder="Skriv här.."
+            className="w-[100%] h-40 md:h-full pr-10"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+          />
+        </div>
       </div>
       <div className="flex flex-col items-start w-full gap-3 mt-3 md:mt-0">
-        <div className="flex justify-between w-full">
+        <div className="flex items-center justify-between w-full">
           <Dropdown
             items={languages.filter(
               (language) =>
@@ -111,7 +128,7 @@ const TranslatorComponent = () => {
             setSelectedItem={setSelectedTargetLocale}
           />
           <button
-            className="px-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+            className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full hidden md:flex"
             onClick={handleSwapLanguages}
           >
             <ArrowsDownUp className="rotate-90" size={20} />
