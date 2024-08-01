@@ -18,7 +18,7 @@ const Navbar = () => {
         className="flex items-center gap-2 text-xl leading-6 cursor-pointer md:text-2xl"
         onClick={() => {
           if (canGoBack) {
-            router.back();
+            router.replace("/");
           } else {
             setToRoute("/");
           }
@@ -28,22 +28,29 @@ const Navbar = () => {
         Min svenskalärare
       </h1>
       <div className="flex md:hidden">
-        <button
-          className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
-          onClick={() => {
-            if (canGoBack) {
-              router.push(isSettingsPage ? "/" : "/settings");
-            } else {
-              setToRoute("/");
-            }
-          }}
-        >
-          {isSettingsPage ? (
+        {isSettingsPage ? (
+          <button
+            className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+            onClick={() => {
+              if (canGoBack) {
+                router.push("/");
+              } else {
+                setToRoute("/");
+              }
+            }}
+          >
             <House size={22} className="text-gray-400" />
-          ) : (
+          </button>
+        ) : (
+          <button
+            className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+            onClick={() => {
+              router.push("/settings");
+            }}
+          >
             <Gear size={22} className="text-gray-400" />
-          )}
-        </button>
+          </button>
+        )}
       </div>
       <div className="h-full pt-1.5 gap-10 hidden md:flex">
         <button
@@ -52,7 +59,7 @@ const Navbar = () => {
           )}
           onClick={() => {
             if (canGoBack) {
-              router.replace("/");
+              router.push("/");
             } else {
               setToRoute("/");
             }
