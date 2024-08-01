@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   LightbulbFilament,
@@ -9,6 +9,7 @@ import {
 } from "@phosphor-icons/react";
 import { Controller, useForm } from "react-hook-form";
 
+import { useCustomNavigation } from "@/context/NavigationContext";
 import { useToast } from "@/context/toast";
 import { useSettings } from "@/hooks/useSettings";
 import { Settings } from "@/types/settings";
@@ -52,6 +53,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
   });
   const { saveSettings } = useSettings();
   const { showToast } = useToast();
+  const { setCanGoBack, setToRoute } = useCustomNavigation();
   const isValidPreference =
     inputText.length < 30 && inputText.trim().length > 2;
 
@@ -62,6 +64,18 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
       ...data,
     });
   };
+
+  useEffect(() => {
+    if (isDirty) {
+      setCanGoBack(false);
+    }
+
+    return () => {
+      setCanGoBack(true);
+    };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isDirty]);
 
   return (
     <div className="p-4 mb-8 border rounded-xl border-borderPrimary md:mb-0">
@@ -176,7 +190,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
             </Button.Icon>
           </div>
         </form>
-        <div className="flex flex-wrap mt-3 gap-2">
+        <div className="flex flex-wrap gap-2 mt-3">
           {watch("otherPreferences").map((pref) => (
             <SelectableBadge
               key={pref}

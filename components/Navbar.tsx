@@ -5,15 +5,24 @@ import { usePathname, useRouter } from "next/navigation";
 import { Gear, House } from "@phosphor-icons/react";
 import clsx from "clsx";
 
+import { useCustomNavigation } from "@/context/NavigationContext";
+
 const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
+  const { canGoBack, setToRoute } = useCustomNavigation();
   const isSettingsPage = pathname === "/settings";
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-between w-full px-8 py-3 bg-baseSecondary">
       <h1
-        className="flex items-center text-xl cursor-pointer md:text-2xl leading-6 gap-2"
-        onClick={() => router.push("/")}
+        className="flex items-center gap-2 text-xl leading-6 cursor-pointer md:text-2xl"
+        onClick={() => {
+          if (canGoBack) {
+            router.back();
+          } else {
+            setToRoute("/");
+          }
+        }}
       >
         <span className="text-2xl md:text-4xl">🇸🇪</span>
         Min svenskalärare
@@ -22,7 +31,11 @@ const Navbar = () => {
         <button
           className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
           onClick={() => {
-            router.push(isSettingsPage ? "/" : "/settings");
+            if (canGoBack) {
+              router.push(isSettingsPage ? "/" : "/settings");
+            } else {
+              setToRoute("/");
+            }
           }}
         >
           {isSettingsPage ? (
@@ -37,7 +50,13 @@ const Navbar = () => {
           className={clsx(
             "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md text-gray-400",
           )}
-          onClick={() => router.push("/")}
+          onClick={() => {
+            if (canGoBack) {
+              router.replace("/");
+            } else {
+              setToRoute("/");
+            }
+          }}
         >
           Dashboard
         </button>
