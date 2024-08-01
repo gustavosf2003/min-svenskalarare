@@ -30,6 +30,7 @@ const Navbar = () => {
       <div className="flex md:hidden">
         {isSettingsPage ? (
           <button
+            aria-label="Gå till startsidan"
             className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
             onClick={() => {
               if (canGoBack) {
@@ -43,6 +44,7 @@ const Navbar = () => {
           </button>
         ) : (
           <button
+            aria-label="Gå till Inställningar"
             className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
             onClick={() => {
               router.push("/settings");
@@ -54,6 +56,7 @@ const Navbar = () => {
       </div>
       <div className="h-full pt-1.5 gap-10 hidden md:flex">
         <button
+          aria-label="Gå till startsidan"
           className={clsx(
             "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md text-gray-400",
           )}
@@ -68,6 +71,7 @@ const Navbar = () => {
           Dashboard
         </button>
         <button
+          aria-label="Gå till Inställningar"
           className={clsx(
             "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md text-gray-400",
           )}

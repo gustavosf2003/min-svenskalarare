@@ -153,6 +153,7 @@ export function ChatWindow({
           />
 
           <button
+            aria-label="Skicka meddelande"
             className={clsx(
               "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2 h-8 w-8",
               input.trim().length > 0

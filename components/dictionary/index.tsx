@@ -36,6 +36,7 @@ const Dictionary = () => {
                 value={word}
               />
               <button
+                aria-label="Sök efter ord"
                 className={clsx(
                   "hover:bg-[#3C4043] p-2 rounded-full absolute right-2 top-2.5 h-8 w-8",
                   word.trim().length > 0
@@ -56,7 +57,8 @@ const Dictionary = () => {
             </div>
             {!isCleared && (
               <button
-                className="items-center hidden p-2 text-red-800 md:flex rounded-md hover:bg-basePrimary gap-2 top-1 hover:opacity-60"
+                aria-label="Rensa sökord"
+                className="items-center hidden gap-2 p-2 text-red-800 rounded-md md:flex hover:bg-basePrimary top-1 hover:opacity-60"
                 onClick={() => {
                   setWord("");
                   setCurrentIndex(0);

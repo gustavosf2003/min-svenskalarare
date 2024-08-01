@@ -33,6 +33,7 @@ const SpeechComponent = ({ text }: { text: string }) => {
   return (
     <div className="flex space-x-2">
       <button
+        aria-label="Lyssna på texten"
         className="flex items-center justify-center p-2 rounded-xl hover:bg-[#2F2F2F] hover:bg-opacity-40"
         onClick={() => {
           if (isSpeaking) {

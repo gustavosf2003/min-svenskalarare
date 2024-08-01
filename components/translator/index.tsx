@@ -93,6 +93,7 @@ const TranslatorComponent = () => {
             setSelectedItem={setSelectedLocale}
           />
           <button
+            aria-label="Byt språk"
             className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full md:hidden flex"
             onClick={handleSwapLanguages}
           >
@@ -103,6 +104,7 @@ const TranslatorComponent = () => {
         <div className="relative z-0 w-full h-full">
           {text.length > 0 && (
             <button
+              aria-label="Rensa text"
               className="p-3 hover:bg-[#3E3D3B]/40 hover:rounded-full absolute right-1 top-1"
               onClick={() => setText("")}
             >
@@ -128,6 +130,7 @@ const TranslatorComponent = () => {
             setSelectedItem={setSelectedTargetLocale}
           />
           <button
+            aria-label="Byt språk"
             className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full hidden md:flex"
             onClick={handleSwapLanguages}
           >

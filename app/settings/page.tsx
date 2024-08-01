@@ -21,6 +21,7 @@ const Settings = () => {
         <div className="flex flex-col gap-8 md:w-1/2">
           <div>
             <button
+              aria-label="Tillbaka"
               className="flex items-center gap-2 -mt-2 text-sm hover:opacity-75"
               onClick={() => {
                 if (canGoBack) {
@@ -59,6 +60,7 @@ const Settings = () => {
               Inställningar
             </h1>
             <button
+              aria-label="Stäng"
               type="button"
               className="p-1 text-gray-500 hover:text-gray-700"
               onClick={() => {
@@ -86,6 +88,7 @@ const Settings = () => {
               onClick={() => {
                 setToRoute(null);
               }}
+              aria-label="Avbryt"
             >
               Avbtyt
             </button>
@@ -95,6 +98,7 @@ const Settings = () => {
                 router.push(toRoute);
                 setToRoute(null);
               }}
+              aria-label="Lämna"
             >
               Lämna
             </button>

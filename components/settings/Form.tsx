@@ -185,7 +185,10 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
               value={inputText}
             />
 
-            <Button.Icon disabled={!isValidPreference}>
+            <Button.Icon
+              disabled={!isValidPreference}
+              aria-label="Lägg till ett anpassat ämne"
+            >
               <Plus weight="bold" size={14} className="text-basePrimary" />
             </Button.Icon>
           </div>
@@ -211,6 +214,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
       <div className="h-0.5 bg-borderPrimary my-5" />
       <div className="w-full mt-4">
         <Button.Primary
+          aria-label="Spara inställningar"
           disabled={!isDirty || !isValid}
           className="w-full"
           onClick={async () => {

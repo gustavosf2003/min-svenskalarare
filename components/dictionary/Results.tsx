@@ -27,7 +27,7 @@ const Results = ({
 }) => {
   if (isLoading) {
     return (
-      <div className="flex flex-col items-center justify-center w-full mt-8 gap-2">
+      <div className="flex flex-col items-center justify-center w-full gap-2 mt-8">
         <div className="lg:hidden flex gap-1.5 flex-col">
           <SkeletonLoading width={240} height={32} />
           <SkeletonLoading width={240} height={32} />
@@ -129,10 +129,11 @@ const Results = ({
             </div>
           </div>
           {data.hits?.hits.length > 1 && (
-            <div className="flex mt-4 gap-4">
+            <div className="flex gap-4 mt-4">
               <button
+                aria-label="Föregående"
                 onClick={handleDecreaseIndex}
-                className="flex items-center px-2 py-1 text-sm border-t-2 border-transparent rounded-lg gap-3 hover:bg-gray-800"
+                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
               >
                 <ChevronRightIcon
                   className="rotate-180"
@@ -143,8 +144,9 @@ const Results = ({
               <p>{currentIndex + 1}</p>
 
               <button
+                aria-label="Nästa"
                 onClick={handleIncreaseIndex}
-                className="flex items-center px-2 py-1 text-sm border-t-2 border-transparent rounded-lg gap-3 hover:bg-gray-800"
+                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
               >
                 <ChevronLeftIcon
                   className="rotate-180"
