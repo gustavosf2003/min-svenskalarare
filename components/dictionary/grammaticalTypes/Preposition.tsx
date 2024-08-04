@@ -10,12 +10,6 @@ const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
   const [isShowingCopyIndicator, setIsShowingCopyIndicator] = useState(false);
   const { showToast } = useToast();
 
-  useEffect(() => {
-    document.addEventListener("copy", handleCopy);
-    return () => document.removeEventListener("copy", handleCopy);
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleCopy = (e: any) => {
     e.preventDefault();
     try {
@@ -34,21 +28,19 @@ const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
     }
   };
 
-  const exportData = () => {
-    document.execCommand("copy");
-  };
-
   return (
     <div
       className="relative cursor-pointer"
       onMouseEnter={() => setIsShowingCopyIndicator(true)}
       onMouseLeave={() => setIsShowingCopyIndicator(false)}
-      onClick={exportData}
     >
       {isShowingCopyIndicator && (
-        <div className="absolute flex justify-center bg-gray-600 rounded-lg p-1.5 -right-2 -top-5">
+        <button
+          onClick={handleCopy}
+          className="absolute flex justify-center bg-gray-600 rounded-lg p-1.5 -right-2 -top-5"
+        >
           <DocumentDuplicateIcon width={16} />
-        </div>
+        </button>
       )}
       <table cellPadding="10" className="border border-borderPrimary">
         <thead>
