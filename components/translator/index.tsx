@@ -6,12 +6,14 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useDebounce } from "@/hooks/useDebounce";
 import translatorService from "@/services/translator";
+import copy from "copy-to-clipboard";
 
 import Dropdown from "../Dropdown";
 import SkeletonLoading from "../Skeleton";
 import { TextArea } from "../TextArea";
 import { useToast } from "@/context/toast";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+import { useCopyToClipboard } from "@/hooks/useCopyText";
 
 const languages = [
   {
@@ -50,7 +52,6 @@ const TranslatorComponent = () => {
     languages[1],
   );
   const [text, setText] = useState("");
-  const { showToast } = useToast();
   const { data, refetch, isFetching, isError } = useQuery({
     queryKey: ["translator", text, selectedLocale, selectedTargetLocale],
     queryFn: () =>
@@ -60,9 +61,9 @@ const TranslatorComponent = () => {
         selectedTargetLocale.targetLocale,
       ),
     initialData: "",
-    enabled: false, // Set to true to automatically fetch on mount
+    enabled: false,
   });
-
+  const { copyToClipboard } = useCopyToClipboard();
   const debouncedSearch = useDebounce(text);
 
   useEffect(() => {
@@ -80,23 +81,6 @@ const TranslatorComponent = () => {
     setSelectedLocale(selectedTargetLocale);
     setSelectedTargetLocale(temp);
     setText(data || "");
-  };
-
-  const handleCopy = (e: any) => {
-    e.preventDefault();
-    try {
-      const clipboardData = e.clipboardData;
-      showToast("success", "Text kopierad till urklipp");
-      clipboardData.setData("text/plain", data || "");
-    } catch (error) {
-      showToast("error", "Något gick fel. Det gick inte att kopiera texten");
-    }
-    document.removeEventListener("copy", handleCopy);
-  };
-
-  const exportData = () => {
-    document.addEventListener("copy", handleCopy);
-    document.execCommand("copy");
   };
 
   return (
@@ -167,7 +151,7 @@ const TranslatorComponent = () => {
             <>
               {data.length > 0 && (
                 <button
-                  onClick={exportData}
+                  onClick={() => copyToClipboard(data)}
                   aria-label="Kopiera text"
                   className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full absolute right-1 top-1"
                 >

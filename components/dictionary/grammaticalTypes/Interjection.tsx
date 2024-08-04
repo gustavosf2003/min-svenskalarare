@@ -4,6 +4,7 @@ import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 
 import { useToast } from "@/context/toast";
 import { WordSourceType } from "@/types/dictionary";
+import { useCopyToClipboard } from "@/hooks/useCopyText";
 
 const InterjectionComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [{ title: "Interjection", form: "invar" }];
@@ -27,7 +28,7 @@ const InterjectionComponent = ({ data }: { data: WordSourceType }) => {
       showToast("error", "Något gick fel. Det gick inte att kopiera texten");
     }
   };
-
+  const { copyToClipboard } = useCopyToClipboard();
   return (
     <div
       className="relative cursor-pointer"
@@ -36,7 +37,17 @@ const InterjectionComponent = ({ data }: { data: WordSourceType }) => {
     >
       {isShowingCopyIndicator && (
         <button
-          onClick={handleCopy}
+          onClick={() =>
+            copyToClipboard(
+              wordForms
+                .map(
+                  (wordForm) =>
+                    data.WordForms.find((wf) => wf.msd === wordForm.form)
+                      ?.writtenForm ?? "-",
+                )
+                .join(" - "),
+            )
+          }
           className="absolute flex justify-center bg-gray-600 rounded-lg p-1.5 -right-2 -top-5"
         >
           <DocumentDuplicateIcon width={16} />

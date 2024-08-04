@@ -28,6 +28,7 @@
     "autoprefixer": "10.4.14",
     "axios": "^1.6.8",
     "clsx": "^2.0.0",
+    "copy-to-clipboard": "^3.3.3",
     "langchain": "^0.0.150",
     "next": "latest",
     "postcss": "8.4.27",

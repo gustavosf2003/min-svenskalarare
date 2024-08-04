@@ -4,29 +4,13 @@ import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 
 import { useToast } from "@/context/toast";
 import { WordSourceType } from "@/types/dictionary";
+import { useCopyToClipboard } from "@/hooks/useCopyText";
 
 const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
   const wordForms = [{ title: "Preposition", form: "invar" }];
   const [isShowingCopyIndicator, setIsShowingCopyIndicator] = useState(false);
   const { showToast } = useToast();
-
-  const handleCopy = (e: any) => {
-    e.preventDefault();
-    try {
-      const clipboardData = e.clipboardData;
-      const words = wordForms
-        .map(
-          (wordForm) =>
-            data.WordForms.find((wf) => wf.msd === wordForm.form)
-              ?.writtenForm ?? "-",
-        )
-        .join(" - ");
-      showToast("success", "Text kopierad till urklipp");
-      clipboardData.setData("text/plain", words);
-    } catch (error) {
-      showToast("error", "Något gick fel. Det gick inte att kopiera texten");
-    }
-  };
+  const { copyToClipboard } = useCopyToClipboard();
 
   return (
     <div
@@ -36,7 +20,17 @@ const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
     >
       {isShowingCopyIndicator && (
         <button
-          onClick={handleCopy}
+          onClick={() =>
+            copyToClipboard(
+              wordForms
+                .map(
+                  (wordForm) =>
+                    data.WordForms.find((wf) => wf.msd === wordForm.form)
+                      ?.writtenForm ?? "-",
+                )
+                .join(" - "),
+            )
+          }
           className="absolute flex justify-center bg-gray-600 rounded-lg p-1.5 -right-2 -top-5"
         >
           <DocumentDuplicateIcon width={16} />
