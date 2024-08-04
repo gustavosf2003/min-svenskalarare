@@ -8,7 +8,10 @@ export default function Meta() {
         name="description"
         content="Lär dig svenska med Min Svenskalärare, din virtuella assistent. Vi erbjuder enkla och effektiva sätt att förbättra din svenska online. Börja din språkresa idag!"
       />
-
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      />
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.svenskalarare.com" />
       <meta property="og:title" content="Min Svenskalärare " />

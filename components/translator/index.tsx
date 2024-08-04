@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { ArrowsDownUp, X } from "@phosphor-icons/react";
+import { ArrowsDownUp, Copy, X } from "@phosphor-icons/react";
 import { useQuery } from "@tanstack/react-query";
 
 import { useDebounce } from "@/hooks/useDebounce";
@@ -10,6 +10,8 @@ import translatorService from "@/services/translator";
 import Dropdown from "../Dropdown";
 import SkeletonLoading from "../Skeleton";
 import { TextArea } from "../TextArea";
+import { useToast } from "@/context/toast";
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 
 const languages = [
   {
@@ -48,7 +50,7 @@ const TranslatorComponent = () => {
     languages[1],
   );
   const [text, setText] = useState("");
-
+  const { showToast } = useToast();
   const { data, refetch, isFetching, isError } = useQuery({
     queryKey: ["translator", text, selectedLocale, selectedTargetLocale],
     queryFn: () =>
@@ -78,6 +80,23 @@ const TranslatorComponent = () => {
     setSelectedLocale(selectedTargetLocale);
     setSelectedTargetLocale(temp);
     setText(data || "");
+  };
+
+  const handleCopy = (e: any) => {
+    e.preventDefault();
+    try {
+      const clipboardData = e.clipboardData;
+      showToast("success", "Text kopierad till urklipp");
+      clipboardData.setData("text/plain", data || "");
+    } catch (error) {
+      showToast("error", "Något gick fel. Det gick inte att kopiera texten");
+    }
+    document.removeEventListener("copy", handleCopy);
+  };
+
+  const exportData = () => {
+    document.addEventListener("copy", handleCopy);
+    document.execCommand("copy");
   };
 
   return (
@@ -137,7 +156,7 @@ const TranslatorComponent = () => {
             <ArrowsDownUp className="rotate-90" size={20} />
           </button>
         </div>
-        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl px-3.5 py-[10.5px] text-sm">
+        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl pl-3.5 pr-10 py-[10.5px] text-sm relative">
           {isFetching ? (
             <div>
               <SkeletonLoading width={250} height={32} />
@@ -145,7 +164,18 @@ const TranslatorComponent = () => {
           ) : isError ? (
             "Error fetching data"
           ) : (
-            data
+            <>
+              {data.length > 0 && (
+                <button
+                  onClick={exportData}
+                  aria-label="Kopiera text"
+                  className="p-3.5 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full absolute right-1 top-1"
+                >
+                  <Copy color="white" size={20} />
+                </button>
+              )}
+              {data}
+            </>
           )}
         </div>
       </div>
