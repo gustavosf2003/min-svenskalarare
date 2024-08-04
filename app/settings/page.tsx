@@ -13,7 +13,6 @@ const Settings = () => {
   const router = useRouter();
   const { data, isLoading } = useSettings();
   const { canGoBack, toRoute, setToRoute } = useCustomNavigation();
-
   return (
     <div className="relative flex flex-col flex-1 w-full h-full">
       <Navbar />

@@ -53,10 +53,10 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
   });
   const { saveSettings } = useSettings();
   const { showToast } = useToast();
-  const { setCanGoBack, setToRoute } = useCustomNavigation();
+  const { setCanGoBack } = useCustomNavigation();
   const isValidPreference =
     inputText.length < 30 && inputText.trim().length > 2;
-
+  const isInvalidForm = !isDirty || !isValid;
   const onSubmit = async (data: Settings) => {
     await saveSettings(data);
     showToast("success", "Inställningar sparade");
@@ -68,13 +68,9 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
   useEffect(() => {
     if (isDirty) {
       setCanGoBack(false);
-    }
-
-    return () => {
+    } else {
       setCanGoBack(true);
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }
   }, [isDirty]);
 
   return (
@@ -215,7 +211,7 @@ const SettingsForm = ({ defaultValues }: { defaultValues: Settings }) => {
       <div className="w-full mt-4">
         <Button.Primary
           aria-label="Spara inställningar"
-          disabled={!isDirty || !isValid}
+          disabled={isInvalidForm}
           className="w-full"
           onClick={async () => {
             await handleSubmit(onSubmit)();

@@ -37,19 +37,6 @@ export default function Meta() {
       />
 
       <link rel="canonical" href="https://www.svenskalarare.com" />
-
-      <script type="application/ld+json">
-        {`
-          {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "url": "https://www.svenskalarare.com",
-            "name": "Min Svenskalärare",
-            "description": "Lär dig svenska med Min Svenskalärare, din virtuella assistent. Vi erbjuder enkla och effektiva sätt att förbättra din svenska online. Börja din språkresa idag!",
-            "image": "https://www.svenskalarare.com/images/og-image.png"
-          }
-        `}
-      </script>
     </head>
   );
 }

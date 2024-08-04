@@ -14,7 +14,7 @@ const NavigationContext = createContext<NavigationContextType | undefined>(
 export const NavigationProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [canGoBack, setCanGoBack] = useState<boolean>(false);
+  const [canGoBack, setCanGoBack] = useState<boolean>(true);
   const [toRoute, setToRoute] = useState<string | null>(null);
   return (
     <NavigationContext.Provider
