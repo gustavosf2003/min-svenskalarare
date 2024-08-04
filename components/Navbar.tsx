@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter } from "next/navigation";
 
-import { Gear, House } from "@phosphor-icons/react";
+import { Gear, House, NewspaperClipping } from "@phosphor-icons/react";
 import clsx from "clsx";
 
 import { useCustomNavigation } from "@/context/NavigationContext";
+import Image from "next/image";
 
 const Navbar = () => {
   const router = useRouter();
@@ -28,6 +29,19 @@ const Navbar = () => {
         Min svenskalärare
       </h1>
       <div className="flex md:hidden">
+        <button
+          aria-label="Gå till startsidan"
+          className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+          onClick={() => {
+            if (canGoBack) {
+              router.push("/news");
+            } else {
+              setToRoute("/");
+            }
+          }}
+        >
+          <NewspaperClipping size={22} className="text-gray-400" />
+        </button>
         {isSettingsPage ? (
           <button
             aria-label="Gå till startsidan"
@@ -69,6 +83,21 @@ const Navbar = () => {
           }}
         >
           Dashboard
+        </button>
+        <button
+          aria-label="Gå till Nyhter"
+          className={clsx(
+            "relative text-sm pt-1 font-semibold transition-opacity hover:opacity-50 text-md text-gray-400",
+          )}
+          onClick={() => {
+            if (canGoBack) {
+              router.push("/news");
+            } else {
+              setToRoute("/");
+            }
+          }}
+        >
+          Nyheter
         </button>
         <button
           aria-label="Gå till Inställningar"

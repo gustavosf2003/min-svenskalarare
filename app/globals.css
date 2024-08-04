@@ -23,9 +23,9 @@ body textarea {
   color: black;
 }
 
-a:hover {
+/* a:hover {
   border-bottom: 1px solid;
-}
+} */
 
 p {
   margin: 8px 0;
