@@ -6,10 +6,13 @@ import { useToast } from "@/context/toast";
 import { WordSourceType } from "@/types/dictionary";
 import { useCopyToClipboard } from "@/hooks/useCopyText";
 
-const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
-  const wordForms = [{ title: "Preposition", form: "invar" }];
+type WordTableProps = {
+  data: WordSourceType;
+  wordForms: { title: string; form: string }[];
+};
+
+const WordTable = ({ data, wordForms }: WordTableProps) => {
   const [isShowingCopyIndicator, setIsShowingCopyIndicator] = useState(false);
-  const { showToast } = useToast();
   const { copyToClipboard } = useCopyToClipboard();
 
   return (
@@ -67,4 +70,4 @@ const PrepositionComponent = ({ data }: { data: WordSourceType }) => {
   );
 };
 
-export default PrepositionComponent;
+export default WordTable;

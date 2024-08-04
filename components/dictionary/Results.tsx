@@ -1,16 +1,27 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-
 import { WordRequestType } from "@/types/dictionary";
-
-import AdjektivComponent from "./grammaticalTypes/Adjektiv";
-import AdverbComponent from "./grammaticalTypes/Adverb";
-import ConjunctionComponent from "./grammaticalTypes/Conjunction";
-import InterjectionComponent from "./grammaticalTypes/Interjection";
-import NounComponent from "./grammaticalTypes/Noun";
-import PrepositionComponent from "./grammaticalTypes/Preposition";
-import PronoumComponent from "./grammaticalTypes/Pronoum";
-import VerbComponent from "./grammaticalTypes/Verb";
 import SkeletonLoading from "../Skeleton";
+import WordTable from "./WordTable";
+import { WORD_FORMS } from "@/utils/dictionary";
+
+const grammaticalClassMap = {
+  vb: WORD_FORMS.VERB,
+  vbm: WORD_FORMS.VERB,
+  nn: WORD_FORMS.NOUN,
+  nnm: WORD_FORMS.NOUN,
+  av: WORD_FORMS.ADJECTIVE,
+  avm: WORD_FORMS.ADJECTIVE,
+  ab: WORD_FORMS.ADVERB,
+  abm: WORD_FORMS.ADVERB,
+  in: WORD_FORMS.INTERJECTION,
+  inm: WORD_FORMS.INTERJECTION,
+  pp: WORD_FORMS.PREPOSITION,
+  ppm: WORD_FORMS.PREPOSITION,
+  kn: WORD_FORMS.CONJUNCTION,
+  sn: WORD_FORMS.CONJUNCTION,
+  snm: WORD_FORMS.CONJUNCTION,
+  pn: WORD_FORMS.PRONOUN,
+};
 
 const Results = ({
   data,
@@ -43,122 +54,70 @@ const Results = ({
       </div>
     );
   }
+
   if (isError) {
-    return <p>Something went wrong...</p>;
+    return (
+      <p className="text-gray-400">
+        Something went wrong. Please try again later.
+      </p>
+    );
   }
 
-  function getGrammaticalClassComponent(
-    grammaticalClass: string,
-    index: number,
-  ) {
-    const wordSource = data.hits?.hits[index]?._source;
-    switch (grammaticalClass) {
-      case "vb":
-        return <VerbComponent data={wordSource} />;
-      case "vbm":
-        return <VerbComponent data={wordSource} />;
-      case "nn":
-        return <NounComponent data={wordSource} />;
-      case "nnm":
-        return <NounComponent data={wordSource} />;
-      case "av":
-        return <AdjektivComponent data={wordSource} />;
-      case "avm":
-        return <AdjektivComponent data={wordSource} />;
-      case "ab":
-        return <AdverbComponent data={wordSource} />;
-      case "abm":
-        return <AdverbComponent data={wordSource} />;
-      case "in":
-        return <InterjectionComponent data={wordSource} />;
-      case "inm":
-        return <InterjectionComponent data={wordSource} />;
-      case "pp":
-        return <PrepositionComponent data={wordSource} />;
-      case "ppm":
-        return <PrepositionComponent data={wordSource} />;
-      case "kn":
-        return <ConjunctionComponent data={wordSource} />;
-      case "sn":
-        return <ConjunctionComponent data={wordSource} />;
-      case "snm":
-        return <ConjunctionComponent data={wordSource} />;
-      case "pn":
-        return <PronoumComponent data={wordSource} />;
-      default:
-        return (
-          <p className="text-gray-400">Fel vid försök att hitta komponenten</p>
-        );
-    }
-  }
+  const wordSource = data.hits?.hits[currentIndex]?._source;
+  const partOfSpeech = wordSource?.FormRepresentations[0]?.partOfSpeech;
+  const wordForms = grammaticalClassMap[partOfSpeech] || null;
 
-  const handleIncreaseIndex = () => {
-    if (currentIndex < data.hits?.hits.length - 1) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    } else {
-      setCurrentIndex(0);
-    }
-  };
-  const handleDecreaseIndex = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    } else {
-      setCurrentIndex(data.hits?.hits.length - 1);
-    }
-  };
   return (
-    <>
-      <div className="w-full">
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col items-center justify-center w-full pb-3 overflow-x-scroll md:pb-0">
-            <div>
-              <p className="text-sm font-light">
-                <span className="text-gray-400"> Resultat för : </span>
-                <span className="font-semibold underline">
-                  {
-                    data.hits?.hits[currentIndex]?._source
-                      .FormRepresentations[0].baseform
-                  }
-                </span>
+    <div className="w-full">
+      <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center justify-center w-full pb-3 overflow-x-scroll md:pb-0">
+          <div>
+            <p className="text-sm font-light">
+              <span className="text-gray-400"> Resultat för : </span>
+              <span className="font-semibold underline">
+                {wordSource?.FormRepresentations[0]?.baseform}
+              </span>
+            </p>
+            {wordForms ? (
+              <WordTable data={wordSource} wordForms={wordForms} />
+            ) : (
+              <p className="text-gray-400">
+                Fel vid försök att hitta komponenten
               </p>
-              {getGrammaticalClassComponent(
-                data.hits?.hits[currentIndex]?._source.FormRepresentations[0]
-                  .partOfSpeech,
-                currentIndex,
-              )}
-            </div>
+            )}
           </div>
-          {data.hits?.hits.length > 1 && (
-            <div className="flex gap-4 mt-4">
-              <button
-                aria-label="Föregående"
-                onClick={handleDecreaseIndex}
-                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
-              >
-                <ChevronRightIcon
-                  className="rotate-180"
-                  width={20}
-                  strokeWidth={2}
-                />
-              </button>
-              <p>{currentIndex + 1}</p>
-
-              <button
-                aria-label="Nästa"
-                onClick={handleIncreaseIndex}
-                className="flex items-center gap-3 px-2 py-1 text-sm border-t-2 border-transparent rounded-lg hover:bg-gray-800"
-              >
-                <ChevronLeftIcon
-                  className="rotate-180"
-                  width={20}
-                  strokeWidth={2}
-                />
-              </button>
-            </div>
-          )}
         </div>
+        {data.hits?.hits.length > 1 && (
+          <div className="flex gap-4 mt-4">
+            <button
+              aria-label="Föregående"
+              onClick={() =>
+                setCurrentIndex((prevIndex) =>
+                  prevIndex > 0 ? prevIndex - 1 : data.hits.hits.length - 1,
+                )
+              }
+              disabled={currentIndex === 0}
+              className="flex items-center gap-3 px-3 py-1 text-sm border-t-2 border-transparent rounded-full hover:bg-[#2F2F2F] hover:bg-opacity-40 disabled:opacity-50"
+            >
+              <ChevronLeftIcon width={20} strokeWidth={2} />
+            </button>
+            <p>{currentIndex + 1}</p>
+            <button
+              aria-label="Nästa"
+              onClick={() =>
+                setCurrentIndex((prevIndex) =>
+                  prevIndex < data.hits.hits.length - 1 ? prevIndex + 1 : 0,
+                )
+              }
+              disabled={currentIndex === data.hits.hits.length - 1}
+              className="flex items-center gap-3 px-3 py-1 text-sm border-t-2 border-transparent rounded-full hover:bg-[#2F2F2F] hover:bg-opacity-40 disabled:opacity-50"
+            >
+              <ChevronRightIcon width={20} strokeWidth={2} />
+            </button>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
