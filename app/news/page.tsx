@@ -107,33 +107,31 @@ const NewsContent = ({
   image,
   limit = 5,
 }: NewsContentProps) => {
-  if (isError) {
-    return <p>Något gick fel. Försök igen senare.</p>;
-  }
   return (
     <div className="mt-8 lg:mt-0">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <div>{image}</div>
         </div>
+        {isError && <p className="mt-4">Något gick fel. Försök igen senare.</p>}
         {isLoading && <CustomArticlesSkeletonLoading />}
-        {data &&
-          data.slice(0, limit).map((article) => (
+        {data.length > 0 &&
+          data?.slice(0, limit).map((article) => (
             <a
-              href={article.link}
+              href={article?.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start w-full gap-2 p-4 transition-all duration-300 rounded-lg bg-baseSecondary hover:bg-baseSecondary/50"
+              className="flex flex-col items-start w-full gap-2 p-4 transition-all duration-300 rounded-lg md:flex-row bg-baseSecondary hover:bg-baseSecondary/50"
             >
               <img
-                src={article.image}
-                alt={article.title}
-                className="w-48 h-28"
+                src={article?.image}
+                alt={article?.title}
+                className="w-full md:w-48 md:h-28"
               />
               <div>
-                <p>{article.title}</p>
+                <p>{article?.title}</p>
                 <p className="-mt-2 text-sm text-gray-400">
-                  {article.description}
+                  {article?.description}
                 </p>
               </div>
             </a>
@@ -161,11 +159,11 @@ const CustomArticlesSkeletonLoading = () => {
       <div className="flex flex-col gap-4 lg:hidden">
         {width && (
           <>
-            <SkeletonLoading height={140} width={width - 56} />
-            <SkeletonLoading height={140} width={width - 56} />
-            <SkeletonLoading height={140} width={width - 56} />
-            <SkeletonLoading height={140} width={width - 56} />
-            <SkeletonLoading height={140} width={width - 56} />
+            <SkeletonLoading height={200} width={width - 56} />
+            <SkeletonLoading height={200} width={width - 56} />
+            <SkeletonLoading height={200} width={width - 56} />
+            <SkeletonLoading height={200} width={width - 56} />
+            <SkeletonLoading height={200} width={width - 56} />
           </>
         )}
       </div>

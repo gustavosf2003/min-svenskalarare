@@ -13,6 +13,8 @@ const Navbar = () => {
   const pathname = usePathname();
   const { canGoBack, setToRoute } = useCustomNavigation();
   const isSettingsPage = pathname === "/settings";
+  const isNewsPage = pathname === "/news";
+
   return (
     <div className="fixed top-0 left-0 right-0 z-50 flex justify-between w-full px-8 py-3 bg-baseSecondary">
       <h1
@@ -29,19 +31,35 @@ const Navbar = () => {
         Min svenskalärare
       </h1>
       <div className="flex md:hidden">
-        <button
-          aria-label="Gå till startsidan"
-          className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
-          onClick={() => {
-            if (canGoBack) {
-              router.push("/news");
-            } else {
-              setToRoute("/");
-            }
-          }}
-        >
-          <NewspaperClipping size={22} className="text-gray-400" />
-        </button>
+        {isNewsPage ? (
+          <button
+            aria-label="Gå till startsidan"
+            className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+            onClick={() => {
+              if (canGoBack) {
+                router.push("/");
+              } else {
+                setToRoute("/");
+              }
+            }}
+          >
+            <House size={22} className="text-gray-400" />
+          </button>
+        ) : (
+          <button
+            aria-label="Gå till startsidan"
+            className="p-2 hover:bg-[#2F2F2F] hover:bg-opacity-40 hover:rounded-full"
+            onClick={() => {
+              if (canGoBack) {
+                router.push("/news");
+              } else {
+                setToRoute("/");
+              }
+            }}
+          >
+            <NewspaperClipping size={22} className="text-gray-400" />
+          </button>
+        )}
         {isSettingsPage ? (
           <button
             aria-label="Gå till startsidan"

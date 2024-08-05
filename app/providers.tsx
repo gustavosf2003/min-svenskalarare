@@ -9,6 +9,7 @@ export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
+      placeholderData: (prev) => prev,
     },
   },
 });
