@@ -2,11 +2,9 @@
 import Navbar from "@/components/Navbar";
 import newsService from "@/services/news";
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
 import Image from "next/image";
 import { Article } from "@/types/article";
 import SkeletonLoading from "@/components/Skeleton";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { useWindowSize } from "@/hooks/useWindowSize";
 
 const News = () => {

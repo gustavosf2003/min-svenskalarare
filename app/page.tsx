@@ -7,8 +7,29 @@ import InfoCard from "@/components/chat/InfoCard";
 import Dictionary from "@/components/dictionary";
 import Navbar from "@/components/Navbar";
 import TranslatorComponent from "@/components/translator";
+import { queryClient } from "./providers";
+import { useEffect } from "react";
+import newsService from "@/services/news";
 
 export default function Home() {
+  useEffect(() => {
+    queryClient.prefetchQuery({
+      queryKey: ["svt-news"],
+      queryFn: async () => await newsService.getFromSVT(),
+      initialData: [],
+    });
+    queryClient.prefetchQuery({
+      queryKey: ["dagens-nyheter-news"],
+      queryFn: async () => await newsService.getFromDagensNyheter(),
+      initialData: [],
+    });
+    queryClient.prefetchQuery({
+      queryKey: ["svd-news"],
+      queryFn: async () => await newsService.getFromSVD(),
+      initialData: [],
+    });
+  }, []);
+
   return (
     <>
       <div className="relative flex flex-col flex-1 w-full h-full">
