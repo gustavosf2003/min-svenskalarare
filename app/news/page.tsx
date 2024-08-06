@@ -6,6 +6,8 @@ import Image from "next/image";
 import { Article } from "@/types/article";
 import SkeletonLoading from "@/components/Skeleton";
 import { useWindowSize } from "@/hooks/useWindowSize";
+import Link from "next/link";
+import NewsCard from "@/components/news/NewsCard";
 
 const News = () => {
   const {
@@ -34,6 +36,7 @@ const News = () => {
     queryKey: ["aftonbladet-news"],
     queryFn: async () => await newsService.getFromAftonbladet(),
     initialData: [],
+    enabled: false,
   });
   const {
     data: svdData,
@@ -50,35 +53,41 @@ const News = () => {
       <Navbar />
       <div className="justify-center flex-1 w-full h-full min-h-full gap-8 pt-20 pb-8 mt-3 md:flex bg-basePrimary px-7">
         <div className="flex flex-col gap-8 lg:flex-row">
-          <NewsContent
+          <NewsCard
             data={svtData}
             isLoading={svtLoading}
             image={
-              <Image src="/images/svt.svg" alt="SVT" width={40} height={40} />
+              <Link href="https://www.svt.se/" target="_blank">
+                <Image src="/images/svt.svg" alt="SVT" width={40} height={40} />
+              </Link>
             }
             isError={svtError}
           />
-          <NewsContent
+          <NewsCard
             data={dnData}
             image={
-              <Image
-                src="/images/dn.png"
-                alt="Dagens Nyheter"
-                width={40}
-                height={40}
-              />
+              <Link href="https://www.dn.se/" target="_blank">
+                <Image
+                  src="/images/dn.png"
+                  alt="Dagens Nyheter"
+                  width={40}
+                  height={40}
+                />
+              </Link>
             }
             isLoading={dnLoading}
             isError={dnError}
           />
-          <NewsContent
+          <NewsCard
             image={
-              <Image
-                src="/images/svd.png"
-                alt="Svenska Dagbladet"
-                width={40}
-                height={40}
-              />
+              <Link href="https://www.aftonbladet.se/" target="_blank">
+                <Image
+                  src="/images/svd.png"
+                  alt="Svenska Dagbladet"
+                  width={40}
+                  height={40}
+                />
+              </Link>
             }
             data={svdData}
             isLoading={svdLoading}
@@ -91,82 +100,3 @@ const News = () => {
 };
 
 export default News;
-
-type NewsContentProps = {
-  data: Article[];
-  isLoading: boolean;
-  isError: boolean;
-  image?: React.ReactNode;
-  limit?: number;
-};
-
-const NewsContent = ({
-  data,
-  isLoading,
-  isError,
-  image,
-  limit = 5,
-}: NewsContentProps) => {
-  return (
-    <div className="mt-8 lg:mt-0">
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-2">
-          <div>{image}</div>
-        </div>
-        {isError && <p className="mt-4">Något gick fel. Försök igen senare.</p>}
-        {isLoading && <CustomArticlesSkeletonLoading />}
-        {data.length > 0 &&
-          data?.slice(0, limit).map((article) => (
-            <a
-              href={article?.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-start w-full gap-2 p-4 transition-all duration-300 rounded-lg md:flex-row bg-baseSecondary hover:bg-baseSecondary/50"
-            >
-              <img
-                src={article?.image}
-                alt={article?.title}
-                className="w-full md:w-48 md:h-28"
-              />
-              <div>
-                <p>{article?.title}</p>
-                <p className="-mt-2 text-sm text-gray-400">
-                  {article?.description}
-                </p>
-              </div>
-            </a>
-          ))}
-      </div>
-    </div>
-  );
-};
-
-const CustomArticlesSkeletonLoading = () => {
-  const { width } = useWindowSize();
-  return (
-    <>
-      <div className="flex-col hidden gap-4 lg:flex">
-        {width && (
-          <>
-            <SkeletonLoading height={140} width={width / 3 - 56} />
-            <SkeletonLoading height={140} width={width / 3 - 56} />
-            <SkeletonLoading height={140} width={width / 3 - 56} />
-            <SkeletonLoading height={140} width={width / 3 - 56} />
-            <SkeletonLoading height={140} width={width / 3 - 56} />
-          </>
-        )}
-      </div>
-      <div className="flex flex-col gap-4 lg:hidden">
-        {width && (
-          <>
-            <SkeletonLoading height={200} width={width - 56} />
-            <SkeletonLoading height={200} width={width - 56} />
-            <SkeletonLoading height={200} width={width - 56} />
-            <SkeletonLoading height={200} width={width - 56} />
-            <SkeletonLoading height={200} width={width - 56} />
-          </>
-        )}
-      </div>
-    </>
-  );
-};

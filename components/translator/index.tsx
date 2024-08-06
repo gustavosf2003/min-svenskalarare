@@ -6,13 +6,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { useDebounce } from "@/hooks/useDebounce";
 import translatorService from "@/services/translator";
-import copy from "copy-to-clipboard";
 
 import Dropdown from "../Dropdown";
 import SkeletonLoading from "../Skeleton";
 import { TextArea } from "../TextArea";
-import { useToast } from "@/context/toast";
-import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useCopyToClipboard } from "@/hooks/useCopyText";
 
 const languages = [
@@ -140,7 +137,7 @@ const TranslatorComponent = () => {
             <ArrowsDownUp className="rotate-90" size={20} />
           </button>
         </div>
-        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl pl-3.5 pr-10 py-[10.5px] text-sm relative">
+        <div className="bg-[#3E3D3B]/20 w-full h-40 md:h-full rounded-xl pl-3.5 pr-10 py-[10.5px] text-sm relative z-0">
           {isFetching ? (
             <div>
               <SkeletonLoading width={250} height={32} />
