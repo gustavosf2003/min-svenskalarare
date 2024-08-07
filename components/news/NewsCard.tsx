@@ -46,9 +46,10 @@ const NewsCardContent = ({
     isLoading,
     isError,
   });
-  if (isError) {
+  if (isError || data === null) {
     return <p className="mt-4">Något gick fel. Försök igen senare.</p>;
   }
+
   if (isLoading) {
     return <CustomArticlesSkeletonLoading />;
   }
@@ -70,7 +71,11 @@ const NewsCardContent = ({
       />
       <div>
         <p>{article?.title}</p>
-        <p className="-mt-2 text-sm text-gray-400">{article?.description}</p>
+        <p className="-mt-2 text-sm text-gray-400">
+          {article?.description.length == 0
+            ? article?.date
+            : article?.description}
+        </p>
       </div>
     </a>
   ));

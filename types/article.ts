@@ -3,4 +3,5 @@ export type Article = {
   link: string;
   description: string;
   image: string;
+  date?: string;
 };

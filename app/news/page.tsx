@@ -39,12 +39,12 @@ const News = () => {
     enabled: false,
   });
   const {
-    data: svdData,
-    isFetching: svdLoading,
-    isError: svdError,
+    data: ottaSidor,
+    isFetching: ottaSidorLoading,
+    isError: ottaSidorError,
   } = useQuery<Article[]>({
-    queryKey: ["svd-news"],
-    queryFn: async () => await newsService.getFromSVD(),
+    queryKey: ["8sidor-news"],
+    queryFn: async () => await newsService.getFrom8sidor(),
     initialData: [],
   });
 
@@ -64,6 +64,21 @@ const News = () => {
             isError={svtError}
           />
           <NewsCard
+            image={
+              <Link href="https://8sidor.se/" target="_blank">
+                <Image
+                  src="/images/8sidor.png"
+                  alt="8 sidor"
+                  width={40}
+                  height={40}
+                />
+              </Link>
+            }
+            data={ottaSidor}
+            isLoading={ottaSidorLoading}
+            isError={ottaSidorError}
+          />
+          <NewsCard
             data={dnData}
             image={
               <Link href="https://www.dn.se/" target="_blank">
@@ -77,21 +92,6 @@ const News = () => {
             }
             isLoading={dnLoading}
             isError={dnError}
-          />
-          <NewsCard
-            image={
-              <Link href="https://www.aftonbladet.se/" target="_blank">
-                <Image
-                  src="/images/svd.png"
-                  alt="Svenska Dagbladet"
-                  width={40}
-                  height={40}
-                />
-              </Link>
-            }
-            data={svdData}
-            isLoading={svdLoading}
-            isError={svdError}
           />
         </div>
       </div>

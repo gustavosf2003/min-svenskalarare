@@ -24,8 +24,8 @@ export default function Home() {
       initialData: [],
     });
     queryClient.prefetchQuery({
-      queryKey: ["svd-news"],
-      queryFn: async () => await newsService.getFromSVD(),
+      queryKey: ["8sidor-news"],
+      queryFn: async () => await newsService.getFrom8sidor(),
       initialData: [],
     });
   }, []);
